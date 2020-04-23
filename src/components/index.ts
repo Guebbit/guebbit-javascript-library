@@ -1,13 +1,3 @@
-/*
-					TODO
-replicare modalità di search_by sulle altre classi
-unire search_by e filter_by? (poi faccio retrocompatibilità)
-overhaul completo della classe (magari compilarla con typescript?)
-
-*/
-
-
-
 import shallowCopy from "./main/shallowcopy";
 import deepCopy from "./main/deepcopy";
 import extend from "./main/extend";
