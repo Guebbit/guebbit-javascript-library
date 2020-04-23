@@ -1,4 +1,4 @@
-import { deepCopy } from "./copy";
+import deepCopy from "./deepcopy";
 
 
 /**

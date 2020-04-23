@@ -1,13 +1,10 @@
 /**
-* 	clone/copia di un oggetto
+* 	deep copy
+*	clone/copia precisa a tutti i layer di un oggetto
 *	per evitare di passarlo tramite reference
 **/
-export const shallowCopy = (obj:object) => {
-	return Object.assign({}, obj);
-}
-
-export const deepCopy = (obj:any) => {
-	let clone:any = {};
+const deepCopy = (obj:object) => {
+	let clone:object = {};
 	for(let i in obj) {
 		if(obj[i] != null && typeof(obj[i]) == "object")
 			clone[i] = deepCopy(obj[i]);
@@ -16,3 +13,5 @@ export const deepCopy = (obj:any) => {
 	}
 	return clone;
 }
+
+export default deepCopy;
