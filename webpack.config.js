@@ -14,7 +14,6 @@ module.exports = {
 			title: 'Guebbit Test',
 			myPageHeader: 'Hello World',
 			template: './index.html',
-			filename: './dist/index.html'
 		})
 	],
 	resolve: {
