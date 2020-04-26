@@ -8,7 +8,7 @@ import divide_array from './divide_array';
 *			true: subarrays' lengths differ as less as possible
 *			even: all subarrays but the last have the same length
 **/
-export default (array :any[] = [], n :number, balanced :boolean = false) => {
+export default (array :any[], n :number, balanced :boolean = false) => {
 	let size :number;
 
 	if (n < 2)

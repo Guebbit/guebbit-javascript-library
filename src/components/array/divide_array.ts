@@ -6,7 +6,6 @@
 export default (array :any[], max :number) => {
 	var i:number, len:number, new_array:any[] = [];
 	for (i=0, len=array.length; i<len; i+=max)
-		// @ts-ignore
 		new_array.push(array.slice(i,i+max));
 	return new_array;
 }

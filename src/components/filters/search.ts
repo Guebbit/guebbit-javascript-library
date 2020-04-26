@@ -52,8 +52,6 @@ class searchBy{
 		return this;
 	}
 
-
-
 	/**
 	*	Load new items in the searchable object
 	**/
