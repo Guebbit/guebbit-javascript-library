@@ -1,7 +1,7 @@
 {
-  "name": "guebbit",
-  "version": "1.0.0",
-  "description": "",
+  "name": "guebbit-javascript-library",
+  "version": "0.1.0",
+  "description": "- integrare le vecchie funzionalità in /.old\r - ricostruire filter_by (unire a search_by?)",
   "private": true,
   "scripts": {
     "build": "webpack",
@@ -9,8 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Andrea Guerzoni",
+  "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
@@ -25,5 +25,14 @@
   },
   "dependencies": {
     "lodash": "^4.17.15"
-  }
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shinseiten/guebbit-javascript-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shinseiten/guebbit-javascript-library/issues"
+  },
+  "homepage": "https://github.com/Shinseiten/guebbit-javascript-library#readme"
 }

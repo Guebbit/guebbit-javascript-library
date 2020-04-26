@@ -6,9 +6,3 @@ export {
 	lazyload,
 	activator,
 };
-
-export default {
-	noBack,
-	lazyload,
-	activator,
-};
