@@ -1,6 +1,6 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "- integrare le vecchie funzionalità in /.old\r - ricostruire filter_by (unire a search_by?)",
   "scripts": {
     "build": "webpack",
