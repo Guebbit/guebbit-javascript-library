@@ -1,4 +1,4 @@
-import extend from "../main/extend";
+import { merge } from 'lodash';
 
 interface settingsMap{
 	single?:boolean,
@@ -17,7 +17,7 @@ interface settingsMap{
 export default (element:NodeListOf<Element>, settings:settingsMap = {}) => {
 	let i:number;
 
-	settings = extend({
+	settings = merge({
 		single: false,
 		root: null,
 		rootMargin: "0px",

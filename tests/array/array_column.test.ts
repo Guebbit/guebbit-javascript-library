@@ -1,8 +1,8 @@
 import { array_column } from '../../index';
 
 
-describe("Filter function", () => {
-	test("it should filter by a search term (link)", () => {
+describe("(array_column) php equivalent of array_column", () => {
+	test("Return the values from a single column in the input array of objects, 'param' in this case", () => {
 		const input = [
 				{
 					id: 1,

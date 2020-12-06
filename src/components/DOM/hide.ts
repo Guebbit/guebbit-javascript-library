@@ -1,4 +1,4 @@
-import formatdom from "../manipulation/formatdom";
+import formatdom from "./formatdom";
 
 /**
 * 	l'equivalente di $(element).hide()/.show() ma con display none

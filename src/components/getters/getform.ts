@@ -1,4 +1,4 @@
-import formatDOM from "../manipulation/formatdom";
+import formatDOM from "../DOM/formatdom";
 import getValue from "./getvalue";
 
 /**

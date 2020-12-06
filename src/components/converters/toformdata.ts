@@ -23,7 +23,7 @@ e non so come evitarlo o che fanno)
 	[forEach] => function forEach() { [native code] }
 	[entries] => function entries() { [native code] }
 */
-const toFormData = (obj:object, form:FormData, namespace:string) => {
+const toFormData = (obj :object, form :FormData | null = null, namespace :string |null = null) => {
 	var fd = form || new FormData(),
 		formKey:string;
 	for(var property in obj) {

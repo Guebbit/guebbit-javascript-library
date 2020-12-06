@@ -1,4 +1,4 @@
-import extend from "../main/extend";
+import { merge } from 'lodash';
 import dataMatch from "./match";
 import dataMatchFuzzy from "./matchfuzzy";
 
@@ -33,7 +33,7 @@ class searchBy{
 	data:any[];
 
 	constructor(data:any[] = [], settings:object = {}){
-		this._settings = extend({
+		this._settings = merge({
 			sensitive: false,	//case sensitive
 			fuzzy: false,
 			onSearch: false,

@@ -6,7 +6,8 @@
     "build": "webpack",
     "serve": "webpack-dev-server",
     "test": "jest",
-    "toast": "jest tests/ --watch"
+    "test-watch": "jest --watch",
+	"test-target": "jest tests/converters/ --watch"
   },
   "keywords": [],
   "author": "Andrea Guerzoni",

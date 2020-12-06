@@ -1,4 +1,4 @@
-import formatDOM from "../manipulation/formatdom";
+import formatDOM from "../formatdom";
 import { throttle } from "lodash";
 
 interface dataMap{

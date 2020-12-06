@@ -1,10 +1,15 @@
-import isNull from "./isnull"
+import { isNull, isUndefined, isElement } from 'lodash';
 
 /**
-* 	equivalente di empty()
-* 	@param mixed test
-* 	@return bool se è vero o no
+* 	PHP's empty() equivalent, different from lodash's isEmpty
+* 	@param mixed test: element to check
+* 	@return bool
 **/
-export default (test:HTMLElement | any[] | string) => {
-	return !isNull(test) && (test === "" || Object.keys(test).length === 0);
+export default (test :any) :boolean => {
+	if(isNull(test) || isUndefined(test))
+		return true;
+	if(isElement(test))
+		return false;
+
+	return typeof test !== 'number' && (test === "" || Object.keys(test).length === 0);
 }

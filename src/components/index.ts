@@ -1,13 +1,8 @@
-import shallowCopy from "./main/shallowcopy";
-import deepCopy from "./main/deepcopy";
-import extend from "./main/extend";
-
 import isEmpty from "./checkers/isempty";
 import isJson from "./checkers/isjson";
-import isNull from "./checkers/isnull";
-import isObject from "./checkers/isobject";
-import isVisible from "./checkers/isvisible";
 import isUrl from "./checkers/isurl";
+import isEmail from "./checkers/isemail";
+import isVisible from "./checkers/isvisible";
 
 import getUUID from "./getters/getuuid";
 import getLast from "./getters/getlast";
@@ -36,27 +31,21 @@ import dataMatch from "./filters/match";
 import dataMatchFuzzy from "./filters/matchfuzzy";
 import searchBy from "./filters/search";
 
-import formatDOM from "./manipulation/formatdom";
-import mouseParallax from "./manipulation/mouseparallax";
-import hide from "./manipulation/hide";
-import show from "./manipulation/show";
-import appendChildren from "./manipulation/appendchildren";
-import { setCenterScrollVertical, setCenterScrollHorizontal, setCenterScroll } from "./manipulation/scrollposition";
-
 import toFormData from "./converters/toformdata";
-import toObject from "./converters/toobject";
-import toDom from "./converters/todom";
 
-import addEvent from "./events/add";
-import classScroll from "./events/classscroll";
-import shyScroll from "./events/shyscroll";
+import formatDOM from "./DOM/formatdom";
+import toDom from "./DOM/todom";
+import mouseParallax from "./DOM/mouseparallax";
+import hide from "./DOM/hide";
+import show from "./DOM/show";
+import appendChildren from "./DOM/appendchildren";
+import { setCenterScrollVertical, setCenterScrollHorizontal, setCenterScroll } from "./DOM/scrollposition";
+
+import addEvent from "./DOM/events/add";
+import classScroll from "./DOM/events/classscroll";
+import shyScroll from "./DOM/events/shyscroll";
 
 export {
-
-	//main
-	shallowCopy,
-	deepCopy,
-	extend,
 
 	//getters
 	getUUID,
@@ -79,11 +68,10 @@ export {
 
 	//checkers
 	isUrl,
+	isEmail,
 	isEmpty,
 	isJson,
-	isNull,
-	isObject,
-	isVisible,
+	isVisible,	//DOM
 
 	//math
 	matrixTranspose,
@@ -98,14 +86,17 @@ export {
 	lazyloadHelper,
 
 	//manipulations
-	mouseParallax,
+	toFormData,
+
+	// ------------- DOM -------------
+
+	//manipulations
 	formatDOM,
+	toDom,
+	mouseParallax,
 	hide,
 	show,
 	appendChildren,
-	toFormData,
-	toObject,
-	toDom,
 	setCenterScrollVertical,
 	setCenterScrollHorizontal,
 	setCenterScroll,

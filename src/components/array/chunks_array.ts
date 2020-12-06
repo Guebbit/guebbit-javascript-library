@@ -1,47 +1,29 @@
 import divide_array from './divide_array';
 
 /**
-*	Divide array in N numbers of subarrays
-*	@param array array
+*	Divide array in N numbers of sub-arrays.
+*	Sub-arrays' lengths differ as less as possible
+*	@param array items: array to split
 *	@param integer n: number of chunks
-*	@param boolean balanced:
-*			true: subarrays' lengths differ as less as possible
-*			even: all subarrays but the last have the same length
 **/
-export default (array :any[], n :number, balanced :boolean = false) => {
-	let size :number;
+export default (array :any[], n :number) :any[] => {
+	let items = Object.assign([], array),	//deep clone
+		i :number = 0,
+		len :number = items.length,
+		output :any[] = [];
+
+	if (n < 1)
+		return [];
 
 	if (n < 2)
-		return [array];
-
-	var len = array.length,
-		output = [],
-		i = 0;
+		return [items];
 
 	if(len % n === 0)
-		return divide_array(array, Math.floor(len / n));
+		return divide_array(items, Math.floor(len / n));
 
-	if(balanced){
-		while (i < len)
-			output.push(
-				// @ts-ignore
-				array.slice(i, i += Math.ceil((len - i) / n--))
-			);
-		return output;
-	}
-
-	n--;
-	size = Math.floor(len / n);
-	if(len % size === 0)
-		size--;
-	while (i < size * n)
+	while (i < len)
 		output.push(
-			// @ts-ignore
-			array.slice(i, i += size)
+			items.slice(i, i += Math.ceil((len - i) / n--))
 		);
-	output.push(
-		// @ts-ignore
-		array.slice(size * n)
-	);
 	return output;
 }

@@ -1,5 +1,6 @@
 import getIndex from "../getters/getindex";
 
+
 /**
 *	Metto l'elemento selezionato al centro dello scroll
 *	@param HTMLElement target

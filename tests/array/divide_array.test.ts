@@ -1,0 +1,104 @@
+import { divide_array } from '../../index';
+
+describe("(divide_array) splits array in sub-arrays with MAX [num] elements", () => {
+	let input :any[] = [
+		'lorem',
+		'ipsum',
+		'dolor',
+		'sit',
+		'consectetur',
+		'adipiscing',
+		'elit',
+		'sed do',
+		'eiusmod'
+	];
+
+	test("2 max items", () => {
+		expect(
+			divide_array(input, 2)
+		).toEqual([
+			[
+				'lorem',
+				'ipsum',
+			],
+			[
+				'dolor',
+				'sit',
+			],
+			[
+				'consectetur',
+				'adipiscing',
+			],
+			[
+				'elit',
+				'sed do',
+			],
+			[
+				'eiusmod'
+			],
+		]);
+	});
+
+	test("3 max items", () => {
+		expect(
+			divide_array(input, 3)
+		).toEqual([
+			[
+				'lorem',
+				'ipsum',
+				'dolor'
+			],
+			[
+				'sit',
+				'consectetur',
+				'adipiscing'
+			],
+			[
+				'elit',
+				'sed do',
+				'eiusmod'
+			]
+		]);
+	});
+
+	test("5 max items", () => {
+		expect(
+			divide_array(input, 5)
+		).toEqual([
+			[
+				'lorem',
+				'ipsum',
+				'dolor',
+				'sit',
+				'consectetur'
+			],
+			[
+				'adipiscing',
+				'elit',
+				'sed do',
+				'eiusmod'
+			]
+		]);
+	});
+
+	test("6 max items", () => {
+		expect(
+			divide_array(input, 6)
+		).toEqual([
+			[
+				'lorem',
+				'ipsum',
+				'dolor',
+				'sit',
+				'consectetur',
+				'adipiscing',
+			],
+			[
+				'elit',
+				'sed do',
+				'eiusmod'
+			]
+		]);
+	});
+
+});

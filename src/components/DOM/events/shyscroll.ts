@@ -1,5 +1,4 @@
-import extend from "../main/extend";
-import { throttle } from "lodash";
+import { merge, throttle } from "lodash";
 
 
 interface settingsMap{
@@ -18,7 +17,7 @@ export default (element:HTMLElement, settings:settingsMap={}) => {
 	if(!element)
 		return false;
 
-	settings = extend({
+	settings = merge({
 		top: element.offsetHeight+1,	//di quanto "tornare su". Se non specificato è l'altezza dell'header
 		scroll_top: 100,				//dopo quanto attivare l'effetto
 		margin: 0						//di quanto deve essere cambiato il margine prima di attivarsi
