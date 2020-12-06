@@ -1,7 +1,8 @@
+import hasOwnNestedProperty from "./checkers/hasownnestedproperty";
+import isEmail from "./checkers/isemail";
 import isEmpty from "./checkers/isempty";
 import isJson from "./checkers/isjson";
 import isUrl from "./checkers/isurl";
-import isEmail from "./checkers/isemail";
 import isVisible from "./checkers/isvisible";
 
 import getUUID from "./getters/getuuid";
@@ -25,11 +26,9 @@ import lazyloadHelper from "./helpers/lazyload";
 
 import whitelist from "./filters/whitelist";
 import levenshteinDistance from "./filters/levenshteindistance";
+import match from "./filters/match";
 import search from "./filters/search";
 import associativeSlice from "./filters/associativeslice";
-import dataMatch from "./filters/match";
-import dataMatchFuzzy from "./filters/matchfuzzy";
-import searchBy from "./filters/search";
 
 import toFormData from "./converters/toformdata";
 
@@ -58,19 +57,19 @@ export {
 	getSiblings,
 
 	//filters
-	whitelist,
-	levenshteinDistance,
-	search,
 	associativeSlice,
-	dataMatch,
-	dataMatchFuzzy,
-	searchBy,
+	levenshteinDistance,
+	match,
+	search,
+	whitelist,
+
 
 	//checkers
-	isUrl,
+	hasOwnNestedProperty,
 	isEmail,
 	isEmpty,
 	isJson,
+	isUrl,
 	isVisible,	//DOM
 
 	//math

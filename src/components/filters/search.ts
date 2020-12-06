@@ -1,145 +1,48 @@
-import { merge } from 'lodash';
-import dataMatch from "./match";
-import dataMatchFuzzy from "./matchfuzzy";
-
+import { genericObject } from '../../interfaces/';
+import match from './match';
 
 /**
-* 	filtra / cerca (autocomplete senza elemento)
-* 	@param object data 			= oggetto dove effettuare le ricerche
-* 	@param object settings
+*	return Search(ArrayOfValues, searchable);
+*	@param array haystack: array of objects
+*	@param array needles: array of strings to search for
+*	@param string mode:
+*				- AND: ALL needles must be true
+*				- OR: JUST ONE needle need to be true
+*	@param integer distance: levenshteinDistance if set
 **/
-
-
-type functionMap = (found:object) => object;
-
-interface parametersMap{
-	search: string,
-	label: string,
-}
-
-interface settingsMap{
-	sensitive:boolean,
-	fuzzy:boolean,
-	onSearch:functionMap | boolean,
-	onSelect:functionMap | boolean,
-	parameters:parametersMap,
-	search:string[]
-}
-
-
-class searchBy{
-
-	_settings: settingsMap;
-	data:any[];
-
-	constructor(data:any[] = [], settings:object = {}){
-		this._settings = merge({
-			sensitive: false,	//case sensitive
-			fuzzy: false,
-			onSearch: false,
-			onSelect: false,
-			parameters: {
-				search: "searchable",
-				label: "label",
-			},
-			//array di parametri da cercare (se non è già impostato un searchable)
-			search: [
-				"label"
-			]
-		}, settings);
-		this.data=[];
-		this.loadMe(data as any[]);
-		return this;
-	}
-
-	/**
-	*	Load new items in the searchable object
-	**/
-	loadMe(data:any[]){
-		this.data = [
-			...this.data,
-			...data
-		]
-		this._createObject();
-		return this;
-	}
-
-	_createObject(){
-		let id:string, i:number;
-		for(id in this.data){
-			if(this.data.hasOwnProperty(id)){
-
-				//default label = vuoto
-				if(!this.data[id].hasOwnProperty(this._settings.parameters.label))
-					this.data[id][this._settings.parameters.label]="";
-
-				//se non ha un searchable, glielo do io
-				if(!this.data[id].hasOwnProperty(this._settings.parameters.search)){
-					this.data[id][this._settings.parameters.search]="";
-					for(i = this._settings.search.length; i--; )
-						if(this._settings.sensitive)
-							this.data[id][this._settings.parameters.search] += this.data[id][this._settings.search[i]];
-						else
-							this.data[id][this._settings.parameters.search] += this.data[id][this._settings.search[i]].toLowerCase();
+export default (haystack :genericObject[], needles:[string, string][], mode :string = "AND", distance :number = -1) :genericObject[] => {
+	if(mode === "")
+		mode = "AND";
+	return haystack.filter((item :any) => {
+		let i :number,
+			result :boolean;
+		switch (mode) {
+			case "AND":
+				result = true;
+				for(i = needles.length; i--; ){
+					if(!item.hasOwnProperty(needles[i][0]))
+						result = false;
+					if(distance < 0 && item[needles[i][0]] !== needles[i][1])
+						result = false;
+					if(distance >= 0 && !match(item[needles[i][0]], needles[i][1], distance))
+						result = false;
 				}
-			}
+			break;
+			case "OR":
+				result = false;
+				for(i = needles.length; i--; ){
+					if(!item.hasOwnProperty(needles[i][0]))
+						continue;
+					if(distance < 0 && item[needles[i][0]] === needles[i][1])
+						result = true;
+					if(distance >= 0 && match(item[needles[i][0]], needles[i][1], distance))
+						result = true;
+				}
+			break;
+			default:
+				result = false;
+			break;
 		}
-		return this;
-	}
-
-	/**
-	*	search in the object for similar results
-	*	@param string search
-	**/
-	search(search:string):object | boolean{
-		let found:object;
-		if(search === "" || search === " ")
-			return false;
-
-		found = this._match(search);
-		if(this._settings.onSearch && found)
-			(this._settings.onSearch as functionMap).call(this, found);
-
-		return found;
-	}
-
-
-	/**
-	*	choose a result by id
-	*	@param integer id: index of object
-	**/
-	select(id:number){
-		return this._select( this.data[id] );
-	}
-	/**
-	*	choose a result
-	*	@param object result
-	**/
-	_select(result:object){
-		if(this._settings.onSelect && result)
-			(this._settings.onSelect as functionMap).call(this, result);
 		return result;
-	}
-
-	/**
-	*	Filtri di ricerca
-	*	"netto" e "fuzzy"
-	*	@param string search: stringa da comparare
-	*	@param object data: lista dati tra cui cercare (false = default list)
-	*	@return object: dati trovati
-	**/
-	_match(search:string = ""){
-		if(!search || search === "")
-			return this.data;
-		//mostro soltanto quelle che trovo
-		if(this._settings.fuzzy)
-			return dataMatchFuzzy(search, this.data, this._settings.parameters.search);
-		else
-			return dataMatch(search, this.data, this._settings.parameters.search);
-	}
-}
-
-
-export default (data:any[], settings:object = {}) => {
-	return new searchBy(data, settings);
+	});
 }

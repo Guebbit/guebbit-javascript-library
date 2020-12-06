@@ -16,15 +16,14 @@ describe("(array_column) php equivalent of array_column", () => {
 					id: 3,
 					param: 'sit amet'
 				},
-			],
-			output = [
-				'lorem ipsum',
-				'dolor',
-				'sit amet'
 			];
 
 		expect(
 			array_column(input, "param")
-		).toEqual(output);
+		).toEqual([
+			'lorem ipsum',
+			'dolor',
+			'sit amet'
+		]);
 	});
 });

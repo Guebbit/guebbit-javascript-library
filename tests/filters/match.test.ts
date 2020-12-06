@@ -2,89 +2,24 @@ import { match } from '../../index';
 
 describe("(match) Search in array for object with data[parameter] = search", () => {
 
-	const arrayOfObjects = [
-			{
-				id: 1,
-				param: 'lorem ipsum'
-			},
-			{
-				id: 2,
-				param: 'dolor'
-			},
-			{
-				id: 3,
-				param: 'sit amet'
-			},
-			{
-				id: 4,
-				param: 'adipiscing elit'
-			},
-			{
-				id: 5,
-				param: 'sed do eiusmod'
-			},
-		];
-
-	test("Successful search of single element in defined param", () => {
+	test("Check same string", () => {
 		expect(
-			match(arrayOfObjects, 'dolor', 'param')
-		).toEqual([
-			{
-				id: 2,
-				param: 'dolor'
-			}
-		]);
+			match('lorem ipsum', 'lorem ipsum')
+		).toBeTruthy();
 	});
-	test("Failed search of single element in defined param", () => {
+	test("Check substring contained in a string", () => {
 		expect(
-			match(arrayOfObjects, 'lorem', 'param')
-		).toEqual([
-			{
-				id: 1,
-				param: 'lorem ipsum'
-			}
-		]);
+			match('lorem ipsum', 'lorem')
+		).toBeTruthy();
 	});
-
-	test("Successful EXACT search of single element in defined param", () => {
+	test("Check similar strings (Levenshtein Distance employed, default 4)", () => {
 		expect(
-			match(arrayOfObjects, 'dolor', 'param', true)
-		).toEqual([
-			{
-				id: 2,
-				param: 'dolor'
-			}
-		]);
+			match('lorem ipsum', 'lorem ispum', 4)
+		).toBeTruthy();
 	});
-	test("Failed EXACT search of single element in defined param", () => {
+	test("Check different strings", () => {
 		expect(
-			match(arrayOfObjects, 'lorem', 'param', true)
-		).toEqual([]);
+			match('lorem ipsum', 'dolor')
+		).toBeFalsy();
 	});
-
-
-	test("Successful search of ARRAY of elements in defined param", () => {
-		expect(
-			match(arrayOfObjects, ['lorem', 'dolor'], 'param')
-		).toEqual([
-			{
-				id: 1,
-				param: 'lorem ipsum'
-			},
-			{
-				id: 2,
-				param: 'dolor'
-			}
-		]);
-	});
-
-	/*
-	test("Successful search of single element in non defined param (so in every param)", () => {
-		expect(
-			match(arrayOfObjects, 'dolor')
-		).toEqual([
-
-		]);
-	});
-	*/
 });

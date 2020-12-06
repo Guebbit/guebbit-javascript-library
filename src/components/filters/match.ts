@@ -1,43 +1,29 @@
+import levenshteinDistance from './levenshteindistance';
+
 /**
-*	Search in array for object with data[parameter] = search
+*	Match if 2 strings are similar
+*		- they are the same?
+*		- is one a substring of the other?
+*		- regex fuzzy search
 *
-*	@param array data: array of objects to analyze
-* 	@param string|string[] search: substring to search, can be an array
-* 	@param string parameter: required paramter, if empty, all parameters
-*	@param boolean exact: true if searched words are the exact string
-* 	@return array of objects fitting the requirements
+* 	@param string string:
+*	@param string match: same as above
+* 	@return boolean
 **/
 
-export const matchItem = (item :any, search :string, parameter :string = "", exact :boolean = false) => {
-	if(item[parameter] === search)
-		return item;
-	if(!exact && item[parameter].toString().toLowerCase().indexOf(search.toLowerCase()) !== -1)
-		return item;
+const match = (string :string, match :string, distance :number = 0) => {
+	if(string === match)
+		return true;
+	if(string.indexOf(match) !== -1)
+		return true;
+	if(distance > 0 && levenshteinDistance(string, match) <= distance)
+		return true;
+	return false;
 }
 
-export default (data:any[] = [], search :string | string[] = "", parameter :string = "", exact :boolean = false) => {
-	let i :number,
-		output :any[] = [];
-
-	if(!Array.isArray(search))
-		search = [search];
-
-	if(parameter !== "")
-		for(i = 0; i < search.length; i++)
-			output.push(
-				...data.filter((item) => matchItem(item, search[i], parameter, exact))
-			);
-	else
-		for(i = 0; i < search.length; i++)
-			output.push(
-				...data.filter((item) => {
-					for (let param in item)
-						if(item.hasOwnProperty(param))
-							if(matchItem(item, search[i], param, exact))
-								return true;
-						})
-					);
-
-	return output;
-
+export default (string1 :string, string2 :string, distance :number = 4) => {
+	let s1 :string = string1.toLowerCase().trim(),
+		s2 :string = string2.toLowerCase().trim();
+	// in entrambe le vie
+	return match(s1.toString(), s2.toString(), distance) || match(s2.toString(), s1.toString(), distance);
 }

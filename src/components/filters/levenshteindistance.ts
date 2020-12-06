@@ -8,18 +8,22 @@
 /**
 *	Compute the edit distance between the two given strings
 **/
-export default (a:string, b:string) => {
-	if(!a || !b)
+export default (a :string | null | undefined, b :string | null | undefined) => {
+	//declaration
+	let matrix:number[][] = [],
+		i:number,
+		j:number;
+
+	if(!a && !b)
 		return 999;
+	if(a === b)
+		return 0;
 	//checks
-	if(a.length == 0)
-		return b.length;
-    if(b.length == 0)
+	if(!a || a.length == 0)
+		return b!.length;
+    if(!b || b.length == 0)
 		return a.length;
 
-  	//declaration
-    let matrix:any = [],
-		i:number, j:number;
 
 	// increment along the first column of each row
 	for(i = 0; i <= b.length; i++)

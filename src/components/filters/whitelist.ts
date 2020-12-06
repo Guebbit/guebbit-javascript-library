@@ -4,11 +4,11 @@
 * 	@param object filter
 *	@param array allowed
 **/
-export default (filter:any, allowed:Array<string>) => {
-	return Object.keys(filter)
+export default (objToFilter :any, allowed:string[]) => {
+	return Object.keys(objToFilter)
 		.filter(key => allowed.includes(key))
-		.reduce((obj:any, key) => {
-			obj[key] = filter[key];
+		.reduce((obj :any, key :string) => {
+			obj[key] = objToFilter[key];
 			return obj;
 		}, {});
 };

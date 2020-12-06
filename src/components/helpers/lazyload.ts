@@ -1,17 +1,19 @@
-export const setSource = function (element:Element) {
+export const setSource = function (element :Element) {
 	let flag:boolean = false;
-	if(element.hasAttribute("data-srcset")){
-		element.setAttribute("srcset", (element.getAttribute("data-srcset") as string));
-		flag = true;
-	}
 	if(element.hasAttribute("data-src")){
 		element.setAttribute("src", (element.getAttribute("data-src") as string));
+		element.removeAttribute("data-src");
+		flag = true;
+	}
+	if(element.hasAttribute("data-srcset")){
+		element.setAttribute("srcset", (element.getAttribute("data-srcset") as string));
+		element.removeAttribute("data-srcset");
 		flag = true;
 	}
 	return flag;
 }
 
-export const loadVideo = async function(video:HTMLVideoElement) {
+export const loadVideo = async function(video:HTMLVideoElement) :Promise<boolean> {
 	// Sfruttiamo il metodo race
 	return await Promise.race([
 		// Creiamo la prima promise, che si risolve
@@ -32,6 +34,8 @@ export const loadVideo = async function(video:HTMLVideoElement) {
 		}),
 	//vediamo quale promise "ha fatto prima"
 	]).then(( play ) => {
+		if(video.classList.contains('loaded'))
+			return true;
 		if (play as Boolean) {
 			video.play();
 			video.classList.add('loaded');
@@ -54,15 +58,17 @@ export const loadVideo = async function(video:HTMLVideoElement) {
 
 
 
- export const lazyloadHelperVideo = function(video:HTMLVideoElement){
-	if(window.matchMedia('(prefers-reduced-motion)').matches)
-		return false;
-	let children = Array.from(video.children);
-	children.forEach(child => setSource(child));
-	video.load();
-	loadVideo(video);
-	return true;
- }
+	export const lazyloadHelperVideo = function(video:HTMLVideoElement){
+		let children :any [];
+		if(!!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2))
+			return true;
+		if(window.matchMedia('(prefers-reduced-motion)').matches)
+			return false;
+		children = Array.from(video.children);
+		children.forEach(child => setSource(child));
+		loadVideo(video);
+		return true;
+	}
 
  export const lazyloadHelperImage = function(element:HTMLImageElement){
 	 if(!setSource(element))
@@ -90,6 +96,8 @@ export const loadVideo = async function(video:HTMLVideoElement) {
 
 
 export default function(element:HTMLElement){
+	if(!element)
+		return false;
 	switch (element.tagName) {
 		//se immagine
 		case "IMG": return lazyloadHelperImage(element as HTMLImageElement);
