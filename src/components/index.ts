@@ -7,12 +7,11 @@ import isVisible from "./checkers/isvisible";
 
 import getUUID from "./getters/getuuid";
 import getLast from "./getters/getlast";
-import getForm from "./getters/getform";
-import getValue from "./getters/getvalue";
-import getSelected from "./getters/getselected";
-import getIFrame from "./getters/getiframe";
-import getIndex from "./getters/getindex";
-import getSiblings from "./getters/getsiblings";
+import getForm from "./DOM/getters/getform";
+import getValue from "./DOM/getters/getvalue";
+import getIFrame from "./DOM/getters/getiframe";
+import getIndex from "./DOM/getters/getindex";
+import getSiblings from "./DOM/getters/getsiblings";
 
 import matrixTranspose from "./math/matrixtranspose";
 
@@ -21,8 +20,8 @@ import divide_array from "./array/divide_array";
 import chunks_array from "./array/chunks_array";
 
 
-import intersectionHelper from "./helpers/intersection";
-import lazyloadHelper from "./helpers/lazyload";
+import intersectionHelper from "./DOM/helpers/intersection";
+import lazyloadHelper from "./DOM/helpers/lazyload";
 
 import whitelist from "./filters/whitelist";
 import levenshteinDistance from "./filters/levenshteindistance";
@@ -32,13 +31,8 @@ import associativeSlice from "./filters/associativeslice";
 
 import toFormData from "./converters/toformdata";
 
-import formatDOM from "./DOM/formatdom";
-import toDom from "./DOM/todom";
-import mouseParallax from "./DOM/mouseparallax";
-import hide from "./DOM/hide";
-import show from "./DOM/show";
+import toDOM from "./DOM/todom";
 import appendChildren from "./DOM/appendchildren";
-import { setCenterScrollVertical, setCenterScrollHorizontal, setCenterScroll } from "./DOM/scrollposition";
 
 import addEvent from "./DOM/events/add";
 import classScroll from "./DOM/events/classscroll";
@@ -49,12 +43,6 @@ export {
 	//getters
 	getUUID,
 	getLast,
-	getForm,
-	getValue,
-	getSelected,
-	getIFrame,
-	getIndex,
-	getSiblings,
 
 	//filters
 	associativeSlice,
@@ -62,7 +50,6 @@ export {
 	match,
 	search,
 	whitelist,
-
 
 	//checkers
 	hasOwnNestedProperty,
@@ -80,29 +67,29 @@ export {
 	divide_array,
 	chunks_array,
 
-	//helpers
-	intersectionHelper,
-	lazyloadHelper,
-
 	//manipulations
 	toFormData,
 
 	// ------------- DOM -------------
 
+	//getters
+	getForm,
+	getValue,
+	getIFrame,
+	getIndex,
+	getSiblings,
+
 	//manipulations
-	formatDOM,
-	toDom,
-	mouseParallax,
-	hide,
-	show,
+	toDOM,
 	appendChildren,
-	setCenterScrollVertical,
-	setCenterScrollHorizontal,
-	setCenterScroll,
 
 	//events
 	addEvent,
 	classScroll,
 	shyScroll,
+
+	//helpers
+	intersectionHelper,
+	lazyloadHelper,
 
 };

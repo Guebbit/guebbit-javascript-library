@@ -1,4 +1,3 @@
-import formatDOM from "../formatdom";
 import { throttle } from "lodash";
 
 interface dataMap{
@@ -18,7 +17,6 @@ interface dataMap{
 	}]
 **/
 export default (element:HTMLElement[] | HTMLElement, data:dataMap[]) => {
-	element = formatDOM(element);
 	if(!element)
 		return false;
 

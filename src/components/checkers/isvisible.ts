@@ -7,9 +7,7 @@ import { isElement } from 'lodash';
 * 	@return bool se è vero o no
 **/
 export default (test :HTMLElement | null ) :boolean => {
-	console.log("CHECK ME");
 	if(!test || !isElement(test))
 		return false;
-	console.log("CHECKED", test, test.offsetWidth, test.offsetHeight);
 	return !!( test.offsetWidth || test.offsetHeight || test.getClientRects().length );
 }

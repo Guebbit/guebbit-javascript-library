@@ -1,10 +1,10 @@
 /**
 * 	Trasforma una stringa in un elemento
-* 	@param string
-* 	@return HTMLElement
+* 	@param {String} string to convert
+* 	@return {NodeListOf<ChildNode>} HTML converted
 **/
-export default (string:string) => {
-	const temp = document.createElement('template');
-	temp.innerHTML = string.trim();
-	return temp.content;
+export default (html :string) :NodeListOf<ChildNode> => {
+	const template = document.createElement('template');
+	template.innerHTML = html.trim();
+	return template.content.childNodes;
 }

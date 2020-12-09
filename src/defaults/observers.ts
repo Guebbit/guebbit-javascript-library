@@ -1,5 +1,5 @@
-import intersectionHelper from "../components/helpers/intersection";
-import lazyloadHelper from "../components/helpers/lazyload";
+import intersectionHelper from "../components/DOM/helpers/intersection";
+import lazyloadHelper from "../components/DOM/helpers/lazyload";
 
 
 export const lazyload = function(){

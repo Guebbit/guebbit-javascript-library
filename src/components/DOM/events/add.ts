@@ -6,7 +6,7 @@
 * 	@param function callback
 * 	@return addEventListener
 **/
-export default function addEvent (parent:Node, eventName:string, childSelector:string | Node, callback:(...args: any[]) => void) {
+export default (parent:Node, eventName:string, childSelector:string | Node, callback:(...args: any[]) => void) => {
 	return parent.addEventListener(eventName, function(event:Event){
 		const clickedElement = event.target;
 		let matchingChild:Element | Boolean = false;

@@ -1,20 +1,16 @@
-import formatDOM from "./formatdom";
-
 /**
 * 	javascript appendChild for arrays
 * 	@param HTMLElement (singolo)
 *	@param array of HTMLElements
 **/
-export default (element:HTMLElement, ...children:HTMLElement[]) => {
+export default (element :HTMLElement | Element, ...children :HTMLElement[] | Element[]) => {
 	const documentFragment = document.createDocumentFragment();
 	children.forEach(child => {
-		if (Array.isArray(child)) {
-			//TODO recursion?
+		if (Array.isArray(child))
 			child.forEach(child => documentFragment.appendChild(child))
-		} else {
+		else
 			documentFragment.appendChild(child);
-		}
 	});
-	formatDOM(element)[0].appendChild(documentFragment);
-	return true;
+	element.appendChild(documentFragment);
+	return element;
 }
