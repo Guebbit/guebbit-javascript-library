@@ -8,13 +8,24 @@ module.exports = {
 	output: {
 		filename: 'guebbit.js',
 		path: path.resolve(__dirname, 'dist'),
+		library: "G",
+		libraryTarget: "umd",
+		umdNamedDefine: true,
 	},
 	plugins: [
+		// Generates default index.html
 		new HtmlWebpackPlugin({
 			title: 'Guebbit Test',
 			myPageHeader: 'Hello World',
 			template: './index.html',
-		})
+		}),
+		/*
+		// Also generate a test.html
+		new HtmlWebpackPlugin({  // Also generate a test.html
+			filename: 'test.html',
+			template: 'src/assets/test.html'
+		}),
+		*/
 	],
 	resolve: {
 	    extensions: ['.ts', '.js', '.json']
