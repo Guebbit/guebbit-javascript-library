@@ -1,10 +1,14 @@
-import { throttle, merge } from "lodash";
+import { throttle } from "lodash";
 
 
 interface settingsMap{
+	// di quanto "tornare su"
 	top? :number | string,
-	scroll_top? :number,
+	// dopo quanto scroll attivare l'effetto (esempio: a 300px a partire dall'alto)
+	scroll? :number,
+	// di quanto deve essere cambiato il margine prima di attivarsi
 	margin? :number,
+	// ALTERNATIVA: classe da applicare quando effettuo lo scroll, a sostituzione della modifica dello style.top
 	class? :string,
 };
 
@@ -14,44 +18,45 @@ interface settingsMap{
 * 	@param HTMLElement element 	= il fixed nav da spostare
 *	@param object settings
 **/
-export default (element :HTMLElement, settings :settingsMap = {} ) => {
-	let lastScrollY :number = 0,
-		scrollY :number;
-
+export default (element :HTMLElement | null, settings :settingsMap = {} ) => {
 	if(!element)
 		return false;
 
-	settings = merge({
-		"top": "auto",					// di quanto "tornare su"
-		"scroll_top": 100,				// dopo quanto scroll attivare l'effetto (esempio: a 300px a partire dall'alto)
-		"margin": 0,					// di quanto deve essere cambiato il margine prima di attivarsi
-		"class": "",					// classe da applicare quando effettuo lo scroll
-	}, settings);
+	let lastScrollY :number = 0,
+		scrollY :number,
+		mytop :number;
+	const {
+		top = "auto",
+		scroll = 100,
+		margin = 0,
+		class: myclass = "",
+	} = settings;
+
 	// "auto" + "class vuota" = l'altezza dell'header
 	// "auto" + "class non vuota" = 0
-	if(settings.top === "auto")
-		if(settings.class === "")
-			settings.top = element.offsetHeight + 1;
+	if(top === "auto")
+		if(myclass === "")
+			mytop = element.offsetHeight + 1;
 		else
-			settings.top = 0;
+			mytop = 0;
 
 	window.addEventListener('scroll', throttle(function(){
 		if(getComputedStyle(element).position !== "fixed")
 			return false;
 		scrollY = window.scrollY;
-		if(scrollY >= lastScrollY + settings.margin!){
+		if(scrollY >= lastScrollY + margin){
 			//nascondo se non è all'inizio della pagina (almeno 50px)
-			if(scrollY >= settings.scroll_top!){
-				if(settings.top != 0)
-					element.style.top = -settings.top! + "px";
-				if(settings.class != '')
-					element.classList.add(settings.class!);
+			if(scrollY >= scroll!){
+				if(mytop != 0)
+					element.style.top = -mytop + "px";
+				if(myclass != '')
+					element.classList.add(myclass!);
 			}
 		}else{
-			if(settings.top != 0)
+			if(mytop != 0)
 				element.style.top = "0px";
-			if(settings.class != '')
-				element.classList.remove(settings.class!);
+			if(myclass != '')
+				element.classList.remove(myclass!);
 		}
 		lastScrollY=scrollY;
 	}, 10));

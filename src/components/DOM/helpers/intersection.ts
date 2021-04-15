@@ -1,12 +1,10 @@
-import { merge } from 'lodash';
-
 interface settingsMap{
-	single?:boolean,
-	root?:any,
-	rootMargin?:string,
-	threshold?:number,
-	intersectingCallback?:(el:Element)=>boolean,
-	notIntersectingCallback?:(el:Element)=>boolean
+	single? :boolean,
+	root? :any,
+	rootMargin? :string,
+	threshold? :number,
+	intersectingCallback? :(el:Element) => void,
+	notIntersectingCallback? :(el:Element) => void
 };
 
 /**
@@ -14,46 +12,57 @@ interface settingsMap{
 * 	@param HTMLElement el 	= elemento da osservare
 *	@param object settings
 **/
-export default (element:NodeListOf<Element>, settings:settingsMap = {}) => {
+export default (element :HTMLElement | HTMLElement[] | NodeList | null, settings :settingsMap = {}) :IntersectionObserver | false => {	//:NodeListOf<Element>
 	let i:number;
 
-	settings = merge({
-		single: false,
-		root: null,
-		rootMargin: "0px",
-		threshold: 0,
-		intersectingCallback: false,
-		notIntersectingCallback: false
-	}, settings);
+	if(!element)
+		return false;
+	if(element instanceof NodeList)
+		element = Array.prototype.slice.call(element);
+	if(!Array.isArray(element))
+		element = [element];
 
-	//controllo che esista l'observer helper
+	const {
+		single = false,
+		root = null,
+		rootMargin = "0px",
+		threshold = 0,
+		intersectingCallback = false,
+		notIntersectingCallback = false
+	} = settings;
+
+
+	//FALLBACK nel caso non esista l'IntersectionObserver
 	//@ts-ignore
 	if(!"IntersectionObserver" in window){
-		element.forEach(function(el){
-			if(settings.intersectingCallback)
-				settings.intersectingCallback(el);
-		});
+		for(i = element.length; i--; )
+			if(intersectingCallback)
+				intersectingCallback(element[i]);
 		return false;
 	}
 
-	let observer:IntersectionObserver = new IntersectionObserver(
-		//(entries:IntersectionObserverEntry[], self:IntersectionObserver) => {
-		(entries, self) => {
+	let observer :IntersectionObserver = new IntersectionObserver(
+		(entries:IntersectionObserverEntry[], self:IntersectionObserver) => {
 			for(i = entries.length; i--; ){
 				if(entries[i].isIntersecting){
 					// Interrompo i monouso quando hanno successo la 1° volta
-					if(settings.intersectingCallback && settings.intersectingCallback(entries[i].target) && settings.single)
+					if(intersectingCallback && intersectingCallback(entries[i].target) && single)
 						self.unobserve(entries[i].target);
 				}else{
 					//NON sta intersecando
-					if(settings.notIntersectingCallback)
-						settings.notIntersectingCallback(entries[i].target);
+					if(notIntersectingCallback)
+						notIntersectingCallback(entries[i].target);
 				}
 			}
-		}, settings);
+		}, {
+			root,
+			rootMargin,
+			threshold,
+		});
 
 	for(i = element.length; i--; )
-		observer.observe(element[i]);
+		if(element[i])
+			observer.observe(element[i] as HTMLElement);
 
 	return observer;
 };

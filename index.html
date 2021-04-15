@@ -5,13 +5,63 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<title>Tests</title>
+		<style>
+			body{
+				padding-top: 50px;
+			}
+			#test-shyclassscroll{
+				position: fixed;
+				top: 0;
+				height: 50px;
+				width: 100%;
+				background: blue;
+			}
+			.shyscroll-test{
+				color: white !important;
+			}
+			.classscroll-test{
+				background: red !important;
+			}
+
+			#am-i-visible::after{
+				content:'Not Middle'
+			}
+			#am-i-visible.in-the-middle::after{
+				content:'Middle'
+			}
+		</style>
 	</head>
 	<body>
 		<h1><%= htmlWebpackPlugin.options.myPageHeader %></h1>
 		<!-- built files will be auto injected -->
+
+		<!-- addEvent -->
 		<button id="test-addevent">addEvent</button>
+
+		<!-- classScroll & shyScroll -->
+		<div id="test-shyclassscroll"><h3>Hello</h3></div>
+
+		<div id="exist-but-invisible" style="display:none">AAAAAA</div>
+
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+		<h1 id="am-i-visible"></h1>
+
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+		<img
+			style="height: 300px; width: 300px;"
+			src="https://www.fillmurray.com/300/300"
+			data-src="https://www.fillmurray.com/1200/1200"
+		/>
+
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
 	</body>
 	<script>
-		console.log("CIAONE", G);
+		console.log("TEST classic old javascript", G);
 	</script>
 </html>

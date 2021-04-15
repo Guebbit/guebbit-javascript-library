@@ -3,7 +3,6 @@ import isEmail from "./checkers/isemail";
 import isEmpty from "./checkers/isempty";
 import isJson from "./checkers/isjson";
 import isUrl from "./checkers/isurl";
-import isVisible from "./checkers/isvisible";
 
 import getUUID from "./getters/getuuid";
 import getLast from "./getters/getlast";
@@ -57,7 +56,6 @@ export {
 	isEmpty,
 	isJson,
 	isUrl,
-	isVisible,	//DOM
 
 	//math
 	matrixTranspose,

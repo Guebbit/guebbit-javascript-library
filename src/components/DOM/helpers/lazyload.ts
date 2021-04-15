@@ -58,17 +58,17 @@ export const loadVideo = async function(video:HTMLVideoElement) :Promise<boolean
 
 
 
-	export const lazyloadHelperVideo = function(video:HTMLVideoElement){
-		let children :any [];
-		if(!!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2))
-			return true;
-		if(window.matchMedia('(prefers-reduced-motion)').matches)
-			return false;
-		children = Array.from(video.children);
-		children.forEach(child => setSource(child));
-		loadVideo(video);
+export const lazyloadHelperVideo = function(video:HTMLVideoElement){
+	let children :any [];
+	if(!!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2))
 		return true;
-	}
+	if(window.matchMedia('(prefers-reduced-motion)').matches)
+		return false;
+	children = Array.from(video.children);
+	children.forEach(child => setSource(child));
+	loadVideo(video);
+	return true;
+}
 
  export const lazyloadHelperImage = function(element:HTMLImageElement){
 	 if(!setSource(element))
@@ -95,15 +95,23 @@ export const loadVideo = async function(video:HTMLVideoElement) :Promise<boolean
  }
 
 
-export default function(element:HTMLElement){
+export default function(element :HTMLElement | HTMLElement[] | NodeList | null) :void {
+	let i:number;
+
 	if(!element)
-		return false;
-	switch (element.tagName) {
-		//se immagine
-		case "IMG": return lazyloadHelperImage(element as HTMLImageElement);
-		case "SOURCE": return lazyloadHelperSource(element as HTMLSourceElement);
-		//case "PICTURE": non serve, funziona con "source"
-		case "VIDEO": return lazyloadHelperVideo(element as HTMLVideoElement);
-	}
-	return false;
+		return;
+	if(element instanceof NodeList)
+		element = Array.prototype.slice.call(element);
+	if(!Array.isArray(element))
+		element = [element];
+
+	for(i = element.length; i--; )
+		if(element[i])
+			switch (element[i].tagName) {
+				//se immagine
+				case "IMG": lazyloadHelperImage(element[i] as HTMLImageElement);
+				case "SOURCE": lazyloadHelperSource(element[i] as HTMLSourceElement);
+				//case "PICTURE": non serve, funziona con "source"
+				case "VIDEO": lazyloadHelperVideo(element[i] as HTMLVideoElement);
+			}
 }

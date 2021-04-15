@@ -4,6 +4,6 @@
 *   [1,2,3],	=> 		[2,2,2],
 *   [1,2,3],			[3,3,3],
 **/
-export default (array:number[][]) => {
-	return array[0].map((/*col,*/ i:number) => array.map(row => row[i]))
+export default (m:any[][]) => {
+	return m[0].map((x,i) => m.map(x => x[i]))
 }

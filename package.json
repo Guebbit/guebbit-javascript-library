@@ -1,13 +1,12 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "personal library",
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server",
     "test": "jest",
-    "test-watch": "jest --watch",
-    "test-target": "jest tests/DOM/events --watch"
+    "test-watch": "jest --watch"
   },
   "keywords": [],
   "author": "Andrea Guerzoni",

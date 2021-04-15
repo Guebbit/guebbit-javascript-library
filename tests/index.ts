@@ -1,5 +1,5 @@
-import { addEvent } from '../src/';
+require("./manual/add.ts");
+require("./manual/classscroll.ts");
+require("./manual/shyscroll.ts");
 
-addEvent(document, 'click', '#test-addevent', () => {
-	console.log("CIAONEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-})
+require("./manual/intersection.ts");
