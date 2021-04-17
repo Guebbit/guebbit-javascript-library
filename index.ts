@@ -1,5 +1,4 @@
-//export * from './src';
+import Guebbit from './src';
+export default Guebbit;
 
-import asd from './src';
-console.log("AAAAAAAAAA", asd);
-export default asd;
+export * from './src';
