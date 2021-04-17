@@ -1,4 +1,4 @@
-import { getValue } from "../../../";
+import getValue from "./getvalue";
 
 /**
 *	Raccolgo tutti i valori inseriti in input e textarea dentro l'elemento

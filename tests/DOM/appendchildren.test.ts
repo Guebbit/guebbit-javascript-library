@@ -1,4 +1,5 @@
-import { appendChildren } from '../../';
+//@ts-ignore
+import { appendChildren } from 'index';
 
 describe("(appendChildren) javascript appendChild for arrays", () => {
 	let span :HTMLSpanElement = document.createElement('span');

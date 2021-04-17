@@ -1,4 +1,4 @@
-import { match } from "../../";
+import match from "./match";
 
 /**
 *	return Search(ArrayOfValues, searchable);

@@ -1,4 +1,5 @@
-import { getSiblings, appendChildren } from '../../../';
+//@ts-ignore
+import { getSiblings, appendChildren } from 'index';
 
 document.body.innerHTML =
 	'<div>'+

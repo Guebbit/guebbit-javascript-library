@@ -1,4 +1,4 @@
-import { intersectionHelper } from "../";
+import intersectionHelper from "../components/DOM/helpers/intersection";
 
 export default () => {
 	return [

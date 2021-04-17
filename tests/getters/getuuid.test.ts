@@ -1,4 +1,5 @@
-import { getUUID } from '../../';
+//@ts-ignore
+import { getUUID } from 'index';
 
 describe("(getUUID) random v4 UUID (gxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx)", () => {
 	test("Regular Object", () => {

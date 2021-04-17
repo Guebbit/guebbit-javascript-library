@@ -1,4 +1,5 @@
-import { getIndex } from '../../../';
+//@ts-ignore
+import { getIndex } from 'index';
 
 document.body.innerHTML =
 	'<div>'+

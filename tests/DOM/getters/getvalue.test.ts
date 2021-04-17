@@ -1,4 +1,5 @@
-import { getValue } from '../../../';
+//@ts-ignore
+import { getValue } from 'index';
 
 document.body.innerHTML =
 	'<form>'+

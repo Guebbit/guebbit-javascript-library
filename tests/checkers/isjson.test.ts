@@ -1,4 +1,5 @@
-import { isJson } from '../../';
+//@ts-ignore
+import { isJson } from 'index';
 
 describe("(isJson) check if JSON is valid", () => {
 	test("Empty string", () => {

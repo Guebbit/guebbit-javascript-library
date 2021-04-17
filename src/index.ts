@@ -1,6 +1,3 @@
-//export * from './components';
-
-
 import hasOwnNestedProperty from "./components/checkers/hasownnestedproperty";
 import isEmail from "./components/checkers/isemail";
 import isEmpty from "./components/checkers/isempty";
@@ -52,6 +49,63 @@ const scripts = {
 };
 
 export {
+	//getters
+	getUUID,
+	getLast,
+
+	//filters
+	associativeSlice,
+	levenshteinDistance,
+	match,
+	search,
+	whitelist,
+
+	//checkers
+	hasOwnNestedProperty,
+	isEmail,
+	isEmpty,
+	isJson,
+	isUrl,
+
+	//math
+	matrixTranspose,
+
+	//array
+	array_column,
+	divide_array,
+	chunks_array,
+
+	//manipulations
+	toFormData,
+
+	// ------------- DOM -------------
+
+	//getters
+	getForm,
+	getValue,
+	getIFrame,
+	getIndex,
+	getSiblings,
+
+	//manipulations
+	toDOM,
+	appendChildren,
+
+	//events
+	addEvent,
+	classScroll,
+	shyScroll,
+
+	//helpers
+	intersectionHelper,
+	lazyloadHelper,
+
+	scripts,
+};
+
+
+
+export default {
 	//getters
 	getUUID,
 	getLast,

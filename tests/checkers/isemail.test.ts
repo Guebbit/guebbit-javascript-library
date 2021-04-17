@@ -1,4 +1,5 @@
-import { isEmail } from '../../';
+//@ts-ignore
+import { isEmail } from 'index';
 
 describe("(isEmail) check if valid E-Mail", () => {
 	test("Empty string", () => {

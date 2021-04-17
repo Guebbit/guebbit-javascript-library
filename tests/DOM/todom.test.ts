@@ -1,4 +1,5 @@
-import { toDOM } from '../../';
+//@ts-ignore
+import { toDOM } from 'index';
 
 describe("(toDOM) transform string in DocumentFragment", () => {
 	test("String to HTMLElement", () => {

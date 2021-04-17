@@ -1,4 +1,5 @@
-import { matrixTranspose } from '../../';
+//@ts-ignore
+import { matrixTranspose } from 'index';
 
 
 describe("(matrixTranspose) Transpose a matrix. Invert rows and columns", () => {

@@ -1,4 +1,5 @@
-import { lazyloadHelper, intersectionHelper } from "../";
+import intersectionHelper from "../components/DOM/helpers/intersection";
+import lazyloadHelper from "../components/DOM/helpers/lazyload";
 
 
 export default () => {

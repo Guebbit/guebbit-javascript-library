@@ -1,4 +1,5 @@
-import { associativeSlice } from '../../';
+//@ts-ignore
+import { associativeSlice } from 'index';
 
 describe("(associativeSlice) like array.slice() but with associative arrays (objects)", () => {
 	test("Generic object / associative array", () => {

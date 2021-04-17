@@ -1,4 +1,5 @@
-import { match } from '../../';
+//@ts-ignore
+import { match } from 'index';
 
 describe("(match) Search in array for object with data[parameter] = search", () => {
 

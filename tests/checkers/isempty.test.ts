@@ -1,4 +1,5 @@
-import { isEmpty } from '../../';
+//@ts-ignore
+import { isEmpty } from 'index';
 
 document.body.innerHTML =
 	'<div>' +
