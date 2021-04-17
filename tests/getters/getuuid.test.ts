@@ -1,4 +1,4 @@
-import { getUUID } from '../../index';
+import { getUUID } from '../../';
 
 describe("(getUUID) random v4 UUID (gxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx)", () => {
 	test("Regular Object", () => {

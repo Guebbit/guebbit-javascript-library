@@ -1,4 +1,4 @@
-import { chunks_array } from '../../index';
+import { chunks_array } from '../../';
 
 describe("(chunks_array) divide array in [num] numbers of sub-arrays, lengths differ as less as possible", () => {
 	let input :any[] = [

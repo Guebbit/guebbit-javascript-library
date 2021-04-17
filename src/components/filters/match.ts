@@ -1,4 +1,4 @@
-import levenshteinDistance from './levenshteindistance';
+import { levenshteinDistance } from "../../";
 
 /**
 *	Match if 2 strings are similar

@@ -1,4 +1,4 @@
-import divide_array from './divide_array';
+import { divide_array } from "../../";
 
 /**
 *	Divide array in N numbers of sub-arrays.

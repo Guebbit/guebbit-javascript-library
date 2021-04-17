@@ -1,4 +1,4 @@
-import { array_column } from '../../index';
+import { array_column } from '../../';
 
 
 describe("(array_column) php equivalent of array_column", () => {

@@ -1,5 +1,4 @@
-import { genericObject } from '../../interfaces/';
-import match from './match';
+import { match } from "../../";
 
 /**
 *	return Search(ArrayOfValues, searchable);
@@ -10,7 +9,7 @@ import match from './match';
 *				- OR: JUST ONE needle need to be true
 *	@param integer distance: levenshteinDistance if set
 **/
-export default (haystack :genericObject[], needles:[string, string][], mode :string = "AND", distance :number = -1) :genericObject[] => {
+export default (haystack :any[], needles:[string, string][], mode :string = "AND", distance :number = -1) :any[] => {
 	if(mode === "")
 		mode = "AND";
 	return haystack.filter((item :any) => {

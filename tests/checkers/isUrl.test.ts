@@ -1,4 +1,4 @@
-import { isUrl } from '../../index';
+import { isUrl } from '../../';
 
 describe("(isObject) check if object", () => {
 	test("Empty string", () => {

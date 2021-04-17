@@ -1,4 +1,4 @@
-import { search } from '../../index';
+import { search } from '../../';
 
 describe("(search) Search various keys in a haystack", () => {
 

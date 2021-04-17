@@ -1,4 +1,4 @@
-import { isEmpty } from '../../index';
+import { isEmpty } from '../../';
 
 document.body.innerHTML =
 	'<div>' +

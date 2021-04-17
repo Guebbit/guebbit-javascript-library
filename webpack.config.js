@@ -3,14 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, options) => {
 	return {
-		entry: [
-			'./src/index.ts',
-		],
+		mode: process.env.WEBPACK_DEV_SERVER ? "development" : "production",
+		entry: './index.ts',
 		output: {
 			filename: 'guebbit.js',
 			path: path.resolve(__dirname, 'dist'),
-			library: "G",
-			libraryTarget: "umd",
+			library: "G",				// Configuring the library namespace
+			libraryTarget: "umd",		// Configuring the library target
+			libraryExport: "default",	// Configuring the default export of the entry point to the namespace
 			umdNamedDefine: true,
 		},
 		plugins: [
@@ -20,16 +20,9 @@ module.exports = (env, options) => {
 				myPageHeader: 'Hello World',
 				template: './index.html',
 			}) : false,
-			/*
-			// Also generate a test.html
-			process.env.WEBPACK_DEV_SERVER ? new HtmlWebpackPlugin({  // Also generate a test.html
-				filename: 'test.html',
-				template: 'src/assets/test.html'
-			}) : false,
-			*/
 		].filter(Boolean),
 		resolve: {
-		    extensions: ['.ts', '.js', '.json']
+		    extensions: ['.ts', '.js', '.json'],
 		},
 		module: {
 			rules: [

@@ -1,4 +1,4 @@
-import { hasOwnNestedProperty } from '../../index';
+import { hasOwnNestedProperty } from '../../';
 
 describe("(hasOwnNestedProperty) recursive hasOwnProperty", () => {
 	let genericObject = {

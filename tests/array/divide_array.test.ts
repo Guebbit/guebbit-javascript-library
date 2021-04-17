@@ -1,4 +1,4 @@
-import { divide_array } from '../../index';
+import { divide_array } from '../../';
 
 describe("(divide_array) splits array in sub-arrays with MAX [num] elements", () => {
 	let input :any[] = [

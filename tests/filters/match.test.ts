@@ -1,4 +1,4 @@
-import { match } from '../../index';
+import { match } from '../../';
 
 describe("(match) Search in array for object with data[parameter] = search", () => {
 

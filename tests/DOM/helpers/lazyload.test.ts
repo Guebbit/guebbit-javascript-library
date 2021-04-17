@@ -1,4 +1,4 @@
-import { lazyloadHelper } from '../../../src/';
+import { lazyloadHelper } from '../../..//';
 
 describe("(lazyloadHelper) helper to automate Observer lazyload operations", () => {
 	test("MANUAL CHECK via 'npm run serve', use /index.html and /tests/index.ts", () => {

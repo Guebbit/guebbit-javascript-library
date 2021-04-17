@@ -1,4 +1,4 @@
-import { getLast } from '../../index';
+import { getLast } from '../../';
 
 describe("(getLast) Get last element of array", () => {
 	test("regular array", () => {

@@ -1,4 +1,4 @@
-import { getValue } from '../../../index';
+import { getValue } from '../../../';
 
 document.body.innerHTML =
 	'<form>'+
