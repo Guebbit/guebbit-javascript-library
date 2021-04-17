@@ -6,5 +6,6 @@
 export default (element: HTMLElement | Element | null) :Element[] => {
 	if(!element)
 		return [];
-	return [...element.parentNode!.children].filter(child => child !== element);
+	const { children } :HTMLElement = element.parentNode as HTMLElement;
+	return [...children].filter(child => child !== element);
 }
