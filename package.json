@@ -1,6 +1,6 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "2-alpha.0.0",
+  "version": "1.9.0",
   "description": "personal library",
   "cdn": "dist/index.umd.js",
   "main": "dist/index.js",
