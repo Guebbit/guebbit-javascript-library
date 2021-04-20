@@ -78,7 +78,7 @@ Renames and exports: [\_\_type](README.md#__type)
 
 addEventListener
 
-Defined in: [components/DOM/events/add.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/events/add.ts#L1)
+Defined in: [components/DOM/events/add.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/events/add.ts#L1)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 **Returns:** HTMLElement
 
-Defined in: [components/DOM/appendchildren.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/appendchildren.ts#L1)
+Defined in: [components/DOM/appendchildren.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/appendchildren.ts#L1)
 
 ___
 
@@ -125,7 +125,7 @@ ___
 
 **Returns:** *any*[]
 
-Defined in: [components/array/array_column.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/array/array_column.ts#L1)
+Defined in: [components/array/array_column.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/array/array_column.ts#L1)
 
 ___
 
@@ -152,7 +152,7 @@ ___
 
 object sliced associative array / object to slice
 
-Defined in: [components/filters/associativeslice.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/filters/associativeslice.ts#L1)
+Defined in: [components/filters/associativeslice.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/filters/associativeslice.ts#L1)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 **Returns:** *unknown*[]
 
-Defined in: [components/array/chunks_array.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/array/chunks_array.ts#L1)
+Defined in: [components/array/chunks_array.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/array/chunks_array.ts#L1)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [components/DOM/events/classscroll.ts:8](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/events/classscroll.ts#L8)
+Defined in: [components/DOM/events/classscroll.ts:8](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/events/classscroll.ts#L8)
 
 ___
 
@@ -266,7 +266,7 @@ ___
 
 **Returns:** *unknown*[]
 
-Defined in: [components/array/divide_array.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/array/divide_array.ts#L1)
+Defined in: [components/array/divide_array.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/array/divide_array.ts#L1)
 
 ___
 
@@ -291,7 +291,7 @@ ___
 
 array ["name":"value"]
 
-Defined in: [components/DOM/getters/getform.ts:2](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/getters/getform.ts#L2)
+Defined in: [components/DOM/getters/getform.ts:2](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/getters/getform.ts#L2)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 HTMLElement
 
-Defined in: [components/DOM/getters/getiframe.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/getters/getiframe.ts#L1)
+Defined in: [components/DOM/getters/getiframe.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/getters/getiframe.ts#L1)
 
 ___
 
@@ -339,7 +339,7 @@ ___
 
 mixed ultimo elemento dell'array
 
-Defined in: [components/DOM/getters/getindex.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/getters/getindex.ts#L1)
+Defined in: [components/DOM/getters/getindex.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/getters/getindex.ts#L1)
 
 ___
 
@@ -363,7 +363,7 @@ ___
 
 mixed ultimo elemento dell'array
 
-Defined in: [components/getters/getlast.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/getters/getlast.ts#L1)
+Defined in: [components/getters/getlast.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/getters/getlast.ts#L1)
 
 ___
 
@@ -387,7 +387,7 @@ ___
 
 array of siblings
 
-Defined in: [components/DOM/getters/getsiblings.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/getters/getsiblings.ts#L1)
+Defined in: [components/DOM/getters/getsiblings.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/getters/getsiblings.ts#L1)
 
 ___
 
@@ -408,7 +408,7 @@ ___
 
 string random id
 
-Defined in: [components/getters/getuuid.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/getters/getuuid.ts#L1)
+Defined in: [components/getters/getuuid.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/getters/getuuid.ts#L1)
 
 ___
 
@@ -433,7 +433,7 @@ ___
 
 string
 
-Defined in: [components/DOM/getters/getvalue.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/getters/getvalue.ts#L1)
+Defined in: [components/DOM/getters/getvalue.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/getters/getvalue.ts#L1)
 
 ___
 
@@ -456,7 +456,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [components/checkers/hasownnestedproperty.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/checkers/hasownnestedproperty.ts#L1)
+Defined in: [components/checkers/hasownnestedproperty.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/checkers/hasownnestedproperty.ts#L1)
 
 ___
 
@@ -479,7 +479,7 @@ ___
 
 **Returns:** ``false`` \| IntersectionObserver
 
-Defined in: [components/DOM/helpers/intersection.ts:10](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/helpers/intersection.ts#L10)
+Defined in: [components/DOM/helpers/intersection.ts:10](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/helpers/intersection.ts#L10)
 
 ___
 
@@ -503,7 +503,7 @@ ___
 
 boolean
 
-Defined in: [components/checkers/isemail.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/checkers/isemail.ts#L1)
+Defined in: [components/checkers/isemail.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/checkers/isemail.ts#L1)
 
 ___
 
@@ -527,7 +527,7 @@ ___
 
 bool
 
-Defined in: [components/checkers/isempty.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/checkers/isempty.ts#L1)
+Defined in: [components/checkers/isempty.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/checkers/isempty.ts#L1)
 
 ___
 
@@ -551,7 +551,7 @@ ___
 
 string il json già estratto, oppure bool = false
 
-Defined in: [components/checkers/isjson.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/checkers/isjson.ts#L1)
+Defined in: [components/checkers/isjson.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/checkers/isjson.ts#L1)
 
 ___
 
@@ -575,7 +575,7 @@ ___
 
 boolean
 
-Defined in: [components/checkers/isurl.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/checkers/isurl.ts#L1)
+Defined in: [components/checkers/isurl.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/checkers/isurl.ts#L1)
 
 ___
 
@@ -598,7 +598,7 @@ ___
 
 **Returns:** *number*
 
-Defined in: [components/filters/levenshteindistance.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/filters/levenshteindistance.ts#L1)
+Defined in: [components/filters/levenshteindistance.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/filters/levenshteindistance.ts#L1)
 
 ___
 
@@ -620,7 +620,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [components/filters/match.ts:22](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/filters/match.ts#L22)
+Defined in: [components/filters/match.ts:22](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/filters/match.ts#L22)
 
 ___
 
@@ -645,7 +645,7 @@ ___
 
 **Returns:** *unknown*[][]
 
-Defined in: [components/math/matrixtranspose.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/math/matrixtranspose.ts#L1)
+Defined in: [components/math/matrixtranspose.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/math/matrixtranspose.ts#L1)
 
 ___
 
@@ -670,7 +670,7 @@ ___
 
 **Returns:** *any*[]
 
-Defined in: [components/filters/search.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/filters/search.ts#L1)
+Defined in: [components/filters/search.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/filters/search.ts#L1)
 
 ___
 
@@ -693,7 +693,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [components/DOM/events/shyscroll.ts:13](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/events/shyscroll.ts#L13)
+Defined in: [components/DOM/events/shyscroll.ts:13](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/events/shyscroll.ts#L13)
 
 ___
 
@@ -717,7 +717,7 @@ ___
 
 HTML converted
 
-Defined in: [components/DOM/todom.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/DOM/todom.ts#L1)
+Defined in: [components/DOM/todom.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/DOM/todom.ts#L1)
 
 ___
 
@@ -741,7 +741,7 @@ ___
 
 **Returns:** *Record*<string, unknown\>
 
-Defined in: [components/filters/whitelist.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/filters/whitelist.ts#L1)
+Defined in: [components/filters/whitelist.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/filters/whitelist.ts#L1)
 
 ## Variables
 
@@ -757,7 +757,7 @@ Defined in: [components/filters/whitelist.ts:1](https://github.com/Guebbit/guebb
 | `createPrototypes` | *object* |
 | `lazyload` | () => ``false`` \| IntersectionObserver |
 
-Defined in: [index.ts:45](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/index.ts#L45)
+Defined in: [index.ts:45](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/index.ts#L45)
 
 ## Functions
 
@@ -781,4 +781,4 @@ Defined in: [index.ts:45](https://github.com/Guebbit/guebbit-javascript-library/
 
 **Returns:** FormData
 
-Defined in: [components/converters/toformdata.ts:26](https://github.com/Guebbit/guebbit-javascript-library/blob/e7fce11/src/components/converters/toformdata.ts#L26)
+Defined in: [components/converters/toformdata.ts:26](https://github.com/Guebbit/guebbit-javascript-library/blob/edafe94/src/components/converters/toformdata.ts#L26)
