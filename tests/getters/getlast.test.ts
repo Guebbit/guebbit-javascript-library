@@ -1,5 +1,4 @@
-//@ts-ignore
-import { getLast } from 'index';
+import { getLast } from '../../src';
 
 describe("(getLast) Get last element of array", () => {
 	test("regular array", () => {

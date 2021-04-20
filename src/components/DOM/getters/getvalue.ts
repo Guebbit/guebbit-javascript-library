@@ -4,7 +4,7 @@
 *	@param string {attribute}: if not empty, it's an attribute, where to take the data
 *	@return string
 **/
-export default (element :HTMLElement | null, attribute :string = '') :string | number | boolean | null => {
+export default (element :HTMLElement | null, attribute = '') :string | number | boolean | null => {
 	//if non valid element
 	if(!element)
 		return null;
@@ -15,10 +15,10 @@ export default (element :HTMLElement | null, attribute :string = '') :string | n
 	if((element as HTMLInputElement).type === 'checkbox')
 		return (element as HTMLInputElement).checked;
 	if((element as HTMLInputElement).type === 'radio'){
-		let parent = element.parentElement;
-		if(!parent)
+		const { parentElement } = element;
+		if(!parentElement)
 			return null;
-		return (element.parentElement!.querySelector('input[name="'+element.getAttribute('name')+'"]:checked') as HTMLInputElement).value;
+		return (parentElement.querySelector('input[name="'+element.getAttribute('name')+'"]:checked') as HTMLInputElement).value;
 	}
 	return (element as HTMLInputElement | HTMLSelectElement).value || element.innerText || element.textContent;
 }

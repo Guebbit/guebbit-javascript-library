@@ -3,7 +3,7 @@
 *	@param array array: any array
 *	@param integer num: number of chunks (sub arrays)
 **/
-export default (array :any[], n :number = 0) :any[] => {
-	let items :any[] = Object.assign([], array);
-	return new Array(Math.ceil(items.length / n)).fill([]).map(_ => items.splice(0, n));
+export default (array :unknown[], n = 0) :unknown[] => {
+	const items :unknown[] = Object.assign([], array);
+	return new Array(Math.ceil(items.length / n)).fill([]).map(() => items.splice(0, n));
 }

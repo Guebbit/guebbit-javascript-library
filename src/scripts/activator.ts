@@ -1,6 +1,6 @@
 import intersectionHelper from "../components/DOM/helpers/intersection";
 
-export default () => {
+export default () :[ IntersectionObserver | false, IntersectionObserver | false ] => {
 	return [
 		intersectionHelper(document.querySelectorAll('.observer-activate'),{
 			threshold: 1,

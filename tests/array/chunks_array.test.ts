@@ -1,8 +1,7 @@
-//@ts-ignore
-import { chunks_array } from 'index';
+import { chunks_array } from '../../src';
 
 describe("(chunks_array) divide array in [num] numbers of sub-arrays, lengths differ as less as possible", () => {
-	let input :any[] = [
+	const input :string[] = [
 		'lorem',
 		'ipsum',
 		'dolor',

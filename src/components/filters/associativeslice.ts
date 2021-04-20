@@ -6,11 +6,11 @@
 * 	@param integer endd = end of slice
 * 	@return object sliced associative array / object to slice
 **/
-export default (obj :any, start :number, endd :number) :any => {
-	let sliced :object = {},
-		i :number = 0;
-	for (let k in obj) {
-		if(obj.hasOwnProperty(k)){
+export default (obj :Record<string, unknown>, start :number, endd :number) :any => {
+	const sliced :Record<string, unknown> = {};
+	let i = 0;
+	for (const k in obj) {
+		if(Object.prototype.hasOwnProperty.call(obj, k)){
 			if (i >= start && i < endd){
 				sliced[k] = obj[k];
 			}

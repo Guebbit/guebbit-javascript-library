@@ -5,11 +5,10 @@ import { isNull, isUndefined, isElement } from 'lodash';
 * 	@param mixed test: element to check
 * 	@return bool
 **/
-export default (test :any) :boolean => {
+export default (test :unknown) :boolean => {
 	if(isNull(test) || isUndefined(test))
 		return true;
 	if(isElement(test))
 		return false;
-
-	return typeof test !== 'number' && (test === "" || Object.keys(test).length === 0);
+	return typeof test !== 'number' && (test === "" || Object.keys(test as unknown[]).length === 0);
 }

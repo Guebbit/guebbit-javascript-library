@@ -1,48 +1,70 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "personal library",
-  "scripts": {
-    "build": "webpack",
-    "serve": "webpack-dev-server",
-    "test": "jest",
-    "test-watch": "jest --watch"
+  "cdn": "dist/index.umd.js",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "unpkg": "dist/index.umd.js",
+  "module": "dist/index.esm.js",
+  "jsdelivr": "dist/index.umd.js",
+  "umd:main": "dist/index.umd.js",
+  "exports": {
+    ".": [
+      {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs",
+        "default": "./dist/index.js"
+      },
+      "./dist/index.js"
+    ]
   },
-  "keywords": [],
-  "author": "Andrea Guerzoni",
-  "license": "SEE LICENSE IN LICENSE",
-  "module": "dist/",
-  "sideEffects": false,
-  "devDependencies": {
-    "@babel/core": "^7.13.15",
-    "@babel/preset-env": "^7.13.15",
-    "@babel/preset-typescript": "^7.13.0",
-    "@types/jest": "^26.0.22",
-    "@types/lodash": "^4.14.168",
-    "@types/node": "^14.14.41",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^26.6.3",
-    "babel-loader": "^8.2.2",
-    "babel-preset-es2015": "^6.24.1",
-    "html-webpack-plugin": "^4.5.2",
-    "jest": "^26.6.3",
-    "minimist": ">=1.2.5",
-    "ts-jest": "^26.5.5",
-    "ts-loader": "^8.1.0",
-    "typescript": "^4.2.4",
-    "webpack": "^5.33.2",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+  "scripts": {
+    "doc": "typedoc src/index.ts",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
+    "test:unit": "jest",
+    "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
+    "build": "rollup --config ./rollup.config.js",
+    "prepublishOnly": "npm run doc && npm run build && npm run test"
   },
   "dependencies": {
-    "lodash": "^4.17.21",
-    "ts-node": "^9.1.1"
+    "lodash": "^4.17.21"
   },
-  "main": "index.ts",
+  "devDependencies": {
+    "@types/eslint": "^7.2.9",
+    "@types/jest": "^26.0.22",
+    "@types/lodash": "^4.14.168",
+    "@types/prettier": "^2.2.3",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "rollup": "^2.45.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "ts-jest": "^26.5.4",
+    "ts-jest-resolver": "^1.0.0",
+    "typedoc": "^0.20.35",
+    "typedoc-plugin-markdown": "^3.6.1",
+    "typescript": "^4.2.4",
+    "webpack-dev-server": "^3.11.2"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shinseiten/guebbit-javascript-library.git"
+    "url": "git+https://github.com/[repositoryOwner]/[repositoryName].git"
   },
+  "keywords": [
+    "typescript",
+    "library"
+  ],
+  "author": {
+    "name": "Guebbit"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Shinseiten/guebbit-javascript-library/issues"
   },

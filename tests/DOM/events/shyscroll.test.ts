@@ -1,5 +1,4 @@
-//@ts-ignore
-import { shyScroll } from 'index';
+import { shyScroll } from '../../../src';
 
 describe("(shyScroll) standard mobile header that show or hides based on the user scroll", () => {
 	test("MANUAL CHECK via 'npm run serve', use /index.html and /tests/index.ts", () => {

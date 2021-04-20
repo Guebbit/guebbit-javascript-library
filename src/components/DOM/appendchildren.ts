@@ -3,7 +3,7 @@
 * 	@param HTMLElement (singolo)
 *	@param array of HTMLElements
 **/
-export default (element :HTMLElement | Element, ...children :HTMLElement[] | Element[]) => {
+export default (element :HTMLElement, ...children :HTMLElement[] | Element[]) :HTMLElement => {
 	const documentFragment = document.createDocumentFragment();
 	children.forEach(child => {
 		if (Array.isArray(child))

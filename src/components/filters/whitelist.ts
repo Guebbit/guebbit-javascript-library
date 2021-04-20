@@ -4,10 +4,10 @@
 * 	@param object filter
 *	@param array allowed
 **/
-export default (objToFilter :any, allowed:string[]) => {
+export default (objToFilter :Record<string, unknown>, allowed:string[]) :Record<string, unknown> => {
 	return Object.keys(objToFilter)
 		.filter(key => allowed.includes(key))
-		.reduce((obj :any, key :string) => {
+		.reduce((obj :Record<string, unknown>, key :string) => {
 			obj[key] = objToFilter[key];
 			return obj;
 		}, {});

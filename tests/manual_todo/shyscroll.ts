@@ -1,5 +1,4 @@
-//@ts-ignore
-import { shyScroll } from 'index';
+import { shyScroll } from '../../src';
 
 shyScroll(document.getElementById("test-shyclassscroll"), {
 	//class: "shyscroll-test"

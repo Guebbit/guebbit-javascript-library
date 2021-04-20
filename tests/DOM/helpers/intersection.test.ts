@@ -1,5 +1,4 @@
-//@ts-ignore
-import { intersectionHelper } from 'index';
+import { intersectionHelper } from '../../../src';
 
 
 describe("(intersectionHelper) helper to automate Observer intersecate detection (when something is on screen most of the time)", () => {

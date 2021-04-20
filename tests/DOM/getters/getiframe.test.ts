@@ -1,5 +1,4 @@
-//@ts-ignore
-import { getIFrame } from 'index';
+import { getIFrame } from '../../../src';
 
 document.body.innerHTML =
 	'<iframe id="iframe-test">'+

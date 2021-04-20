@@ -1,5 +1,4 @@
-//@ts-ignore
-import { whitelist } from 'index';
+import { whitelist } from '../../src';
 
 describe("(whitelist) Filter object by array of allowed values", () => {
 	test("I filter out every key-value pair except 'id' and 'param1'", () => {

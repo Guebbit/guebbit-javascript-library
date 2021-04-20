@@ -1,5 +1,4 @@
-//@ts-ignore
-import { getSiblings, appendChildren } from 'index';
+import { getSiblings, appendChildren } from '../../../src';
 
 document.body.innerHTML =
 	'<div>'+
@@ -11,7 +10,7 @@ document.body.innerHTML =
 
 describe("(getSiblings) get siblings of element", () => {
 	test("Input", () => {
-		let wrapper :any = document.createElement('div');
+		const wrapper = document.createElement('div');
 		expect(
 			appendChildren(wrapper, ...getSiblings(document.getElementById('testSpan'))).innerHTML
 		).toEqual('<span>Lorem</span><span>Sit</span><span>Dolor</span>')

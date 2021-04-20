@@ -3,7 +3,7 @@
 *	@param string string
 *	@return boolean
 **/
-export default (string :string) => {
+export default (string :string) :boolean => {
 	const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
 							'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
 							'((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address

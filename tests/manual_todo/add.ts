@@ -1,5 +1,4 @@
-//@ts-ignore
-import { addEvent } from 'index';
+import { addEvent } from '../../src';
 
 addEvent(document, 'click', '#test-addevent', ( e:MouseEvent ) => {
 	console.log(e);

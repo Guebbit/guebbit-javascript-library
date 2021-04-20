@@ -1,5 +1,4 @@
-//@ts-ignore
-import { search } from 'index';
+import { search } from '../../src';
 
 describe("(search) Search various keys in a haystack", () => {
 

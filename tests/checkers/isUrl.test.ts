@@ -1,5 +1,4 @@
-//@ts-ignore
-import { isUrl } from 'index';
+import { isUrl } from '../../src';
 
 describe("(isObject) check if object", () => {
 	test("Empty string", () => {

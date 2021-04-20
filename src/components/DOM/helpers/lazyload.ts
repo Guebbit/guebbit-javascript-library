@@ -1,5 +1,7 @@
-export const setSource = function (element :Element) {
-	let flag:boolean = false;
+import { formatNodeList } from "../../_helpers";
+
+export const setSource = function (element :Element) :boolean {
+	let flag = false;
 	if(element.hasAttribute("data-src")){
 		element.setAttribute("src", (element.getAttribute("data-src") as string));
 		element.removeAttribute("data-src");
@@ -36,14 +38,14 @@ export const loadVideo = async function(video:HTMLVideoElement) :Promise<boolean
 	]).then(( play ) => {
 		if(video.classList.contains('loaded'))
 			return true;
-		if (play as Boolean) {
+		if (play) {
 			video.play();
 			video.classList.add('loaded');
 			return true;
 		}
 		// rimuovo i source (che non hanno caricato in tempo)
 		(Array.from(video.children) as HTMLElement[]).forEach((child: HTMLElement) => {
-			if (child.tagName === 'SOURCE' && typeof child.dataset.src !== 'undefined')
+			if (child.tagName === 'SOURCE' && typeof child.dataset['src'] !== 'undefined')
 				child.parentNode!.removeChild(child);
 			return true;
 		});
@@ -58,19 +60,18 @@ export const loadVideo = async function(video:HTMLVideoElement) :Promise<boolean
 
 
 
-export const lazyloadHelperVideo = function(video:HTMLVideoElement){
-	let children :any [];
-	if(!!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2))
+export const lazyloadHelperVideo = function(video:HTMLVideoElement) :boolean {
+	if(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2)
 		return true;
 	if(window.matchMedia('(prefers-reduced-motion)').matches)
 		return false;
-	children = Array.from(video.children);
+	const children = Array.from(video.children);
 	children.forEach(child => setSource(child));
 	loadVideo(video);
 	return true;
 }
 
- export const lazyloadHelperImage = function(element:HTMLImageElement){
+ export const lazyloadHelperImage = function(element:HTMLImageElement) :boolean {
 	 if(!setSource(element))
 	 	return false;
 	 element.onload = function() {
@@ -79,12 +80,11 @@ export const lazyloadHelperVideo = function(video:HTMLVideoElement){
 	 return true;
  }
 
- export const lazyloadHelperSource = function(element:HTMLSourceElement){
+ export const lazyloadHelperSource = function(element:HTMLSourceElement) :boolean {
 	if(!setSource(element))
 		return false;
 	try{
-		//@ts-ignore (sto dentro un "try")
-		element.parentNode.querySelector("img").onload = function() {
+		element!.parentNode!.querySelector("img")!.onload = function() {
 			(this as HTMLElement).classList.add('loaded');
 		};
 	}catch(e){
@@ -95,23 +95,20 @@ export const lazyloadHelperVideo = function(video:HTMLVideoElement){
  }
 
 
-export default function(element :HTMLElement | HTMLElement[] | NodeList | null) :void {
-	let i:number;
-
+export default function(element :HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null) :void {
 	if(!element)
 		return;
-	if(element instanceof NodeList)
-		element = Array.prototype.slice.call(element);
-	if(!Array.isArray(element))
-		element = [element];
 
-	for(i = element.length; i--; )
-		if(element[i])
-			switch (element[i].tagName) {
+	let i:number;
+	const elementsArray = formatNodeList(element);
+
+	for(i = elementsArray.length; i--; )
+		if(elementsArray[i])
+			switch (elementsArray[i]!.tagName) {
 				//se immagine
-				case "IMG": lazyloadHelperImage(element[i] as HTMLImageElement);
-				case "SOURCE": lazyloadHelperSource(element[i] as HTMLSourceElement);
+				case "IMG": lazyloadHelperImage(elementsArray[i] as HTMLImageElement); break;
+				case "SOURCE": lazyloadHelperSource(elementsArray[i] as HTMLSourceElement); break;
 				//case "PICTURE": non serve, funziona con "source"
-				case "VIDEO": lazyloadHelperVideo(element[i] as HTMLVideoElement);
+				case "VIDEO": lazyloadHelperVideo(elementsArray[i] as HTMLVideoElement); break;
 			}
 }

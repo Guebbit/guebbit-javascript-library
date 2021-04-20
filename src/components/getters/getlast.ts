@@ -3,6 +3,6 @@
 * 	@param object myArray
 * 	@return mixed ultimo elemento dell'array
 **/
-export default (myArray:any[]) => {
+export default (myArray :unknown[]) :unknown => {
 	return myArray[ myArray.length-1 ];
 }

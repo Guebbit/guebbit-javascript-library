@@ -1,5 +1,4 @@
-//@ts-ignore
-import { getForm } from 'index';
+import { getForm } from '../../../src';
 
 document.body.innerHTML =
 	'<form id="form-test">'+

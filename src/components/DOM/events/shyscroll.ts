@@ -1,7 +1,7 @@
 import { throttle } from "lodash";
 
 
-interface settingsMap{
+export interface shyscrollSettingsMap{
 	// di quanto "tornare su"
 	top? :number | string,
 	// dopo quanto scroll attivare l'effetto (esempio: a 300px a partire dall'alto)
@@ -10,7 +10,7 @@ interface settingsMap{
 	margin? :number,
 	// ALTERNATIVA: classe da applicare quando effettuo lo scroll, a sostituzione della modifica dello style.top
 	class? :string,
-};
+}
 
 
 /**
@@ -18,11 +18,11 @@ interface settingsMap{
 * 	@param HTMLElement element 	= il fixed nav da spostare
 *	@param object settings
 **/
-export default (element :HTMLElement | null, settings :settingsMap = {} ) => {
+export default (element :HTMLElement | null, settings :shyscrollSettingsMap = {} ) :void => {
 	if(!element)
-		return false;
+		return;
 
-	let lastScrollY :number = 0,
+	let lastScrollY = 0,
 		scrollY :number,
 		mytop :number;
 	const {
@@ -40,9 +40,9 @@ export default (element :HTMLElement | null, settings :settingsMap = {} ) => {
 		else
 			mytop = 0;
 
-	window.addEventListener('scroll', throttle(function(){
+	window.addEventListener('scroll', throttle(function() :void {
 		if(getComputedStyle(element).position !== "fixed")
-			return false;
+			return;
 		scrollY = window.scrollY;
 		if(scrollY >= lastScrollY + margin){
 			//nascondo se non è all'inizio della pagina (almeno 50px)

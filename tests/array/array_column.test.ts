@@ -1,5 +1,4 @@
-//@ts-ignore
-import { array_column } from "index";
+import { array_column } from '../../src';
 
 describe("(array_column) php equivalent of array_column", () => {
 	test("Return the values from a single column in the input array of objects, 'param' in this case", () => {

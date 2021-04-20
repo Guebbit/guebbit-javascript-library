@@ -1,5 +1,4 @@
-//@ts-ignore
-import { toFormData } from 'index';
+import { toFormData } from '../../src';
 
 describe("(toFormData) transform object in FormData", () => {
 	test("Regular Object", () => {

@@ -1,5 +1,4 @@
-//@ts-ignore
-import { levenshteinDistance } from 'index';
+import { levenshteinDistance } from '../../src';
 
 describe("(levenshteinDistance) Levenshtein Distance from 2 strings (0)", () => {
 	test("Same string", () => {

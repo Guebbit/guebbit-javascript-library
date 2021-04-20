@@ -1,10 +1,11 @@
 import { throttle } from "lodash";
+import { formatNodeList } from "../../_helpers";
 
-interface dataMap {
+export interface classscrollSettingsMap {
 	class :string,
 	scroll :number,
 	remove? :boolean,
-};
+}
 
 /**
 *	Classi che aggiungo (o rimuovo) ad un certo scrollY
@@ -16,34 +17,37 @@ interface dataMap {
 		remove: true		//se remove=true (false di default), invece la rimuovo
 	}]
 **/
-export default (element :HTMLElement[] | HTMLElement | null, data :dataMap[]) => {
-	if(!element)
-		return false;
-	if(!Array.isArray(element))
-		element = [element];
+export default (element :HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data :classscrollSettingsMap[]) :void => {
+	const elementsArray = formatNodeList(element);
+	if(elementsArray.length < 1)
+		return;
 
-	window.addEventListener('scroll', throttle(function(){
-		let i:number, k:number;
+	window.addEventListener('scroll', throttle(function() :void {
+		let i:number,
+			k:number;
 		//per ogni elemento
-		for(k = (element as HTMLElement[]).length; k--; ){
-			if(!element![k])
+		for(k = elementsArray.length; k--; ){
+			if(!elementsArray[k])
 				continue;
 			//per ogni opzione
 			for(i = data.length; i--; ){
+				if(!data[i])
+					continue;
+				const { class: classs, scroll = 0, remove = false } = data[i]!;
 				//se remove non è specificato, allora è false
-				if((data[i].remove || false ) === false ){
+				if(!remove){
 					//add on scrolling, oltre una certa soglia aggiungo la classe
-					if(window.scrollY > (data[i].scroll || 0 )){
-						element![k].classList.add(data[i].class);
+					if(window.scrollY > (scroll)){
+						elementsArray[k]!.classList.add(classs);
 					}else{
-						element![k].classList.remove(data[i].class);
+						elementsArray[k]!.classList.remove(classs);
 					}
 				}else{
 					//remove on scrolling, oltre una certa soglia rimuovo la classe
-					if(window.scrollY > (data[i].scroll || 0)){
-						element![k].classList.remove(data[i].class);
+					if(window.scrollY > (scroll)){
+						elementsArray[k]!.classList.remove(classs);
 					}else{
-						element![k].classList.add(data[i].class);
+						elementsArray[k]!.classList.add(classs);
 					}
 				}
 			}

@@ -40,12 +40,12 @@ import shyScroll from "./components/DOM/events/shyscroll";
 
 import activator from "./scripts/activator";
 import lazyload from "./scripts/lazyload";
-import addEventPrototype from "./scripts/addEvent";
+import createPrototypes from "./scripts/createPrototypes";
 
 const scripts = {
 	activator,
 	lazyload,
-	addEventPrototype
+	createPrototypes
 };
 
 export {

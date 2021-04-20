@@ -2,7 +2,7 @@ import intersectionHelper from "../components/DOM/helpers/intersection";
 import lazyloadHelper from "../components/DOM/helpers/lazyload";
 
 
-export default () => {
+export default () :IntersectionObserver | false => {
 	document.querySelectorAll('.lazyload-forced').forEach(
 		(element) => lazyloadHelper(element as HTMLElement)
 	);

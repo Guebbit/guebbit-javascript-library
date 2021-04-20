@@ -5,10 +5,9 @@
 * 	@return mixed ultimo elemento dell'array
 **/
 export default (element :HTMLElement | null) :number => {
-	let parent :HTMLElement | null;
 	if(!element)
 		return -1;
-	parent = element.parentElement;
+	const parent :HTMLElement | null = element.parentElement;
 	if(!parent)
 		return -1;
 	return Array.from(parent.children).indexOf(element);

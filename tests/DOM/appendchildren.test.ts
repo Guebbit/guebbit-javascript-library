@@ -1,11 +1,10 @@
-//@ts-ignore
-import { appendChildren } from 'index';
+import { appendChildren } from '../../src';
 
-describe("(appendChildren) javascript appendChild for arrays", () => {
-	let span :HTMLSpanElement = document.createElement('span');
+describe("(appendChildren) javascript appendChild for arrays", () :void => {
+	const span :HTMLSpanElement = document.createElement('span');
 	span.textContent = "lorem ipsum";
 	test("Short array", () => {
-		let element :any = appendChildren(
+		const element = appendChildren(
 			document.createElement('div'),
 			span.cloneNode(true) as HTMLSpanElement,
 			span.cloneNode(true) as HTMLSpanElement,

@@ -1,10 +1,29 @@
-TODO
-- integrare le vecchie funzionalità in /.old
-- ricostruire filter_by (unire a search_by?)
+# [guebbit Javascript Library]
 
+[![Build Status](https://travis-ci.org/[repositoryOwner]/[repositoryName].svg?branch=master)](https://travis-ci.org/[repositoryOwner]/[repositoryName])
+[![License](https://badgen.net/github/license/[repositoryOwner]/[repositoryName])](./LICENSE)
+[![Library minified size](https://badgen.net/bundlephobia/min/[libraryName])](https://bundlephobia.com/result?p=[libraryName])
+[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/[libraryName])](https://bundlephobia.com/result?p=[libraryName])
 
-HELP
-I have a typescript error that I can't resolve. It appears only in TEST mode (with Jest).
-I have to use "//@ts-ignore" on top of the import of ALL the xxx.tests.ts files, because it says: "TS2614: Module '"index"'" has no exported member 'xxx'. Did you mean to use import xxx from "index"' instead?
+## Installation
 
-Everything works with //@ts-ignore, but its disheartening to not find a solution for this problem.
+This library is published in the NPM registry and can be installed using any compatible package manager.
+
+```sh
+npm install guebbit-javascript-library --save
+
+# For Yarn, use the command below.
+yarn add guebbit-javascript-library
+```
+
+### Installation from CDN
+
+Not possible
+
+## Documentation
+
+[Documentation generated from source files by Typedoc](./docs/README.md).
+
+## License
+
+Released under [MIT License](./LICENSE).

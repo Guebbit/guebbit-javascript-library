@@ -3,26 +3,14 @@
 *
 *
 **/
-const hasOwnNestedProperty = (obj :any, propertyPath :string) => {
+export default (obj :Record<string, unknown>, propertyPath :string) :boolean => {
 	const properties :string[] = propertyPath.split('.');
 	let i :number;
 	for (i = 0; i < properties.length; i++) {
-		if(!obj || !obj.hasOwnProperty(properties[i]))
+		if(!obj || !Object.prototype.hasOwnProperty.call(obj, properties[i] || ''))
 			return false;
 		else
-			obj = obj[properties[i]];
+			obj = obj[properties[i] || ''] as any;
 	}
 	return true;
 }
-
-export default hasOwnNestedProperty;
-
-/*
-// TODO mettere in guebbit lib
-propertyPath = this_product.price.priceValue
-Object.prototype.hasOwnNestedProperty = function(propertyPath){
-	if(!propertyPath)
-		return false;
-	return hasOwnNestedProperty(this, propertyPath);
-};
-*/
