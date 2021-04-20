@@ -2,6 +2,16 @@
   "name": "guebbit-javascript-library",
   "version": "1.9.0",
   "description": "personal library",
+  "scripts": {
+    "doc": "typedoc src/index.ts",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
+    "test:unit": "jest",
+    "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
+    "build": "rollup --config ./rollup.config.js",
+    "serve": "rollup -cw",
+    "prepublishOnly": "npm run doc && npm run build && npm run test"
+  },
   "cdn": "dist/index.umd.js",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
@@ -18,15 +28,6 @@
       },
       "./dist/index.js"
     ]
-  },
-  "scripts": {
-    "doc": "typedoc src/index.ts",
-    "test": "npm run test:lint && npm run test:unit",
-    "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
-    "test:unit": "jest",
-    "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
-    "build": "rollup --config ./rollup.config.js",
-    "prepublishOnly": "npm run doc && npm run build && npm run test"
   },
   "dependencies": {
     "lodash": "^4.17.21"
