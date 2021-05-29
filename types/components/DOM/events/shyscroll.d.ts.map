@@ -1,0 +1,1 @@
+{"version":3,"file":"shyscroll.d.ts","sourceRoot":"","sources":["../../../../src/components/DOM/events/shyscroll.ts"],"names":[],"mappings":"AAGA,MAAM,WAAW,oBAAoB;IAEpC,GAAG,CAAC,EAAE,MAAM,GAAG,MAAM,CAAC;IAEtB,MAAM,CAAC,EAAE,MAAM,CAAC;IAEhB,MAAM,CAAC,EAAE,MAAM,CAAC;IAEhB,KAAK,CAAC,EAAE,MAAM,CAAC;CACf;kCAQwB,WAAW,GAAG,IAAI,aAAY,oBAAoB,KAAS,IAAI;AALxF;;;;GAIG;AACH,wBA0CE"}

@@ -1,9 +1,5 @@
-# [guebbit Javascript Library]
-
-[![Build Status](https://travis-ci.org/[repositoryOwner]/[repositoryName].svg?branch=master)](https://travis-ci.org/[repositoryOwner]/[repositoryName])
-[![License](https://badgen.net/github/license/[repositoryOwner]/[repositoryName])](./LICENSE)
-[![Library minified size](https://badgen.net/bundlephobia/min/[libraryName])](https://bundlephobia.com/result?p=[libraryName])
-[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/[libraryName])](https://bundlephobia.com/result?p=[libraryName])
+# Guebbit Javascript Library
+# Forked from https://github.com/VitorLuizC/typescript-library-boilerplate
 
 ## Installation
 
@@ -18,7 +14,7 @@ yarn add guebbit-javascript-library
 
 ### Installation from CDN
 
-Not possible
+Not possible (for now)
 
 ## Documentation
 
