@@ -6,7 +6,7 @@
 * 	@param integer endd = end of slice
 * 	@return object sliced associative array / object to slice
 **/
-export default (obj :Record<string, unknown>, start :number, endd :number) :any => {
+export default (obj :Record<string, unknown>, start :number, endd :number) :Record<string, unknown> => {
 	const sliced :Record<string, unknown> = {};
 	let i = 0;
 	for (const k in obj) {

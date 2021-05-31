@@ -7,7 +7,7 @@
  * An object with ESLint options.
  * @type {import('eslint').Linter.Config}
  */
-const options = {
+module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -23,6 +23,7 @@ const options = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
+  rules: {
+	'@typescript-eslint/no-non-null-assertion': 'off',		//typescript ! necessari secondo me
+  }
 };
-
-module.exports = options;

@@ -9,10 +9,10 @@ import match from "./match";
 *				- OR: JUST ONE needle need to be true
 *	@param integer distance: levenshteinDistance if set
 **/
-export default (haystack :any[], needles:[string, string][], mode = "AND", distance = -1) :any[] => {
+export default (haystack :Record<string,string>[], needles:[string, string][], mode = "AND", distance = -1) :Record<string,string>[] => {
 	if(mode === "")
 		mode = "AND";
-	return haystack.filter((item :any) => {
+	return haystack.filter((item :Record<string,string>) => {
 		let i :number,
 			result :boolean;
 		switch (mode) {
@@ -25,7 +25,7 @@ export default (haystack :any[], needles:[string, string][], mode = "AND", dista
 						result = false;
 					if(distance < 0 && item[needles[i]![0]] !== needles[i]![1])
 						result = false;
-					if(distance >= 0 && !match(item[needles[i]![0]], needles[i]![1], distance))
+					if(distance >= 0 && !match(item[needles[i]![0]]!, needles[i]![1], distance))
 						result = false;
 				}
 			break;
@@ -36,7 +36,7 @@ export default (haystack :any[], needles:[string, string][], mode = "AND", dista
 						continue;
 					if(distance < 0 && item[needles[i]![0]] === needles[i]![1])
 						result = true;
-					if(distance >= 0 && match(item[needles[i]![0]], needles[i]![1], distance))
+					if(distance >= 0 && match(item[needles[i]![0]]!, needles[i]![1], distance))
 						result = true;
 				}
 			break;

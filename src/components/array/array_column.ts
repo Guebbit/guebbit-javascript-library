@@ -4,8 +4,8 @@
 *	@param array array
 *	@param string column
 **/
-export default (array :any[], column :string) :any[] => {
-	return array.map((value :any) :any => {
+export default (array :Record<string,unknown>[], column :string) :unknown[] => {
+	return array.map((value :Record<string,unknown>) :unknown => {
 		return value[column];
 	});
  }

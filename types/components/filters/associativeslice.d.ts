@@ -1,4 +1,4 @@
-declare const _default: (obj: Record<string, unknown>, start: number, endd: number) => any;
+declare const _default: (obj: Record<string, unknown>, start: number, endd: number) => Record<string, unknown>;
 /**
 * 	slice associative arrays / objects
 *	Funziona come array.slice() ma i numeri sono "immaginari", basati sull'ordine in cui sono stati inseriti

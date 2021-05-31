@@ -36,10 +36,10 @@ export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search,
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
-    associativeSlice: (obj: Record<string, unknown>, start: number, endd: number) => any;
+    associativeSlice: (obj: Record<string, unknown>, start: number, endd: number) => Record<string, unknown>;
     levenshteinDistance: (a: string | null | undefined, b: string | null | undefined) => number;
     match: (string1: string, string2: string, distance?: number) => boolean;
-    search: (haystack: any[], needles: [string, string][], mode?: string, distance?: number) => any[];
+    search: (haystack: Record<string, string>[], needles: [string, string][], mode?: string, distance?: number) => Record<string, string>[];
     whitelist: (objToFilter: Record<string, unknown>, allowed: string[]) => Record<string, unknown>;
     hasOwnNestedProperty: (obj: Record<string, unknown>, propertyPath: string) => boolean;
     isEmail: (string: string) => boolean;
@@ -47,10 +47,10 @@ declare const _default: {
     isJson: (test: string) => false | Record<string, unknown>;
     isUrl: (string: string) => boolean;
     matrixTranspose: (m: unknown[][]) => unknown[][];
-    array_column: (array: any[], column: string) => any[];
+    array_column: (array: Record<string, unknown>[], column: string) => unknown[];
     divide_array: (array: unknown[], n?: number) => unknown[];
     chunks_array: (array: unknown[], n: number) => unknown[];
-    toFormData: (obj: any, form?: FormData | null, namespace?: string | null) => FormData;
+    toFormData: (obj: Record<string, unknown>, form?: FormData | null, namespace?: string | null) => FormData;
     getForm: (form: HTMLElement | null, selectors?: string) => Record<string, unknown>;
     getValue: (element: HTMLElement | null, attribute?: string) => string | number | boolean | null;
     getIFrame: (iframe: HTMLElement | HTMLIFrameElement | null) => HTMLElement | HTMLBodyElement | null;

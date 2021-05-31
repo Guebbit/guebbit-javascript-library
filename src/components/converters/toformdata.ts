@@ -23,7 +23,7 @@ e non so come evitarlo o che fanno)
 	[forEach] => function forEach() { [native code] }
 	[entries] => function entries() { [native code] }
 */
-const toFormData = (obj :any, form :FormData | null = null, namespace :string | null = null) :FormData => {
+const toFormData = (obj :Record<string,unknown>, form :FormData | null = null, namespace :string | null = null) :FormData => {
 	const fd = form || new FormData();
 	let formKey :string;
 	for(const property in obj) {
@@ -35,10 +35,10 @@ const toFormData = (obj :any, form :FormData | null = null, namespace :string | 
 			// if the property is an object, but not a File,
 			// use recursivity.
 			if(typeof obj[property] === 'object' && !(obj[property] instanceof File))
-				toFormData(obj[property], fd, property);
+				toFormData(obj[property] as Record<string,unknown>, fd, property);
 			else
 				// if it's a string or a File object
-				fd.append(formKey, obj[property]);
+				fd.append(formKey, obj[property] as string | Blob);
 		}
 	}
 	return fd;

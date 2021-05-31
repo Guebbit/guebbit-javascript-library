@@ -10,7 +10,7 @@ export default (obj :Record<string, unknown>, propertyPath :string) :boolean => 
 		if(!obj || !Object.prototype.hasOwnProperty.call(obj, properties[i] || ''))
 			return false;
 		else
-			obj = obj[properties[i] || ''] as any;
+			obj = obj[properties[i] || ''] as Record<string,unknown>;
 	}
 	return true;
 }

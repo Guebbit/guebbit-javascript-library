@@ -7,7 +7,7 @@
  * An object with Prettier.js options.
  * @type {import('prettier').Options}
  */
-const options = {
+module.exports = {
 	jsxBracketSameLine: true,
 	quoteProps: 'consistent',
 	singleQuote: true,
@@ -15,5 +15,3 @@ const options = {
 	useTabs: true,
 	tabWidth: 4,
 };
-
-module.exports = options;

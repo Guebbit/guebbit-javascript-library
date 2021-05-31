@@ -8,6 +8,6 @@
 *	@param FormData RECURSIVO 	form = l'oggetto convertito
 *	@param string RECURSIVO 	namespace = ??
 **/
-declare const toFormData: (obj: any, form?: FormData | null, namespace?: string | null) => FormData;
+declare const toFormData: (obj: Record<string, unknown>, form?: FormData | null, namespace?: string | null) => FormData;
 export default toFormData;
 //# sourceMappingURL=toformdata.d.ts.map
