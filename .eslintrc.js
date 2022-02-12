@@ -24,6 +24,10 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
   ],
   rules: {
-	'@typescript-eslint/no-non-null-assertion': 'off',		//typescript ! necessari secondo me
+    '@typescript-eslint/no-non-null-assertion': 'off',		//typescript ! necessari secondo me
+    // ok tabs, fixare un giorno
+    'prettier/prettier': [0, {
+      "useTabs": false
+    }]
   }
 };
