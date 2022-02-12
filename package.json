@@ -11,8 +11,7 @@
     "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
     "build": "rollup --config ./rollup.config.js",
     "serve": "rollup -cw",
-    "prepublishOnly": "npm run doc && npm run build && npm run test",
-    "publish"
+    "prepublishOnly": "npm run doc && npm run build && npm run test"
   },
   "cdn": "dist/index.umd.js",
   "main": "dist/index.js",
