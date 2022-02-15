@@ -2,6 +2,7 @@
 # References at https://git-scm.com/docs/gitignore.
 
 *.zip
+.idea
 
 # npm run build
 dist/

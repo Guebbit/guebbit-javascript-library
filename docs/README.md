@@ -59,13 +59,13 @@ Renames and exports: [\_\_type](README.md#__type)
 
 • **addEvent**: (`parent`: Node, `eventName`: *string*, `childSelector`: *string* \| Node, `callback`: (...`args`: *unknown*[]) => *void*) => *void*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`parent`: Node, `eventName`: *string*, `childSelector`: *string* \| Node, `callback`: (...`args`: *unknown*[]) => *void*): *void*
 
 	equivalente Jquery di .on()
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -78,21 +78,19 @@ Renames and exports: [\_\_type](README.md#__type)
 
 addEventListener
 
-Defined in: [components/DOM/events/add.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/events/add.ts#L1)
-
 ___
 
 ### appendChildren
 
 • **appendChildren**: (`element`: HTMLElement, ...`children`: HTMLElement[] \| Element[]) => HTMLElement
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`element`: HTMLElement, ...`children`: HTMLElement[] \| Element[]): HTMLElement
 
 	javascript appendChild for arrays
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -101,46 +99,42 @@ ___
 
 **Returns:** HTMLElement
 
-Defined in: [components/DOM/appendchildren.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/appendchildren.ts#L1)
-
 ___
 
 ### array\_column
 
-• **array\_column**: (`array`: *any*[], `column`: *string*) => *any*[]
+• **array\_column**: (`array`: *Record*<string, unknown\>[], `column`: *string*) => *unknown*[]
 
-#### Type declaration:
+#### Type declaration
 
-▸ (`array`: *any*[], `column`: *string*): *any*[]
+▸ (`array`: *Record*<string, unknown\>[], `column`: *string*): *unknown*[]
 
 	php array_column
 	Return the values from a single column in the input array
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `array` | *any*[] | array |
+| `array` | *Record*<string, unknown\>[] | array |
 | `column` | *string* | - |
 
-**Returns:** *any*[]
-
-Defined in: [components/array/array_column.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/array/array_column.ts#L1)
+**Returns:** *unknown*[]
 
 ___
 
 ### associativeSlice
 
-• **associativeSlice**: (`obj`: *Record*<string, unknown\>, `start`: *number*, `endd`: *number*) => *any*
+• **associativeSlice**: (`obj`: *Record*<string, unknown\>, `start`: *number*, `endd`: *number*) => *Record*<string, unknown\>
 
-#### Type declaration:
+#### Type declaration
 
-▸ (`obj`: *Record*<string, unknown\>, `start`: *number*, `endd`: *number*): *any*
+▸ (`obj`: *Record*<string, unknown\>, `start`: *number*, `endd`: *number*): *Record*<string, unknown\>
 
 	slice associative arrays / objects
 	Funziona come array.slice() ma i numeri sono "immaginari", basati sull'ordine in cui sono stati inseriti
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -148,11 +142,9 @@ ___
 | `start` | *number* |
 | `endd` | *number* |
 
-**Returns:** *any*
+**Returns:** *Record*<string, unknown\>
 
 object sliced associative array / object to slice
-
-Defined in: [components/filters/associativeslice.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/filters/associativeslice.ts#L1)
 
 ___
 
@@ -160,14 +152,14 @@ ___
 
 • **chunks\_array**: (`array`: *unknown*[], `n`: *number*) => *unknown*[]
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`array`: *unknown*[], `n`: *number*): *unknown*[]
 
 	Divide array in N numbers of sub-arrays.
 	Sub-arrays' lengths differ as less as possible
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -176,21 +168,19 @@ ___
 
 **Returns:** *unknown*[]
 
-Defined in: [components/array/chunks_array.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/array/chunks_array.ts#L1)
-
 ___
 
 ### classScroll
 
 • **classScroll**: (`element`: ``null`` \| HTMLElement \| HTMLElement[] \| NodeList \| HTMLCollection, `data`: classscrollSettingsMap[]) => *void*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`element`: ``null`` \| HTMLElement \| HTMLElement[] \| NodeList \| HTMLCollection, `data`: classscrollSettingsMap[]): *void*
 
 	Classi che aggiungo (o rimuovo) ad un certo scrollY
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -199,22 +189,20 @@ ___
 
 **Returns:** *void*
 
-Defined in: [components/DOM/events/classscroll.ts:8](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/events/classscroll.ts#L8)
-
 ___
 
 ### default
 
 • **default**: *object*
 
-#### Type declaration:
+#### Type declaration
 
 | Name | Type |
 | :------ | :------ |
 | `addEvent` | (`parent`: Node, `eventName`: *string*, `childSelector`: *string* \| Node, `callback`: (...`args`: *unknown*[]) => *void*) => *void* |
 | `appendChildren` | (`element`: HTMLElement, ...`children`: HTMLElement[] \| Element[]) => HTMLElement |
-| `array_column` | (`array`: *any*[], `column`: *string*) => *any*[] |
-| `associativeSlice` | (`obj`: *Record*<string, unknown\>, `start`: *number*, `endd`: *number*) => *any* |
+| `array_column` | (`array`: *Record*<string, unknown\>[], `column`: *string*) => *unknown*[] |
+| `associativeSlice` | (`obj`: *Record*<string, unknown\>, `start`: *number*, `endd`: *number*) => *Record*<string, unknown\> |
 | `chunks_array` | (`array`: *unknown*[], `n`: *number*) => *unknown*[] |
 | `classScroll` | (`element`: ``null`` \| HTMLElement \| HTMLElement[] \| NodeList \| HTMLCollection, `data`: classscrollSettingsMap[]) => *void* |
 | `divide_array` | (`array`: *unknown*[], `n`: *number*) => *unknown*[] |
@@ -239,10 +227,10 @@ ___
 | `scripts.activator` | () => [``false`` \| IntersectionObserver, ``false`` \| IntersectionObserver] |
 | `scripts.createPrototypes` | *object* |
 | `scripts.lazyload` | () => ``false`` \| IntersectionObserver |
-| `search` | (`haystack`: *any*[], `needles`: [*string*, *string*][], `mode`: *string*, `distance`: *number*) => *any*[] |
+| `search` | (`haystack`: *Record*<string, string\>[], `needles`: [*string*, *string*][], `mode`: *string*, `distance`: *number*) => *Record*<string, string\>[] |
 | `shyScroll` | (`element`: ``null`` \| HTMLElement, `settings`: shyscrollSettingsMap) => *void* |
 | `toDOM` | (`html`: *string*) => *NodeListOf*<ChildNode\> |
-| `toFormData` | (`obj`: *any*, `form`: ``null`` \| FormData, `namespace`: ``null`` \| *string*) => FormData |
+| `toFormData` | (`obj`: *Record*<string, unknown\>, `form`: ``null`` \| FormData, `namespace`: ``null`` \| *string*) => FormData |
 | `whitelist` | (`objToFilter`: *Record*<string, unknown\>, `allowed`: *string*[]) => *Record*<string, unknown\> |
 
 ___
@@ -251,13 +239,13 @@ ___
 
 • **divide\_array**: (`array`: *unknown*[], `n`: *number*) => *unknown*[]
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`array`: *unknown*[], `n?`: *number*): *unknown*[]
 
 	Divide array in equals sub arrays
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
@@ -266,21 +254,19 @@ ___
 
 **Returns:** *unknown*[]
 
-Defined in: [components/array/divide_array.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/array/divide_array.ts#L1)
-
 ___
 
 ### getForm
 
 • **getForm**: (`form`: ``null`` \| HTMLElement, `selectors`: *string*) => *Record*<string, unknown\>
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`form`: ``null`` \| HTMLElement, `selectors?`: *string*): *Record*<string, unknown\>
 
 	Raccolgo tutti i valori inseriti in input e textarea dentro l'elemento
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
@@ -291,21 +277,19 @@ ___
 
 array ["name":"value"]
 
-Defined in: [components/DOM/getters/getform.ts:2](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/getters/getform.ts#L2)
-
 ___
 
 ### getIFrame
 
 • **getIFrame**: (`iframe`: ``null`` \| HTMLElement \| HTMLIFrameElement) => ``null`` \| HTMLElement \| HTMLBodyElement
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`iframe`: ``null`` \| HTMLElement \| HTMLIFrameElement): ``null`` \| HTMLElement \| HTMLBodyElement
 
 	Ottengo il documento interno di un iframe
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -315,21 +299,19 @@ ___
 
 HTMLElement
 
-Defined in: [components/DOM/getters/getiframe.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/getters/getiframe.ts#L1)
-
 ___
 
 ### getIndex
 
 • **getIndex**: (`element`: ``null`` \| HTMLElement) => *number*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`element`: ``null`` \| HTMLElement): *number*
 
 	equivalente Jquery di .index()
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -339,21 +321,19 @@ ___
 
 mixed ultimo elemento dell'array
 
-Defined in: [components/DOM/getters/getindex.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/getters/getindex.ts#L1)
-
 ___
 
 ### getLast
 
 • **getLast**: (`myArray`: *unknown*[]) => *unknown*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`myArray`: *unknown*[]): *unknown*
 
 	tiro fuori l'ultimo elemento di un array
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -363,21 +343,19 @@ ___
 
 mixed ultimo elemento dell'array
 
-Defined in: [components/getters/getlast.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/getters/getlast.ts#L1)
-
 ___
 
 ### getSiblings
 
 • **getSiblings**: (`element`: ``null`` \| HTMLElement \| Element) => Element[]
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`element`: ``null`` \| HTMLElement \| Element): Element[]
 
 	equivalente Jquery di .siblings()
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -387,15 +365,13 @@ ___
 
 array of siblings
 
-Defined in: [components/DOM/getters/getsiblings.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/getters/getsiblings.ts#L1)
-
 ___
 
 ### getUUID
 
 • **getUUID**: () => *string*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (): *string*
 
@@ -408,21 +384,19 @@ ___
 
 string random id
 
-Defined in: [components/getters/getuuid.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/getters/getuuid.ts#L1)
-
 ___
 
 ### getValue
 
 • **getValue**: (`element`: ``null`` \| HTMLElement, `attribute`: *string*) => ``null`` \| *string* \| *number* \| *boolean*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`element`: ``null`` \| HTMLElement, `attribute?`: *string*): ``null`` \| *string* \| *number* \| *boolean*
 
 	Ottieni valore\contenuto di un elemento (singolo)
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
@@ -433,21 +407,19 @@ ___
 
 string
 
-Defined in: [components/DOM/getters/getvalue.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/getters/getvalue.ts#L1)
-
 ___
 
 ### hasOwnNestedProperty
 
 • **hasOwnNestedProperty**: (`obj`: *Record*<string, unknown\>, `propertyPath`: *string*) => *boolean*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`obj`: *Record*<string, unknown\>, `propertyPath`: *string*): *boolean*
 
 	hasOwnProperty but with recursion
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -456,21 +428,19 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [components/checkers/hasownnestedproperty.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/checkers/hasownnestedproperty.ts#L1)
-
 ___
 
 ### intersectionHelper
 
 • **intersectionHelper**: (`element`: ``null`` \| HTMLElement \| HTMLElement[] \| NodeList \| HTMLCollection, `settings`: intersectionSettingsMap) => ``false`` \| IntersectionObserver
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`element`: ``null`` \| HTMLElement \| HTMLElement[] \| NodeList \| HTMLCollection, `settings?`: intersectionSettingsMap): ``false`` \| IntersectionObserver
 
 	IntersectionObserver helper, per programmarlo meglio
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
@@ -479,21 +449,19 @@ ___
 
 **Returns:** ``false`` \| IntersectionObserver
 
-Defined in: [components/DOM/helpers/intersection.ts:10](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/helpers/intersection.ts#L10)
-
 ___
 
 ### isEmail
 
 • **isEmail**: (`string`: *string*) => *boolean*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`string`: *string*): *boolean*
 
 	Determino se si tratta di una mail
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -503,21 +471,19 @@ ___
 
 boolean
 
-Defined in: [components/checkers/isemail.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/checkers/isemail.ts#L1)
-
 ___
 
 ### isEmpty
 
 • **isEmpty**: (`test`: *unknown*) => *boolean*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`test`: *unknown*): *boolean*
 
 	PHP's empty() equivalent, different from lodash's isEmpty
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -527,21 +493,19 @@ ___
 
 bool
 
-Defined in: [components/checkers/isempty.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/checkers/isempty.ts#L1)
-
 ___
 
 ### isJson
 
 • **isJson**: (`test`: *string*) => ``false`` \| *Record*<string, unknown\>
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`test`: *string*): ``false`` \| *Record*<string, unknown\>
 
 	controllo se l'oggetto è un JSON
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -551,21 +515,19 @@ ___
 
 string il json già estratto, oppure bool = false
 
-Defined in: [components/checkers/isjson.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/checkers/isjson.ts#L1)
-
 ___
 
 ### isUrl
 
 • **isUrl**: (`string`: *string*) => *boolean*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`string`: *string*): *boolean*
 
 	Determino se url
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -575,21 +537,19 @@ ___
 
 boolean
 
-Defined in: [components/checkers/isurl.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/checkers/isurl.ts#L1)
-
 ___
 
 ### levenshteinDistance
 
 • **levenshteinDistance**: (`a`: *undefined* \| ``null`` \| *string*, `b`: *undefined* \| ``null`` \| *string*) => *number*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`a`: *undefined* \| ``null`` \| *string*, `b`: *undefined* \| ``null`` \| *string*): *number*
 
 	Compute the edit distance between the two given strings
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -598,19 +558,17 @@ ___
 
 **Returns:** *number*
 
-Defined in: [components/filters/levenshteindistance.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/filters/levenshteindistance.ts#L1)
-
 ___
 
 ### match
 
 • **match**: (`string1`: *string*, `string2`: *string*, `distance`: *number*) => *boolean*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`string1`: *string*, `string2`: *string*, `distance?`: *number*): *boolean*
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
@@ -620,15 +578,13 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [components/filters/match.ts:22](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/filters/match.ts#L22)
-
 ___
 
 ### matrixTranspose
 
 • **matrixTranspose**: (`m`: *unknown*[][]) => *unknown*[][]
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`m`: *unknown*[][]): *unknown*[][]
 
@@ -637,7 +593,7 @@ ___
   [1,2,3],	=> 		[2,2,2],
   [1,2,3],			[3,3,3],
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -645,32 +601,28 @@ ___
 
 **Returns:** *unknown*[][]
 
-Defined in: [components/math/matrixtranspose.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/math/matrixtranspose.ts#L1)
-
 ___
 
 ### search
 
-• **search**: (`haystack`: *any*[], `needles`: [*string*, *string*][], `mode`: *string*, `distance`: *number*) => *any*[]
+• **search**: (`haystack`: *Record*<string, string\>[], `needles`: [*string*, *string*][], `mode`: *string*, `distance`: *number*) => *Record*<string, string\>[]
 
-#### Type declaration:
+#### Type declaration
 
-▸ (`haystack`: *any*[], `needles`: [*string*, *string*][], `mode?`: *string*, `distance?`: *number*): *any*[]
+▸ (`haystack`: *Record*<string, string\>[], `needles`: [*string*, *string*][], `mode?`: *string*, `distance?`: *number*): *Record*<string, string\>[]
 
 	return Search(ArrayOfValues, searchable);
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `haystack` | *any*[] | - |
+| `haystack` | *Record*<string, string\>[] | - |
 | `needles` | [*string*, *string*][] | - |
 | `mode` | *string* | "AND" |
 | `distance` | *number* | -1 |
 
-**Returns:** *any*[]
-
-Defined in: [components/filters/search.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/filters/search.ts#L1)
+**Returns:** *Record*<string, string\>[]
 
 ___
 
@@ -678,13 +630,13 @@ ___
 
 • **shyScroll**: (`element`: ``null`` \| HTMLElement, `settings`: shyscrollSettingsMap) => *void*
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`element`: ``null`` \| HTMLElement, `settings?`: shyscrollSettingsMap): *void*
 
 	sticky header che si mostra o nasconde in base allo scroll (necessita di "transition: top 0.1s")
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
@@ -693,21 +645,19 @@ ___
 
 **Returns:** *void*
 
-Defined in: [components/DOM/events/shyscroll.ts:13](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/events/shyscroll.ts#L13)
-
 ___
 
 ### toDOM
 
 • **toDOM**: (`html`: *string*) => *NodeListOf*<ChildNode\>
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`html`: *string*): *NodeListOf*<ChildNode\>
 
 	Trasforma una stringa in un elemento
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -717,22 +667,20 @@ ___
 
 HTML converted
 
-Defined in: [components/DOM/todom.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/DOM/todom.ts#L1)
-
 ___
 
 ### whitelist
 
 • **whitelist**: (`objToFilter`: *Record*<string, unknown\>, `allowed`: *string*[]) => *Record*<string, unknown\>
 
-#### Type declaration:
+#### Type declaration
 
 ▸ (`objToFilter`: *Record*<string, unknown\>, `allowed`: *string*[]): *Record*<string, unknown\>
 
 	WHITELIST
 	Filter object by array of allowed values
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -741,15 +689,13 @@ ___
 
 **Returns:** *Record*<string, unknown\>
 
-Defined in: [components/filters/whitelist.ts:1](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/filters/whitelist.ts#L1)
-
 ## Variables
 
 ### scripts
 
 • `Const` **scripts**: *object*
 
-#### Type declaration:
+#### Type declaration
 
 | Name | Type |
 | :------ | :------ |
@@ -757,13 +703,13 @@ Defined in: [components/filters/whitelist.ts:1](https://github.com/Guebbit/guebb
 | `createPrototypes` | *object* |
 | `lazyload` | () => ``false`` \| IntersectionObserver |
 
-Defined in: [index.ts:45](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/index.ts#L45)
+Defined in: [index.ts:45](https://github.com/Guebbit/guebbit-javascript-library/blob/890e2e7/src/index.ts#L45)
 
 ## Functions
 
 ### toFormData
 
-▸ `Const`**toFormData**(`obj`: *any*, `form?`: ``null`` \| FormData, `namespace?`: ``null`` \| *string*): FormData
+▸ `Const` **toFormData**(`obj`: *Record*<string, unknown\>, `form?`: ``null`` \| FormData, `namespace?`: ``null`` \| *string*): FormData
 
 	Trasformo un array normale in un FormData
 	Necessario per il passaggio di file o per evitare l'uso di php:\\input
@@ -771,14 +717,14 @@ Defined in: [index.ts:45](https://github.com/Guebbit/guebbit-javascript-library/
 	quindi è meglio trasformarli in un json.
 	JSON.stringify(); prima e poi json_decode($_POST['']); nel php
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `obj` | *any* | - |
+| `obj` | *Record*<string, unknown\> | - |
 | `form` | ``null`` \| FormData | null |
 | `namespace` | ``null`` \| *string* | null |
 
 **Returns:** FormData
 
-Defined in: [components/converters/toformdata.ts:26](https://github.com/Guebbit/guebbit-javascript-library/blob/b2f5090/src/components/converters/toformdata.ts#L26)
+Defined in: [components/converters/toformdata.ts:26](https://github.com/Guebbit/guebbit-javascript-library/blob/890e2e7/src/components/converters/toformdata.ts#L26)

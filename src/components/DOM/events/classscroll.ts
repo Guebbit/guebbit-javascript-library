@@ -9,20 +9,21 @@ export interface classscrollSettingsMap {
 
 /**
 *	Classi che aggiungo (o rimuovo) ad un certo scrollY
-* 	@param HTMLElement[] element 	= l'elemento a cui applicare le classi a seconda della posizione
-*	@param array data				= array di oggetti
+* @param {HTMLElement[]} element 	= l'elemento a cui applicare le classi a seconda della posizione
+*	@param {Array} data				= array di oggetti
+*	@param {Window} $window
 	[{
 		class: "test",		//a 400px aggiungo la classe test
 		scroll: 400,
 		remove: true		//se remove=true (false di default), invece la rimuovo
 	}]
 **/
-export default (element :HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data :classscrollSettingsMap[]) :void => {
+export default (element :HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data :classscrollSettingsMap[], $window :Window = window) :void => {
 	const elementsArray = formatNodeList(element);
 	if(elementsArray.length < 1)
 		return;
 
-	window.addEventListener('scroll', throttle(function() :void {
+	$window.addEventListener('scroll', throttle(function() :void {
 		let i:number,
 			k:number;
 		//per ogni elemento
@@ -37,20 +38,24 @@ export default (element :HTMLElement | HTMLElement[] | NodeList | HTMLCollection
 				//se remove non è specificato, allora è false
 				if(!remove){
 					//add on scrolling, oltre una certa soglia aggiungo la classe
-					if(window.scrollY > (scroll)){
+					if($window.scrollY > scroll){
+            console.log("11ADD", $window.scrollY, classs)
 						elementsArray[k]!.classList.add(classs);
 					}else{
+            console.log("11REMOVE", $window.scrollY, classs)
 						elementsArray[k]!.classList.remove(classs);
 					}
 				}else{
 					//remove on scrolling, oltre una certa soglia rimuovo la classe
-					if(window.scrollY > (scroll)){
+					if($window.scrollY > scroll){
+            console.log("22ADD", $window.scrollY, classs)
 						elementsArray[k]!.classList.remove(classs);
 					}else{
+            console.log("22REMOVE", $window.scrollY, classs)
 						elementsArray[k]!.classList.add(classs);
 					}
 				}
 			}
 		}
-	}, 10));
+	}, 50));
 };

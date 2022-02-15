@@ -4,14 +4,12 @@
     "jsx": "react",
     "jsxFactory": "React.createElement",
     "jsxFragmentFactory": "React.Fragment",
-
     // Module settings.
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-
     // Strictness and quality settings.
     "alwaysStrict": true,
     "forceConsistentCasingInFileNames": true,
@@ -23,9 +21,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
-
     // Type-checking settings.
-	"lib": [
+    "lib": [
       "esnext",
       "dom",
       "dom.iterable",
@@ -33,7 +30,12 @@
     ],
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "types": ["jest"]
+    "types": [
+      "jest"
+    ]
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ]
 }

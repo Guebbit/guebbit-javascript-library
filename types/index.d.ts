@@ -39,7 +39,7 @@ declare const _default: {
     associativeSlice: (obj: Record<string, unknown>, start: number, endd: number) => Record<string, unknown>;
     levenshteinDistance: (a: string | null | undefined, b: string | null | undefined) => number;
     match: (string1: string, string2: string, distance?: number) => boolean;
-    search: (haystack: Record<string, string>[], needles: [string, string][], mode?: string, distance?: number) => Record<string, string>[];
+    search: (haystack: Record<string, unknown>[], needles: [string, string][], mode?: string, distance?: number) => Record<string, unknown>[];
     whitelist: (objToFilter: Record<string, unknown>, allowed: string[]) => Record<string, unknown>;
     hasOwnNestedProperty: (obj: Record<string, unknown>, propertyPath: string) => boolean;
     isEmail: (string: string) => boolean;
