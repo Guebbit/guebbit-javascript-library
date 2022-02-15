@@ -16,9 +16,7 @@ module.exports = {
     },
     ecmaVersion: 2021,
   },
-  plugins: [
-    '@typescript-eslint'
-  ],
+  plugins: ['@typescript-eslint'],
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
@@ -26,7 +24,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
   ],
   rules: {
-    // typescript ! necessari secondo me
+    //typescript ! necessari secondo me
     '@typescript-eslint/no-non-null-assertion': 'off',
     // ok tabs, fixare un giorno
     'prettier/prettier': [0, {
