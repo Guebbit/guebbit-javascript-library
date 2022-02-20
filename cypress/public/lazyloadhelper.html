@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  img{
+
+  }
+</style>
+<body>
+  <picture>
+    <source
+      class="lazyload-me"
+      media='(max-width: 799px)'
+      srcset='https://placekitten.com/100/100'
+      data-srcset='https://placekitten.com/800/800'
+    >
+    <source
+      class="lazyload-me"
+      media='(min-width: 800px)'
+      srcset='https://placekitten.com/200/200'
+      data-srcset='https://placekitten.com/1000/1000'
+    >
+    <img
+      src='https://placekitten.com/200/200'
+      data-src='https://placekitten.com/1000/1000'
+    >
+  </picture>
+  <img
+    class='lazyload-forced'
+    src='https://placekitten.com/200/200'
+    data-src='https://placekitten.com/1000/1000'
+  />
+  <img
+    src='https://placekitten.com/100/100'
+    data-src='https://placekitten.com/800/800'
+  />
+</body>
+</html>

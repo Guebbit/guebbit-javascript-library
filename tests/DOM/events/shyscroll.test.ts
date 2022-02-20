@@ -1,7 +1,7 @@
-import { shyScroll } from '../../../src';
+import { stickyJs } from '../../../src';
 
-describe("(shyScroll) standard mobile header that show or hides based on the user scroll", () => {
+describe("(stickyJs) standard mobile header that show or hides based on the user scroll", () => {
 	test("MANUAL CHECK via 'npm run serve', use /index.html and /tests/index.ts", () => {
-		expect(shyScroll).toBeTruthy();
+		expect(stickyJs).toBeTruthy();
 	});
 });

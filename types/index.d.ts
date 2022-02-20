@@ -26,13 +26,13 @@ import toDOM from "./components/DOM/todom";
 import appendChildren from "./components/DOM/appendchildren";
 import addEvent from "./components/DOM/events/add";
 import classScroll from "./components/DOM/events/classscroll";
-import shyScroll from "./components/DOM/events/shyscroll";
+import stickyJs from "./components/DOM/events/stickyjs";
 declare const scripts: {
     activator: () => [false | IntersectionObserver, false | IntersectionObserver];
     lazyload: () => false | IntersectionObserver;
     createPrototypes: {};
 };
-export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, matrixTranspose, array_column, divide_array, chunks_array, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, classScroll, shyScroll, intersectionHelper, lazyloadHelper, scripts, };
+export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, matrixTranspose, array_column, divide_array, chunks_array, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, classScroll, stickyJs, intersectionHelper, lazyloadHelper, scripts, };
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
@@ -60,7 +60,7 @@ declare const _default: {
     appendChildren: (element: HTMLElement, ...children: HTMLElement[] | Element[]) => HTMLElement;
     addEvent: (parent: Node, eventName: string, childSelector: string | Node, callback: (...args: unknown[]) => void) => void;
     classScroll: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: import("./components/DOM/events/classscroll").classscrollSettingsMap[]) => void;
-    shyScroll: (element: HTMLElement | null, settings?: import("./components/DOM/events/shyscroll").shyscrollSettingsMap) => void;
+    stickyJs: (element: HTMLElement | null, settings?: import("./components/DOM/events/stickyjs").stickyjsSettingsMap) => void;
     intersectionHelper: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings?: import("./components/DOM/helpers/intersection").intersectionSettingsMap) => false | IntersectionObserver;
     lazyloadHelper: typeof lazyloadHelper;
     scripts: {

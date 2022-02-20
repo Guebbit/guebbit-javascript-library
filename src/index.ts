@@ -33,10 +33,10 @@ import toFormData from "./components/converters/toformdata";
 import toDOM from "./components/DOM/todom";
 import appendChildren from "./components/DOM/appendchildren";
 
-import addEvent from "./components/DOM/events/add";
+import addEvent from "./components/DOM/events/addevent";
 import classScroll from "./components/DOM/events/classscroll";
-import shyScroll from "./components/DOM/events/shyscroll";
-
+import stickyJs from "./components/DOM/events/stickyjs";
+import shyJs from "./components/DOM/events/shyjs";
 
 import activator from "./scripts/activator";
 import lazyload from "./scripts/lazyload";
@@ -94,7 +94,8 @@ export {
 	//events
 	addEvent,
 	classScroll,
-	shyScroll,
+	stickyJs,
+  shyJs,
 
 	//helpers
 	intersectionHelper,
@@ -151,7 +152,7 @@ export default {
 	//events
 	addEvent,
 	classScroll,
-	shyScroll,
+	stickyJs,
 
 	//helpers
 	intersectionHelper,

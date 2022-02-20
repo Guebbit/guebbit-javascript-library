@@ -4,6 +4,10 @@
 *.zip
 .idea
 
+# cypress
+cypress/snapshots/
+cypress/videos/
+
 # npm run build
 dist/
 
