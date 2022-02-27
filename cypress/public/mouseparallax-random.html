@@ -27,7 +27,6 @@
       top: 50%;
       transform: translate(-50%, -50%);
       margin: 0;
-      transition: top 0.2s, left 0.2s, transform 0.2s;
     }
     #random-circle{
       background: red;
@@ -68,37 +67,38 @@
   <div id="object-wrapper">
     <div id="parallax-object">
       <img
-        id="low-intensity-background"
         src="https://placekitten.com/800/800"
         data-parallax-movement-intensity="20"
+        data-parallax-movement-speed="1000"
       >
       <img
         src="https://placekitten.com/400/400"
         data-parallax-movement-intensity="200"
-      >
-      <img
-        src="https://placekitten.com/100/100"
-        data-parallax-movement-intensity="100"
+        data-parallax-movement-speed="500"
       >
       <div id="async-text-background"
-           data-parallax-movement-intensity=-120"
+           data-parallax-movement-intensity=-80"
+           data-parallax-movement-speed="100"
       ></div>
+      <h1 class="backward-text"
+          data-parallax-movement-intensity="-80"
+          data-parallax-movement-speed="300"
+      >BACKWARD</h1>
       <div id="random-circle"
-           data-parallax-movement-intensity=100"
+           data-parallax-movement-intensity="100"
+           data-parallax-movement-speed="1000"
       ></div>
       <h1 id="vertical-text"
           data-parallax-movement-intensity-x="0"
       >VERTICAL ONLY</h1>
-      <h1 class="backward-text"
-          data-parallax-movement-intensity="-100"
-      >BACKWARD</h1>
       <h1 id="low-intensity-text"
           data-parallax-movement-intensity="50"
       >LOW</h1>
+      <h1>FOLLOW</h1>
+
       <div id="center"
            data-parallax-movement-intensity=0"
       ></div>
-      <h1>FOLLOW</h1>
     </div>
   </div>
 </body>

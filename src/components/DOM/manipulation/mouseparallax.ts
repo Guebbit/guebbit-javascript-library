@@ -1,24 +1,18 @@
 import { throttle } from 'lodash';
 import { addEvent } from '../../../../src';
 
-/**
- * TODO
- *
- * rotation - "guardare" verso il mouse, ruotare l'elemento ipotizzando che la testa sia sempre al centro dell'angolo a destra
- * center of mouse - il testo riesce a stare al centro, gli altri elementi no
- * speed = transition speed? Or CSS only?
- * object wrapper = {$el: element, parallax: () => {}, start, stop, reset, ...etc} per controllare individualmente il parallax anche dopo l'esecuzione
- */
-
 interface mouseParallaxItemsMap {
   element: HTMLElement
   intensityX: number
   intensityY: number
+  speed: number
 }
 
+// TODO watchers - check su speed, intensità, etc per vedere se vengono cambiati dei valori, poi ritriggerare eventuali "build" sull'elemento
 interface mouseParallaxMap {
-  container :Node
+  container :HTMLElement
   items :mouseParallaxItemsMap[]
+  build :(css: boolean, throttleIntensity: number) => void
 }
 
 /**
@@ -40,136 +34,139 @@ export const calculateMouseParallax = (x = 0, y = 0, w = 0, h = 0) :[number, num
 };
 
 /**
- * Execute parallax on anchor element
  *
- * @param {HTMLElement} anchor - element to move
- * @param {number} x - axis calculated on the parent container
- * @param {number} y - axis calculated on the parent container
- * @param {number} ix - % of intensity of movement, 0 = stopped, 100 = normal, 200 = double, etc
- * @param {number} iy - same as above, but for Y
+ * @param container
+ * @param items
+ * @param {number} x - mouse/touch position X axis
+ * @param {number} y - mouse/touch position Y axis
  */
-export const executeMouseParallax = (anchor :HTMLElement, x = 0, y = 0, ix = 100, iy = 100) :void => {
-  if(!anchor){
-    return;
+export const executeMouseParallax = ({ container, items = [] } :mouseParallaxMap, x = 0, y = 0) => {
+  // width and height of parent
+  const { offsetWidth, offsetHeight } = container;
+  // parent position
+  const { left: parentPositionLeft, top: parentPositionTop } = container.getBoundingClientRect();
+  // calculate the positions of pointer related to the element position
+  const [ cx, cy ] = calculateMouseParallax(x - parentPositionLeft, y - parentPositionTop, offsetWidth, offsetHeight);
+  // execute movements on all items (anchors)
+  for (let i = 0; i < items.length; i++) {
+    if(!items[i])
+      continue;
+    const { element, intensityX, intensityY } = items[i]!;
+    // apply movement
+    element.style.left = (cx * intensityX + 50) + '%';
+    element.style.top = (cy * intensityY + 50) + '%';
   }
-  anchor.style.left = (x * ix + 50) + '%';
-  anchor.style.top = (y * iy + 50) + '%';
+};
+
+/**
+ * Create mouse Parallax Item
+ * Take data from dataset
+ *
+ * @param {HTMLElement} element - element where extract dataset
+ */
+export const createMouseParallaxItem = (element :HTMLElement) :mouseParallaxItemsMap => {
+  // intensity of movement, default = 100
+  // 0 = stopped, 100 = follow mouse, 200 = double, etc
+  let intensityX = 100;
+  let intensityY = 100;
+  let speed = 0;
+  const { transition } = getComputedStyle(element);
+  // if dataset is populated, I take the specific element instructions
+  if (element.dataset) {
+    // % generic intensity
+    if (element.dataset['parallaxMovementIntensity']){
+      intensityX = parseInt(element.dataset['parallaxMovementIntensity']!);
+      intensityY = parseInt(element.dataset['parallaxMovementIntensity']!);
+    }
+    // % intensity on X axis only
+    if (element.dataset['parallaxMovementIntensityX']){
+      intensityX = parseInt(element.dataset['parallaxMovementIntensityX']!);
+    }
+    // % intensity on Y axis only
+    if (element.dataset['parallaxMovementIntensityY']){
+      intensityY = parseInt(element.dataset['parallaxMovementIntensityY']!);
+    }
+    // milliseconds speed
+    if (element.dataset['parallaxMovementSpeed']){
+      speed = parseInt(element.dataset['parallaxMovementSpeed']!);
+      element.style.transition = transition + ', top ' + speed + 'ms, left ' + speed + 'ms';
+    }
+  }
+  //
+  return {
+    element,
+    intensityX,
+    intensityY,
+    speed
+  }
 };
 
 
 /**
- *  ALL IN ONE mouse parallax movements, calculation and application.
+ *  ALL IN ONE mouse parallax movements, calculation and application throught mouse and touch events
  *  Get values from function or from dataset in element
  *
  *  @param {HTMLElement[]} anchors - elements to move
  *  @param {HTMLElement} parent - frame \ limits
- *  @param {number} movementIntensity - general % intensity of movement (speed or slow up all anchors). Negative = backwards
- *  @param {number} throttleIntensity - how fluid is the movement (takes up memory resources)
- *  @param {boolean} css - Apply default css or not
  *  @param {document} $document
  *
  *  @return {Object} - object to control the parallax
  */
-export default (anchors: HTMLElement[] = [], parent: HTMLElement | null = null, movementIntensity = 100, throttleIntensity = 20, css = false, $document = document): mouseParallaxMap | undefined => {
-  // array of parallax control objects
-  const parallaxArray :mouseParallaxItemsMap[] = [];
+export default (anchors: HTMLElement[] = [], parent: HTMLElement | null = null, $document = document): mouseParallaxMap | undefined => {
   // no elements no parallax
   if(anchors.length <= 0) {
     return;
   }
-  // define parent, height and width
-  let w = 0,
-    h = 0;
   // default parent = element parent
   if (!parent && anchors[0])
     parent = anchors[0].parentElement;
-  // width and height of parent
-  if (parent) {
-    w = parent.offsetWidth;
-    h = parent.offsetHeight;
-    // if no parent at this point, then document is parent
-  } else if (document.documentElement) {
-    parent = document.documentElement;
-    w = document.documentElement.clientWidth;
-    h = document.documentElement.clientHeight;
-  } else {
-    // something went wrong
-    return;
-  }
 
-  // parent position
-  const { left: parentPositionLeft, top: parentPositionTop } = parent.getBoundingClientRect();
-
-  // create instruction objects (all calculations done here 1 time)
+  // create mouseParallaxItemsMap objects (all calculations done here 1 time)
+  const parallaxArray :mouseParallaxItemsMap[] = [];
   for (let i = anchors.length; i--; ) {
-    // default = 100%, no variations, follow mouse
-    let intensityX = 100;
-    let intensityY = 100;
-    // if dataset is populated, I take the specific element instructions
-    if (anchors[i]!.dataset) {
-      // % generic speed
-      if (anchors[i]!.dataset['parallaxMovementIntensity']){
-        intensityX = parseInt(anchors[i]!.dataset['parallaxMovementIntensity']!) * movementIntensity / 100;
-        intensityY = parseInt(anchors[i]!.dataset['parallaxMovementIntensity']!) * movementIntensity / 100;
-      }
-      // % speed on X axis only
-      if (anchors[i]!.dataset['parallaxMovementIntensityX']){
-        intensityX = parseInt(anchors[i]!.dataset['parallaxMovementIntensityX']!) * movementIntensity / 100;
-      }
-      // % speed on Y axis only
-      if (anchors[i]!.dataset['parallaxMovementIntensityY']){
-        intensityY = parseInt(anchors[i]!.dataset['parallaxMovementIntensityY']!) * movementIntensity / 100;
-      }
-    }
-
-    // if needed, put default CSS here
-    if(css){
-      anchors[i]!.style.position = 'absolute';
-      anchors[i]!.style.left = '50%';
-      anchors[i]!.style.top = '50%';
-      anchors[i]!.style.transform = 'translate(-50%, -50%)';
-      anchors[i]!.style.transition = 'top 0.2s, left 0.2s, transform 0.2s';   // TODO speed?
-    }
-
     // instruction objects for every anchor
-    parallaxArray.push({
-      element: anchors[i]!,
-      // elementCenterX: anchors[i]!.offsetLeft + anchors[i]!.offsetWidth / 2,
-      // elementCenterY: anchors[i]!.offsetTop + anchors[i]!.offsetHeight / 2,
-      intensityX,
-      intensityY
-    })
+    parallaxArray.push(createMouseParallaxItem(anchors[i]!));
   }
 
-  // console.log("START", w, h, parentPositionLeft, parentPositionTop, [...parallaxArray]);
-
-  addEvent($document, 'mousemove', parent as Node, throttle(function(e) :void {
-    // calculate parent
-    const [ cx, cy ] = calculateMouseParallax(e.clientX - parentPositionLeft, e.clientY - parentPositionTop, w, h);
-    // execute on anchor
-    for (let i = 0; i < parallaxArray.length; i++) {
-      const { element, intensityX, intensityY } = parallaxArray[i]!;
-      executeMouseParallax(element, cx, cy, intensityX, intensityY);
+  // controller
+  const parallaxObject :mouseParallaxMap = {
+    container: parent!,
+    items: parallaxArray,
+    /**
+     *
+     * @param {boolean} css
+     * @param {number} throttleIntensity - how fluid is the movement (takes up memory resources)
+     */
+    build: function(css = false, throttleIntensity = 20) {
+      // eslint-disable-next-line @typescript-eslint/no-this-alias
+      const obj = this;
+      if(css){
+        // loop through items to apply CSS (if needed)
+        for (let i = obj.items.length; i--; ) {
+          if(!obj.items[i])
+            continue;
+          const { element } = obj.items[i]!;
+          // apply CSS
+          element.style.position = 'absolute';
+          element.style.left = '50%';
+          element.style.top = '50%';
+          element.style.transform = 'translate(-50%, -50%)';
+        }
+      }
+      // insert Events
+      addEvent($document, 'mousemove', obj.container, throttle(function(e) :void {
+        executeMouseParallax(obj, e.clientX, e.clientY);
+      }, throttleIntensity));
+      addEvent($document, 'touchmove', obj.container, throttle(function(e) :void {
+        // touch points can be more than 1, select only the first
+        if(!e.changedTouches || e.changedTouches.length <= 0){
+          return;
+        }
+        executeMouseParallax(obj, e.changedTouches[0].pageX, e.changedTouches[0].pageY);
+      }, throttleIntensity));
     }
-  }, throttleIntensity));
-
-
-  addEvent($document, 'mousemove', parent as Node, throttle(function(e) :void {
-    // touch points can be more than 1, select only the first
-    if(!e.changedTouches || e.changedTouches.length <= 0){
-      return;
-    }
-    // calculate parent
-    const [ cx, cy ] = calculateMouseParallax(e.changedTouches[0].pageX- parentPositionLeft, e.changedTouches[0].pageY - parentPositionTop, w, h);
-    // execute on anchor
-    for (let i = 0; i < parallaxArray.length; i++) {
-      const { element, intensityX, intensityY } = parallaxArray[i]!;
-      executeMouseParallax(element, cx, cy, intensityX, intensityY);
-    }
-  }, throttleIntensity));
-
-  return {
-    container: parent,
-    items: parallaxArray
   };
+
+  // object
+  return parallaxObject;
 };
