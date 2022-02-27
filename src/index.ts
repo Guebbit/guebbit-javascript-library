@@ -39,7 +39,7 @@ import classScroll from "./components/DOM/events/classscroll";
 import stickyJs from "./components/DOM/events/stickyjs";
 import shyJs from "./components/DOM/events/shyjs";
 
-import mouseParallax from "./components/DOM/manipulation/mouseparallax";
+import mouseParallax, { calculateMouseParallax, executeMouseParallax, createMouseParallaxItem } from "./components/DOM/manipulation/mouseparallax";
 
 import activator from "./scripts/activator";
 import lazyload from "./scripts/lazyload";
@@ -106,6 +106,9 @@ export {
 
   //manipulation
   mouseParallax,
+  calculateMouseParallax,
+  executeMouseParallax,
+  createMouseParallaxItem,
 
 	//helpers
 	intersectionHelper,
