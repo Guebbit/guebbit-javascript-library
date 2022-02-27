@@ -7,7 +7,7 @@ import { throttle } from 'lodash';
  * @param {string} className - className added in "stuck mode"
  * @param {window} $window - TODO REMOVE (cypress only)
  */
-export default (element :HTMLElement | null, className :string = 'stickyjs-active', $window :Window = window ) :void => {
+export default (element :HTMLElement | null, className = 'stickyjs-active', $window :Window = window ) :void => {
   if(!element)
     return;
 

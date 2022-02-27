@@ -1,4 +1,4 @@
-import { debouncePromise } from '../../../src';
+import { debouncePromise } from '../../src';
 
 describe("(debouncePromise) lodash debounce doesn't return promises", () => {
 	test("TODO CREATE TEST", () => {

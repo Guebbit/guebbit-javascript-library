@@ -8,7 +8,10 @@
 const options = {
   preset: 'ts-jest',
   resolver: 'ts-jest-resolver',
-  testEnvironment: 'jsdom'
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: [
+    '/cypress/'
+  ]
 };
 
 module.exports = options;

@@ -1,8 +1,9 @@
 //TODO typescript & tests
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default (f :any, interval :number) => {
-	let timer :any = undefined;
-	return (...args :any) => {
+	let timer = 0;
+	return (...args :unknown[]) => {
 		clearTimeout(timer);
 		return new Promise((resolve) => {
 			timer = setTimeout(

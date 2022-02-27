@@ -18,6 +18,7 @@ import array_column from "./components/array/array_column";
 import divide_array from "./components/array/divide_array";
 import chunks_array from "./components/array/chunks_array";
 
+import debouncePromise from "./components/async/debouncepromise";
 
 import intersectionHelper from "./components/DOM/helpers/intersection";
 import lazyloadHelper from "./components/DOM/helpers/lazyload";
@@ -33,10 +34,12 @@ import toFormData from "./components/converters/toformdata";
 import toDOM from "./components/DOM/todom";
 import appendChildren from "./components/DOM/appendchildren";
 
-import addEvent from "./components/DOM/events/addevent";
+import { addEvent, removeEvent } from "./components/DOM/events/globalevents";
 import classScroll from "./components/DOM/events/classscroll";
 import stickyJs from "./components/DOM/events/stickyjs";
 import shyJs from "./components/DOM/events/shyjs";
+
+import mouseParallax from "./components/DOM/manipulation/mouseparallax";
 
 import activator from "./scripts/activator";
 import lazyload from "./scripts/lazyload";
@@ -75,6 +78,9 @@ export {
 	divide_array,
 	chunks_array,
 
+  // async
+  debouncePromise,
+
 	//manipulations
 	toFormData,
 
@@ -93,9 +99,13 @@ export {
 
 	//events
 	addEvent,
+  removeEvent,
 	classScroll,
 	stickyJs,
   shyJs,
+
+  //manipulation
+  mouseParallax,
 
 	//helpers
 	intersectionHelper,

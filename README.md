@@ -1,6 +1,3 @@
-# Guebbit Javascript Library
-# Forked from https://github.com/VitorLuizC/typescript-library-boilerplate
-
 ## Installation
 
 This library is published in the NPM registry and can be installed using any compatible package manager.

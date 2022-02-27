@@ -14,6 +14,7 @@ import matrixTranspose from "./components/math/matrixtranspose";
 import array_column from "./components/array/array_column";
 import divide_array from "./components/array/divide_array";
 import chunks_array from "./components/array/chunks_array";
+import debouncePromise from "./components/async/debouncepromise";
 import intersectionHelper from "./components/DOM/helpers/intersection";
 import lazyloadHelper from "./components/DOM/helpers/lazyload";
 import whitelist from "./components/filters/whitelist";
@@ -24,15 +25,17 @@ import associativeSlice from "./components/filters/associativeslice";
 import toFormData from "./components/converters/toformdata";
 import toDOM from "./components/DOM/todom";
 import appendChildren from "./components/DOM/appendchildren";
-import addEvent from "./components/DOM/events/add";
+import { addEvent, removeEvent } from "./components/DOM/events/globalevents";
 import classScroll from "./components/DOM/events/classscroll";
 import stickyJs from "./components/DOM/events/stickyjs";
+import shyJs from "./components/DOM/events/shyjs";
+import mouseParallax from "./components/DOM/manipulation/mouseparallax";
 declare const scripts: {
     activator: () => [false | IntersectionObserver, false | IntersectionObserver];
     lazyload: () => false | IntersectionObserver;
     createPrototypes: {};
 };
-export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, matrixTranspose, array_column, divide_array, chunks_array, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, classScroll, stickyJs, intersectionHelper, lazyloadHelper, scripts, };
+export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, matrixTranspose, array_column, divide_array, chunks_array, debouncePromise, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, intersectionHelper, lazyloadHelper, scripts, };
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
@@ -59,8 +62,8 @@ declare const _default: {
     toDOM: (html: string) => NodeListOf<ChildNode>;
     appendChildren: (element: HTMLElement, ...children: HTMLElement[] | Element[]) => HTMLElement;
     addEvent: (parent: Node, eventName: string, childSelector: string | Node, callback: (...args: unknown[]) => void) => void;
-    classScroll: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: import("./components/DOM/events/classscroll").classscrollSettingsMap[]) => void;
-    stickyJs: (element: HTMLElement | null, settings?: import("./components/DOM/events/stickyjs").stickyjsSettingsMap) => void;
+    classScroll: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: import("./components/DOM/events/classscroll").classscrollSettingsMap[], $window?: Window) => void;
+    stickyJs: (element: HTMLElement | null, className?: string, $window?: Window) => void;
     intersectionHelper: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings?: import("./components/DOM/helpers/intersection").intersectionSettingsMap) => false | IntersectionObserver;
     lazyloadHelper: typeof lazyloadHelper;
     scripts: {
