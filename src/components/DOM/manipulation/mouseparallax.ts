@@ -70,26 +70,39 @@ export const createMouseParallaxItem = (element :HTMLElement) :mouseParallaxItem
   let intensityX = 100;
   let intensityY = 100;
   let speed = 0;
+  let tempValue :number;
   const { transition } = getComputedStyle(element);
   // if dataset is populated, I take the specific element instructions
   if (element.dataset) {
     // % generic intensity
     if (element.dataset['parallaxMovementIntensity']){
-      intensityX = parseInt(element.dataset['parallaxMovementIntensity']!);
-      intensityY = parseInt(element.dataset['parallaxMovementIntensity']!);
+      tempValue = parseInt(element.dataset['parallaxMovementIntensity']!);
+      if(Number.isInteger(tempValue)){
+        intensityX = tempValue;
+        intensityY = tempValue;
+      }
     }
     // % intensity on X axis only
     if (element.dataset['parallaxMovementIntensityX']){
-      intensityX = parseInt(element.dataset['parallaxMovementIntensityX']!);
+      tempValue = parseInt(element.dataset['parallaxMovementIntensityX']!);
+      if(Number.isInteger(tempValue)){
+        intensityX = tempValue;
+      }
     }
     // % intensity on Y axis only
     if (element.dataset['parallaxMovementIntensityY']){
-      intensityY = parseInt(element.dataset['parallaxMovementIntensityY']!);
+      tempValue = parseInt(element.dataset['parallaxMovementIntensityY']!);
+      if(Number.isInteger(tempValue)){
+        intensityY = tempValue;
+      }
     }
     // milliseconds speed
     if (element.dataset['parallaxMovementSpeed']){
-      speed = parseInt(element.dataset['parallaxMovementSpeed']!);
-      element.style.transition = transition + ', top ' + speed + 'ms, left ' + speed + 'ms';
+      tempValue = parseInt(element.dataset['parallaxMovementSpeed']!);
+      if(Number.isInteger(tempValue)){
+        speed = tempValue;
+        element.style.transition = transition + ', top ' + speed + 'ms, left ' + speed + 'ms';
+      }
     }
   }
   //
