@@ -1,6 +1,6 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "personal library",
   "scripts": {
     "doc": "typedoc src/index.ts",
