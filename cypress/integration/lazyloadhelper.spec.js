@@ -1,8 +1,18 @@
-import { intersectionHelper, lazyloadHelper } from '../../src';
+import { intersectionHelper, lazyloadHelper, scripts } from '../../src';
 
-describe('Test images lazyloading', () => {
+describe('Test images lazyloading TODO $window problem', () => {
   beforeEach(() => {
     cy.visit('http://localhost:8000/lazyloadhelper.html')
+  });
+
+  it('lazyload & activator TODO not work', () => {
+    cy.document()
+      .then($document => {
+        scripts.lazyload();
+        scripts.activator();
+        // cy.scrollTo(0, 400);
+        // cy.scrollTo('bottom');
+      });
   });
 
   it('Lazyload TODO (patch cypress, remove $window need)', () => {

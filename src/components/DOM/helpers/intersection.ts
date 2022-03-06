@@ -11,10 +11,10 @@ export interface intersectionSettingsMap {
 
 /**
  *  IntersectionObserver helper, per programmarlo meglio
- *  @param HTMLElement el  = elemento da osservare
- *  @param object settings
+ *  @param {HTMLElement} el  = elemento da osservare
+ *  @param {Object} settings
  **/
-export default (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings: intersectionSettingsMap = {}): IntersectionObserver | false => {	//:NodeListOf<Element>
+export default (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings: intersectionSettingsMap = {}, $window :Window = window): IntersectionObserver | false => {	//:NodeListOf<Element>
   let i: number;
   const {
       single = false,
@@ -27,7 +27,7 @@ export default (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection
     elementsArray = formatNodeList(element);
 
   //FALLBACK nel caso non esista l'IntersectionObserver
-  if (!("IntersectionObserver" in window)) {
+  if (!("IntersectionObserver" in $window)) {
     for (i = elementsArray.length; i--;)
       if (intersectingCallback && elementsArray[i])
         intersectingCallback(elementsArray[i]!);
