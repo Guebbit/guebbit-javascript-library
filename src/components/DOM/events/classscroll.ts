@@ -39,19 +39,15 @@ export default (element :HTMLElement | HTMLElement[] | NodeList | HTMLCollection
 				if(!remove){
 					//add on scrolling, oltre una certa soglia aggiungo la classe
 					if($window.scrollY > scroll){
-            console.log("11ADD", $window.scrollY, classs)
 						elementsArray[k]!.classList.add(classs);
 					}else{
-            console.log("11REMOVE", $window.scrollY, classs)
 						elementsArray[k]!.classList.remove(classs);
 					}
 				}else{
 					//remove on scrolling, oltre una certa soglia rimuovo la classe
 					if($window.scrollY > scroll){
-            console.log("22ADD", $window.scrollY, classs)
 						elementsArray[k]!.classList.remove(classs);
 					}else{
-            console.log("22REMOVE", $window.scrollY, classs)
 						elementsArray[k]!.classList.add(classs);
 					}
 				}
