@@ -64,7 +64,7 @@ declare const _default: {
     addEvent: (parent: Node, eventName: string, childSelector: string | Node, callback: (...args: unknown[]) => void) => void;
     classScroll: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: import("./components/DOM/events/classscroll").classscrollSettingsMap[], $window?: Window) => void;
     stickyJs: (element: HTMLElement | null, className?: string, $window?: Window) => void;
-    intersectionHelper: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings?: import("./components/DOM/helpers/intersection").intersectionSettingsMap) => false | IntersectionObserver;
+    intersectionHelper: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings?: import("./components/DOM/helpers/intersection").intersectionSettingsMap, $window?: Window) => false | IntersectionObserver;
     lazyloadHelper: typeof lazyloadHelper;
     scripts: {
         activator: () => [false | IntersectionObserver, false | IntersectionObserver];

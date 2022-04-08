@@ -6,7 +6,7 @@ export interface stickyjsSettingsMap{
   // can be needed in special cases
   elementHeight? :number | string,
   // scroll after which apply shy (hide) (example: 300px from top)
-  treshold? :number,
+  threshold? :number,
   // how much intensity of scroll does trigger the shy (hide) effect
   intensity? :number,
   // class that applies when stick to the top
@@ -20,8 +20,9 @@ export interface stickyjsSettingsMap{
  *  alternativa sempre valida a position: sticky, con distinzione modalità "sticky"
  *  sticky header che si mostra o nasconde in base allo scroll (transition: top non inclusa)
  *
- *  @param HTMLElement element 	= il fixed nav da spostare
- *  @param object settings
+ *  @param {HTMLElement} element - il fixed nav da spostare
+ *  @param {Object} settings
+ *  @param {Window} $window - TEMPORARY
  **/
 export default (element :HTMLElement | null, settings :stickyjsSettingsMap = {}, $window :Window = window ) :void => {
   if(!element)
@@ -31,7 +32,7 @@ export default (element :HTMLElement | null, settings :stickyjsSettingsMap = {},
     hideTop = 0;
   const {
     elementHeight = 'auto',
-    treshold = 0,
+    threshold = 0,
     intensity = 0,
     className = 'shyjs-active'
   } = settings;
@@ -44,8 +45,8 @@ export default (element :HTMLElement | null, settings :stickyjsSettingsMap = {},
     // scroll of window
     const scrollY = $window.scrollY;
 
-    if(scrollY >= lastScrollY + intensity && scrollY >= treshold && scrollY > 10){
-      // active shy mode: if this scroll > lastscroll then we are scrolling bottom. If we are above the scroll treshold: hide
+    if(scrollY >= lastScrollY + intensity && scrollY >= threshold && scrollY > 10){
+      // active shy mode: if this scroll > lastscroll then we are scrolling bottom. If we are above the scroll threshold: hide
       // WARNING: if on top of page DO NOT hide (10px?). Bugs can occur.
         if(hideTop != 0)
           element.style.top = -hideTop + 'px';

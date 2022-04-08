@@ -58,7 +58,7 @@ describe('Test header manipulation', () => {
             shyJs($element[0], {
               className: 'i-am-shy',
               // needed because it could be awkward if not fixed already
-              treshold: top + 200,
+              threshold: top + 200,
             }, $window);
 
 

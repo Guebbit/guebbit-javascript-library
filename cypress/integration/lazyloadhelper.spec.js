@@ -7,6 +7,7 @@ describe('Test images lazyloading TODO $window problem', () => {
 
   it('lazyload & activator TODO not work', () => {
     cy.document()
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .then($document => {
         scripts.lazyload();
         scripts.activator();

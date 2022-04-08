@@ -6,11 +6,11 @@ export interface intersectionSettingsMap {
     intersectingCallback?: (el: Element) => void;
     notIntersectingCallback?: (el: Element) => void;
 }
-declare const _default: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings?: intersectionSettingsMap) => IntersectionObserver | false;
+declare const _default: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings?: intersectionSettingsMap, $window?: Window) => IntersectionObserver | false;
 /**
  *  IntersectionObserver helper, per programmarlo meglio
- *  @param HTMLElement el  = elemento da osservare
- *  @param object settings
+ *  @param {HTMLElement} el  = elemento da osservare
+ *  @param {Object} settings
  **/
 export default _default;
 //# sourceMappingURL=intersection.d.ts.map
