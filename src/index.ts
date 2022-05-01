@@ -49,6 +49,8 @@ import activator from "./scripts/activator";
 import lazyload from "./scripts/lazyload";
 import createPrototypes from "./scripts/createPrototypes";
 
+import type { calculationsMap } from "./interfaces";
+
 const scripts = {
 	activator,
 	lazyload,
@@ -123,6 +125,10 @@ export {
 	lazyloadHelper,
 
 	scripts,
+
+  // ------------- INTERFACES -------------
+
+  calculationsMap
 };
 
 
@@ -184,4 +190,6 @@ export default {
 	lazyloadHelper,
 
 	scripts,
+
+  // INTERFACES CAN'T BE IN DEFAULT EXPORT
 };

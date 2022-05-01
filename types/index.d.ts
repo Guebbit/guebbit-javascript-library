@@ -34,12 +34,13 @@ import classScroll from "./components/DOM/events/classscroll";
 import stickyJs from "./components/DOM/events/stickyjs";
 import shyJs from "./components/DOM/events/shyjs";
 import mouseParallax, { calculateMouseParallax, executeMouseParallax, createMouseParallaxItem } from "./components/DOM/manipulation/mouseparallax";
+import type { calculationsMap } from "./interfaces";
 declare const scripts: {
     activator: () => [false | IntersectionObserver, false | IntersectionObserver];
     lazyload: () => false | IntersectionObserver;
     createPrototypes: {};
 };
-export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, getDelta, getMapDistance, matrixTranspose, secondsToTime, timeToSeconds, array_column, divide_array, chunks_array, debouncePromise, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, };
+export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, getDelta, getMapDistance, matrixTranspose, secondsToTime, timeToSeconds, array_column, divide_array, chunks_array, debouncePromise, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, calculationsMap };
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
