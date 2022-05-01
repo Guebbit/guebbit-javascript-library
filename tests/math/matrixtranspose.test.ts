@@ -2,7 +2,7 @@ import { matrixTranspose } from '../../src';
 
 
 describe("(matrixTranspose) Transpose a matrix. Invert rows and columns", () => {
-	test("", () => {
+	test("default", () => {
 		expect(
 			matrixTranspose([
 				[1,2,3],

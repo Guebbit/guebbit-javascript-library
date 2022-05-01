@@ -10,7 +10,11 @@ import getValue from "./components/DOM/getters/getvalue";
 import getIFrame from "./components/DOM/getters/getiframe";
 import getIndex from "./components/DOM/getters/getindex";
 import getSiblings from "./components/DOM/getters/getsiblings";
+import getDelta from "./components/math/getdelta";
+import getMapDistance from "./components/math/getmapdistance";
 import matrixTranspose from "./components/math/matrixtranspose";
+import secondsToTime from "./components/converters/secondstotime";
+import timeToSeconds from "./components/converters/timetoseconds";
 import array_column from "./components/array/array_column";
 import divide_array from "./components/array/divide_array";
 import chunks_array from "./components/array/chunks_array";
@@ -35,7 +39,7 @@ declare const scripts: {
     lazyload: () => false | IntersectionObserver;
     createPrototypes: {};
 };
-export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, matrixTranspose, array_column, divide_array, chunks_array, debouncePromise, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, };
+export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, getDelta, getMapDistance, matrixTranspose, secondsToTime, timeToSeconds, array_column, divide_array, chunks_array, debouncePromise, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, };
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
@@ -49,7 +53,11 @@ declare const _default: {
     isEmpty: (test: unknown) => boolean;
     isJson: (test: string) => false | Record<string, unknown>;
     isUrl: (string: string) => boolean;
+    getDelta: (a: number, b: number, size?: number) => number;
+    getMapDistance: (Xa: number, Xb: number, Ya: number, Yb: number, size?: number) => number;
     matrixTranspose: (m: unknown[][]) => unknown[][];
+    secondsToTime: (time?: number) => Record<string, number>;
+    timeToSeconds: (date?: string, delimiter?: string) => number;
     array_column: (array: Record<string, unknown>[], column: string) => unknown[];
     divide_array: (array: unknown[], n?: number) => unknown[];
     chunks_array: (array: unknown[], n: number) => unknown[];

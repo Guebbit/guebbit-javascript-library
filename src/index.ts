@@ -12,7 +12,11 @@ import getIFrame from "./components/DOM/getters/getiframe";
 import getIndex from "./components/DOM/getters/getindex";
 import getSiblings from "./components/DOM/getters/getsiblings";
 
+import getDelta from "./components/math/getdelta";
+import getMapDistance from "./components/math/getmapdistance";
 import matrixTranspose from "./components/math/matrixtranspose";
+import secondsToTime from "./components/converters/secondstotime";
+import timeToSeconds from "./components/converters/timetoseconds";
 
 import array_column from "./components/array/array_column";
 import divide_array from "./components/array/divide_array";
@@ -71,7 +75,11 @@ export {
 	isUrl,
 
 	//math
+  getDelta,
+  getMapDistance,
 	matrixTranspose,
+  secondsToTime,
+  timeToSeconds,
 
 	//array
 	array_column,
@@ -139,7 +147,11 @@ export default {
 	isUrl,
 
 	//math
-	matrixTranspose,
+  getDelta,
+  getMapDistance,
+  matrixTranspose,
+  secondsToTime,
+  timeToSeconds,
 
 	//array
 	array_column,
