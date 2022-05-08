@@ -15,8 +15,6 @@ import getSiblings from "./components/DOM/getters/getsiblings";
 import getDelta from "./components/math/getdelta";
 import getMapDistance from "./components/math/getmapdistance";
 import matrixTranspose from "./components/math/matrixtranspose";
-import secondsToTime from "./components/converters/secondstotime";
-import timeToSeconds from "./components/converters/timetoseconds";
 
 import array_column from "./components/array/array_column";
 import divide_array from "./components/array/divide_array";
@@ -33,6 +31,9 @@ import match from "./components/filters/match";
 import search from "./components/filters/search";
 import associativeSlice from "./components/filters/associativeslice";
 
+import hexToRGB from "./components/converters/hextorgb";
+import secondsToTime from "./components/converters/secondstotime";
+import timeToSeconds from "./components/converters/timetoseconds";
 import toFormData from "./components/converters/toformdata";
 
 import toDOM from "./components/DOM/todom";
@@ -80,8 +81,6 @@ export {
   getDelta,
   getMapDistance,
 	matrixTranspose,
-  secondsToTime,
-  timeToSeconds,
 
 	//array
 	array_column,
@@ -91,8 +90,11 @@ export {
   // async
   debouncePromise,
 
-	//manipulations
-	toFormData,
+  //converters
+  hexToRGB,
+  secondsToTime,
+  timeToSeconds,
+  toFormData,
 
 	// ------------- DOM -------------
 
@@ -156,16 +158,17 @@ export default {
   getDelta,
   getMapDistance,
   matrixTranspose,
-  secondsToTime,
-  timeToSeconds,
 
 	//array
 	array_column,
 	divide_array,
 	chunks_array,
 
-	//manipulations
-	toFormData,
+  //converters
+  hexToRGB,
+  secondsToTime,
+  timeToSeconds,
+  toFormData,
 
 	// ------------- DOM -------------
 
