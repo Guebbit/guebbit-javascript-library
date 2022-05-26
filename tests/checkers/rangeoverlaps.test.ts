@@ -8,6 +8,14 @@ describe("(rangeOverlaps) check if 2 range overlapses", () => {
     ).toBeFalsy();
   });
 
+
+  test("No intersection (same number)", () => {
+    expect(
+      rangeOverlaps(50, 100, 100, 200),
+    ).toBeFalsy();
+  });
+
+
   test("B starts in A", () => {
     expect(
       rangeOverlaps(50, 100, 80, 200),

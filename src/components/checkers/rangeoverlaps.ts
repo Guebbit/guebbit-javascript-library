@@ -9,10 +9,10 @@
  */
 export default (aStart :number | Date, aEnd :number | Date, bStart :number | Date, bEnd :number | Date ) :boolean => {
   // B starts in A
-  if(aStart <= bStart && bStart <= aEnd)
+  if(aStart < bStart && bStart < aEnd)
     return true;
   // B ends in A
-  if(aStart <= bEnd && bEnd <= aEnd)
+  if(aStart < bEnd && bEnd < aEnd)
     return true;
   // A in B
   if(bStart < aStart && aEnd < bEnd)
