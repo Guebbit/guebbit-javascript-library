@@ -17,9 +17,9 @@ import getDelta from "./components/math/getdelta";
 import getMapDistance from "./components/math/getmapdistance";
 import matrixTranspose from "./components/math/matrixtranspose";
 
-import array_column from "./components/array/array_column";
-import divide_array from "./components/array/divide_array";
-import chunks_array from "./components/array/chunks_array";
+import arrayColumn from "./components/array/arraycolumn";
+import divideArray from "./components/array/dividearray";
+import chunksArray from "./components/array/chunksarray";
 
 import debouncePromise from "./components/async/debouncepromise";
 
@@ -85,9 +85,9 @@ export {
 	matrixTranspose,
 
 	//array
-	array_column,
-	divide_array,
-	chunks_array,
+	arrayColumn,
+	divideArray,
+	chunksArray,
 
   // async
   debouncePromise,
@@ -163,9 +163,9 @@ export default {
   matrixTranspose,
 
 	//array
-	array_column,
-	divide_array,
-	chunks_array,
+	arrayColumn,
+	divideArray,
+	chunksArray,
 
   //converters
   hexToRGB,

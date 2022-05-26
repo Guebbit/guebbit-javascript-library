@@ -5,4 +5,4 @@ declare const _default: (array: unknown[], n?: number) => unknown[];
 *	@param integer num: number of chunks (sub arrays)
 **/
 export default _default;
-//# sourceMappingURL=divide_array.d.ts.map
+//# sourceMappingURL=divideArray.d.ts.map

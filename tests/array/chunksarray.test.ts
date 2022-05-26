@@ -1,6 +1,6 @@
-import { chunks_array } from '../../src';
+import { chunksArray } from '../../src';
 
-describe("(chunks_array) divide array in [num] numbers of sub-arrays, lengths differ as less as possible", () => {
+describe("(chunksArray) divide array in [num] numbers of sub-arrays, lengths differ as less as possible", () => {
 	const input :string[] = [
 		'lorem',
 		'ipsum',
@@ -15,7 +15,7 @@ describe("(chunks_array) divide array in [num] numbers of sub-arrays, lengths di
 
 	test("2 balanced sub-arrays", () => {
 		expect(
-			chunks_array(input, 2)
+			chunksArray(input, 2)
 		).toEqual([
 			[
 				'lorem',
@@ -35,7 +35,7 @@ describe("(chunks_array) divide array in [num] numbers of sub-arrays, lengths di
 
 	test("3 sub-arrays from a 9 lenght array, perfect division and perfect balance", () => {
 		expect(
-			chunks_array(input, 3)
+			chunksArray(input, 3)
 		).toEqual([
 			[
 				'lorem',
@@ -57,7 +57,7 @@ describe("(chunks_array) divide array in [num] numbers of sub-arrays, lengths di
 
 	test("4 balanced sub-arrays", () => {
 		expect(
-			chunks_array(input, 4)
+			chunksArray(input, 4)
 		).toEqual([
 			[
 				'lorem',
@@ -81,7 +81,7 @@ describe("(chunks_array) divide array in [num] numbers of sub-arrays, lengths di
 
 	test("5 balanced sub-arrays", () => {
 		expect(
-			chunks_array(input, 5)
+			chunksArray(input, 5)
 		).toEqual([
 			[
 				'lorem',
@@ -107,7 +107,7 @@ describe("(chunks_array) divide array in [num] numbers of sub-arrays, lengths di
 
 	test("7 balanced sub-arrays", () => {
 		expect(
-			chunks_array(input, 7)
+			chunksArray(input, 7)
 		).toEqual([
 			[
 				'lorem',

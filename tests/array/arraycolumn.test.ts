@@ -1,6 +1,6 @@
-import { array_column } from '../../src';
+import { arrayColumn } from '../../src';
 
-describe("(array_column) php equivalent of array_column", () => {
+describe("(arrayColumn) php equivalent of arrayColumn", () => {
 	test("Return the values from a single column in the input array of objects, 'param' in this case", () => {
 		const input = [
 				{
@@ -18,7 +18,7 @@ describe("(array_column) php equivalent of array_column", () => {
 			];
 
 		expect(
-			array_column(input, "param")
+			arrayColumn(input, "param")
 		).toEqual([
 			'lorem ipsum',
 			'dolor',

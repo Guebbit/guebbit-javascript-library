@@ -1,1 +1,1 @@
-{"version":3,"file":"divide_array.d.ts","sourceRoot":"","sources":["../../../src/components/array/divide_array.ts"],"names":[],"mappings":"gCAKuB,OAAO,EAAE,iBAAU,OAAO,EAAE;AALnD;;;;GAIG;AACH,wBAGC"}
+{"version":3,"file":"divideArray.d.ts","sourceRoot":"","sources":["../../../src/components/array/divideArray.ts"],"names":[],"mappings":"gCAKuB,OAAO,EAAE,iBAAU,OAAO,EAAE;AALnD;;;;GAIG;AACH,wBAGC"}

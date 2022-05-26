@@ -14,9 +14,9 @@ import getSiblings from "./components/DOM/getters/getsiblings";
 import getDelta from "./components/math/getdelta";
 import getMapDistance from "./components/math/getmapdistance";
 import matrixTranspose from "./components/math/matrixtranspose";
-import array_column from "./components/array/array_column";
-import divide_array from "./components/array/divide_array";
-import chunks_array from "./components/array/chunks_array";
+import arrayColumn from "./components/array/arraycolumn";
+import divideArray from "./components/array/dividearray";
+import chunksArray from "./components/array/chunksarray";
 import debouncePromise from "./components/async/debouncepromise";
 import intersectionHelper from "./components/DOM/helpers/intersection";
 import lazyloadHelper from "./components/DOM/helpers/lazyload";
@@ -42,7 +42,7 @@ declare const scripts: {
     lazyload: () => false | IntersectionObserver;
     createPrototypes: {};
 };
-export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, rangeOverlaps, getDelta, getMapDistance, matrixTranspose, array_column, divide_array, chunks_array, debouncePromise, hexToRGB, secondsToTime, timeToSeconds, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, calculationsMap };
+export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, rangeOverlaps, getDelta, getMapDistance, matrixTranspose, arrayColumn, divideArray, chunksArray, debouncePromise, hexToRGB, secondsToTime, timeToSeconds, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, calculationsMap };
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
@@ -60,9 +60,9 @@ declare const _default: {
     getDelta: (a: number, b: number, size?: number) => number;
     getMapDistance: (Xa: number, Xb: number, Ya: number, Yb: number, size?: number) => number;
     matrixTranspose: (m: unknown[][]) => unknown[][];
-    array_column: (array: Record<string, unknown>[], column: string) => unknown[];
-    divide_array: (array: unknown[], n?: number) => unknown[];
-    chunks_array: (array: unknown[], n: number) => unknown[];
+    arrayColumn: (array: Record<string, unknown>[], column: string) => unknown[];
+    divideArray: (array: unknown[], n?: number) => unknown[];
+    chunksArray: (array: unknown[], n: number) => unknown[];
     hexToRGB: (hex: string) => [number, number, number];
     secondsToTime: (time?: number) => Record<string, number>;
     timeToSeconds: (date?: string, delimiter?: string) => number;

@@ -6,4 +6,4 @@ declare const _default: (array: unknown[], n: number) => unknown[];
 *	@param integer n: number of chunks
 **/
 export default _default;
-//# sourceMappingURL=chunks_array.d.ts.map
+//# sourceMappingURL=chunksArray.d.ts.map
