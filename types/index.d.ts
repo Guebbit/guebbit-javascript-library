@@ -3,6 +3,7 @@ import isEmail from "./components/checkers/isemail";
 import isEmpty from "./components/checkers/isempty";
 import isJson from "./components/checkers/isjson";
 import isUrl from "./components/checkers/isurl";
+import rangeOverlaps from "./components/checkers/rangeoverlaps";
 import getUUID from "./components/getters/getuuid";
 import getLast from "./components/getters/getlast";
 import getForm from "./components/DOM/getters/getform";
@@ -41,7 +42,7 @@ declare const scripts: {
     lazyload: () => false | IntersectionObserver;
     createPrototypes: {};
 };
-export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, getDelta, getMapDistance, matrixTranspose, array_column, divide_array, chunks_array, debouncePromise, hexToRGB, secondsToTime, timeToSeconds, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, calculationsMap };
+export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, rangeOverlaps, getDelta, getMapDistance, matrixTranspose, array_column, divide_array, chunks_array, debouncePromise, hexToRGB, secondsToTime, timeToSeconds, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, calculationsMap };
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
@@ -55,6 +56,7 @@ declare const _default: {
     isEmpty: (test: unknown) => boolean;
     isJson: (test: string) => false | Record<string, unknown>;
     isUrl: (string: string) => boolean;
+    rangeOverlaps: (aStart: number, aEnd: number, bStart: number, bEnd: number) => boolean;
     getDelta: (a: number, b: number, size?: number) => number;
     getMapDistance: (Xa: number, Xb: number, Ya: number, Yb: number, size?: number) => number;
     matrixTranspose: (m: unknown[][]) => unknown[][];

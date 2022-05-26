@@ -3,6 +3,7 @@ import isEmail from "./components/checkers/isemail";
 import isEmpty from "./components/checkers/isempty";
 import isJson from "./components/checkers/isjson";
 import isUrl from "./components/checkers/isurl";
+import rangeOverlaps from "./components/checkers/rangeoverlaps";
 
 import getUUID from "./components/getters/getuuid";
 import getLast from "./components/getters/getlast";
@@ -76,6 +77,7 @@ export {
 	isEmpty,
 	isJson,
 	isUrl,
+  rangeOverlaps,
 
 	//math
   getDelta,
@@ -153,6 +155,7 @@ export default {
 	isEmpty,
 	isJson,
 	isUrl,
+  rangeOverlaps,
 
 	//math
   getDelta,
