@@ -56,7 +56,7 @@ declare const _default: {
     isEmpty: (test: unknown) => boolean;
     isJson: (test: string) => false | Record<string, unknown>;
     isUrl: (string: string) => boolean;
-    rangeOverlaps: (aStart: number, aEnd: number, bStart: number, bEnd: number) => boolean;
+    rangeOverlaps: (aStart: number | Date, aEnd: number | Date, bStart: number | Date, bEnd: number | Date) => boolean;
     getDelta: (a: number, b: number, size?: number) => number;
     getMapDistance: (Xa: number, Xb: number, Ya: number, Yb: number, size?: number) => number;
     matrixTranspose: (m: unknown[][]) => unknown[][];
