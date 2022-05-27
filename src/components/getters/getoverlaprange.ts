@@ -4,6 +4,9 @@
  *
  * WARNING: If B start right after A and have the same number, it will NOT be counted as overlap TODO create mode?
  *
+ * https://www.get-digital-help.com/days-contained-in-a-range-that-overlap-another-range/
+ * https://www.codeproject.com/Articles/168662/Time-Period-Library-for-NET
+ *
  * @param {number} firstStart  - A1
  * @param {number} firstEnd    - A2
  * @param {number} secondStart - B1

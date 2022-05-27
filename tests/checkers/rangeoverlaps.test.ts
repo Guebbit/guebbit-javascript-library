@@ -1,4 +1,4 @@
-import {rangeOverlaps} from '../../src';
+import { rangeOverlaps } from '../../src';
 
 describe("(rangeOverlaps) check if 2 range overlaps then return the number of overlapping units", () => {
 
