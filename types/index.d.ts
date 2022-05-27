@@ -6,6 +6,7 @@ import isUrl from "./components/checkers/isurl";
 import rangeOverlaps from "./components/checkers/rangeoverlaps";
 import getUUID from "./components/getters/getuuid";
 import getLast from "./components/getters/getlast";
+import getOverlapRange from "./components/getters/getoverlaprange";
 import getForm from "./components/DOM/getters/getform";
 import getValue from "./components/DOM/getters/getvalue";
 import getIFrame from "./components/DOM/getters/getiframe";
@@ -42,10 +43,11 @@ declare const scripts: {
     lazyload: () => false | IntersectionObserver;
     createPrototypes: {};
 };
-export { getUUID, getLast, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, rangeOverlaps, getDelta, getMapDistance, matrixTranspose, arrayColumn, divideArray, chunksArray, debouncePromise, hexToRGB, secondsToTime, timeToSeconds, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, calculationsMap };
+export { getUUID, getLast, getOverlapRange, associativeSlice, levenshteinDistance, match, search, whitelist, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, rangeOverlaps, getDelta, getMapDistance, matrixTranspose, arrayColumn, divideArray, chunksArray, debouncePromise, hexToRGB, secondsToTime, timeToSeconds, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, calculationsMap };
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
+    getOverlapRange: (firstStart: number, firstEnd: number, secondStart: number, secondEnd: number) => [number, number];
     associativeSlice: (obj: Record<string, unknown>, start: number, endd: number) => Record<string, unknown>;
     levenshteinDistance: (a: string | null | undefined, b: string | null | undefined) => number;
     match: (string1: string, string2: string, distance?: number) => boolean;
@@ -56,7 +58,7 @@ declare const _default: {
     isEmpty: (test: unknown) => boolean;
     isJson: (test: string) => false | Record<string, unknown>;
     isUrl: (string: string) => boolean;
-    rangeOverlaps: (aStart: number | Date, aEnd: number | Date, bStart: number | Date, bEnd: number | Date) => boolean;
+    rangeOverlaps: (firstStart: number, firstEnd: number, secondStart: number, secondEnd: number, sameUnitOverlap?: boolean) => number;
     getDelta: (a: number, b: number, size?: number) => number;
     getMapDistance: (Xa: number, Xb: number, Ya: number, Yb: number, size?: number) => number;
     matrixTranspose: (m: unknown[][]) => unknown[][];

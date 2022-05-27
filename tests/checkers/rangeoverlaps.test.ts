@@ -1,43 +1,53 @@
-import { rangeOverlaps } from '../../src';
+import {rangeOverlaps} from '../../src';
 
-describe("(rangeOverlaps) check if 2 range overlapses", () => {
+describe("(rangeOverlaps) check if 2 range overlaps then return the number of overlapping units", () => {
+
+  test("Same time", () => {
+    expect(
+      rangeOverlaps(50, 100, 50, 100),
+    ).toBe(50);
+  });
 
   test("No intersection", () => {
     expect(
       rangeOverlaps(50, 100, 150, 200),
-    ).toBeFalsy();
+    ).toBe(0);
   });
 
-
-  test("No intersection (same number)", () => {
+  test("No intersection (same number, same unit DO overlap)", () => {
     expect(
       rangeOverlaps(50, 100, 100, 200),
-    ).toBeFalsy();
+    ).toBe(0);
   });
 
+  test("No intersection (same number, same unit DONT overlap)", () => {
+    expect(
+      rangeOverlaps(50, 100, 100, 200, true),
+    ).toBe(1);
+  });
 
-  test("B starts in A", () => {
+  test("A starts in B  || B ends in A", () => {
+    expect(
+      rangeOverlaps(150, 300, 100, 200),
+    ).toBe(50);
+  });
+
+  test("A ends in B || B starts in A", () => {
     expect(
       rangeOverlaps(50, 100, 80, 200),
-    ).toBeTruthy();
+    ).toBe(20);
   });
 
-  test("B ends in A", () => {
-    expect(
-      rangeOverlaps(50, 100, 20, 60),
-    ).toBeTruthy();
-  });
 
   test("A in B", () => {
     expect(
       rangeOverlaps(50, 100, 10, 200),
-    ).toBeTruthy();
+    ).toBe(50);
   });
 
   test("B in A", () => {
     expect(
       rangeOverlaps(50, 100, 70, 80),
-    ).toBeTruthy();
+    ).toBe(10);
   });
-
 });

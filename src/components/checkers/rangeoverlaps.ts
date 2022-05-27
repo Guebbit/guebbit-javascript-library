@@ -1,22 +1,18 @@
 /**
- * Check if 2 ranges overlap
+ * Check if 2 ranges overlap,
+ * then return the number of overlapping units
  *
- * @param {number | Date} aStart
- * @param {number | Date} aEnd
- * @param {number | Date} bStart
- * @param {number | Date} bEnd
- * @return {boolean}
+ * WARNING: If B start right after A and have the same number, it will say that they overlap of "1"
+ * In some cases is better to ignore this 1 unit of overlap
+ * (example, in dates it would be 1 second of overlap)
+ *
+ * @param {number} firstStart  - A1
+ * @param {number} firstEnd    - A2
+ * @param {number} secondStart - B1
+ * @param {number} secondEnd   - B2
+ * @param {number} sameUnitOverlap - same unit is or isn't overlap
+ * @return {number}
  */
-export default (aStart :number | Date, aEnd :number | Date, bStart :number | Date, bEnd :number | Date ) :boolean => {
-  // B starts in A
-  if(aStart < bStart && bStart < aEnd)
-    return true;
-  // B ends in A
-  if(aStart < bEnd && bEnd < aEnd)
-    return true;
-  // A in B
-  if(bStart < aStart && aEnd < bEnd)
-    return true;
-  // no intersection
-  return false;
+export default (firstStart :number, firstEnd :number, secondStart :number, secondEnd :number, sameUnitOverlap = false) :number => {
+  return Math.max(Math.min(firstEnd, secondEnd) - Math.max(firstStart, secondStart) + (sameUnitOverlap ? 1 : 0), 0);
 }

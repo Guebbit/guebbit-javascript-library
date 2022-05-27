@@ -1,12 +1,18 @@
-declare const _default: (aStart: number | Date, aEnd: number | Date, bStart: number | Date, bEnd: number | Date) => boolean;
+declare const _default: (firstStart: number, firstEnd: number, secondStart: number, secondEnd: number, sameUnitOverlap?: boolean) => number;
 /**
- * Check if 2 ranges overlap
+ * Check if 2 ranges overlap,
+ * then return the number of overlapping units
  *
- * @param {number | Date} aStart
- * @param {number | Date} aEnd
- * @param {number | Date} bStart
- * @param {number | Date} bEnd
- * @return {boolean}
+ * WARNING: If B start right after A and have the same number, it will say that they overlap of "1"
+ * In some cases is better to ignore this 1 unit of overlap
+ * (example, in dates it would be 1 second of overlap)
+ *
+ * @param {number} firstStart  - A1
+ * @param {number} firstEnd    - A2
+ * @param {number} secondStart - B1
+ * @param {number} secondEnd   - B2
+ * @param {number} sameUnitOverlap - same unit is or isn't overlap
+ * @return {number}
  */
 export default _default;
 //# sourceMappingURL=rangeoverlaps.d.ts.map

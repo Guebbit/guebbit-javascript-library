@@ -7,6 +7,7 @@ import rangeOverlaps from "./components/checkers/rangeoverlaps";
 
 import getUUID from "./components/getters/getuuid";
 import getLast from "./components/getters/getlast";
+import getOverlapRange from "./components/getters/getoverlaprange";
 import getForm from "./components/DOM/getters/getform";
 import getValue from "./components/DOM/getters/getvalue";
 import getIFrame from "./components/DOM/getters/getiframe";
@@ -63,6 +64,7 @@ export {
 	//getters
 	getUUID,
 	getLast,
+  getOverlapRange,
 
 	//filters
 	associativeSlice,
@@ -141,6 +143,7 @@ export default {
 	//getters
 	getUUID,
 	getLast,
+  getOverlapRange,
 
 	//filters
 	associativeSlice,
