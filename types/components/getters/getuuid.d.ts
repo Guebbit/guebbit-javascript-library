@@ -1,4 +1,3 @@
-declare const _default: () => string;
 /**
 * 	Creo un id univoco così complicato che la collisione è impossibile
 *	[ECMAScript 6] random v4 UUID (gxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx)
@@ -6,5 +5,6 @@ declare const _default: () => string;
 *	WARNING: for CRYPTO SECURE use https://github.com/uuidjs/uuid
 *	@return string random id
 **/
+declare const _default: () => string;
 export default _default;
 //# sourceMappingURL=getuuid.d.ts.map

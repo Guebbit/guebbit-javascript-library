@@ -1,4 +1,4 @@
-import {formatNodeList} from "../../_helpers";
+import { formatNodeList } from "@components/_helpers";
 
 export const setSource = function (element: Element): boolean {
   let flag = false;

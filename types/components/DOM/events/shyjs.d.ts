@@ -5,7 +5,6 @@ export interface stickyjsSettingsMap {
     className?: string;
     shyClassName?: string;
 }
-declare const _default: (element: HTMLElement | null, settings?: stickyjsSettingsMap, $window?: Window) => void;
 /**
  *  alternativa sempre valida a position: sticky, con distinzione modalità "sticky"
  *  sticky header che si mostra o nasconde in base allo scroll (transition: top non inclusa)
@@ -14,5 +13,6 @@ declare const _default: (element: HTMLElement | null, settings?: stickyjsSetting
  *  @param {Object} settings
  *  @param {Window} $window - TEMPORARY
  **/
+declare const _default: (element: HTMLElement | null, settings?: stickyjsSettingsMap, $window?: Window) => void;
 export default _default;
 //# sourceMappingURL=shyjs.d.ts.map

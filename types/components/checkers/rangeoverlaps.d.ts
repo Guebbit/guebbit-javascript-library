@@ -1,4 +1,3 @@
-declare const _default: (firstStart: number, firstEnd: number, secondStart: number, secondEnd: number, sameUnitOverlap?: boolean) => number;
 /**
  * Check if 2 ranges overlap,
  * then return the number of overlapping units
@@ -14,5 +13,6 @@ declare const _default: (firstStart: number, firstEnd: number, secondStart: numb
  * @param {number} sameUnitOverlap - same unit is or isn't overlap
  * @return {number}
  */
+declare const _default: (firstStart: number, firstEnd: number, secondStart: number, secondEnd: number, sameUnitOverlap?: boolean) => number;
 export default _default;
 //# sourceMappingURL=rangeoverlaps.d.ts.map

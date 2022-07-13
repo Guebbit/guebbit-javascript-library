@@ -1,1 +1,1 @@
-{"version":3,"file":"getindex.d.ts","sourceRoot":"","sources":["../../../../src/components/DOM/getters/getindex.ts"],"names":[],"mappings":"kCAMyB,WAAW,GAAG,IAAI,KAAG,MAAM;AANpD;;;;;GAKG;AACH,wBAOC"}
+{"version":3,"file":"getindex.d.ts","sourceRoot":"","sources":["../../../../src/components/dom/getters/getindex.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;kCACsB,WAAW,GAAG,IAAI,KAAG,MAAM;AAApD,wBAOC"}

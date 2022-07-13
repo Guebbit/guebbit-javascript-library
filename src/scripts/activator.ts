@@ -1,4 +1,4 @@
-import intersectionHelper from "../components/DOM/helpers/intersection";
+import intersectionHelper from "../components/dom/helpers/intersection";
 
 export default () :[ IntersectionObserver | false, IntersectionObserver | false ] => {
 	return [

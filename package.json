@@ -1,6 +1,6 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "personal library",
   "scripts": {
     "doc": "typedoc src/index.ts",
@@ -11,7 +11,7 @@
     "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
     "rollup:build": "rollup --config ./rollup.config.js",
     "rollup:serve": "rollup -cw",
-    "prepublish": "npm run doc && npm run rollup:build && npm run test",
+    "prepublish": "npm run doc && npm run rollup:build && npm run test && npm run lint",
     "cypress": "cypress run --browser chrome",
     "cypress:open": "cypress open",
     "serve": "http-server ./cypress/public/ -i -c-1 -d --cors -a localhost -p 8000"

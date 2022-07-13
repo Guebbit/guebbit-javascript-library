@@ -1,5 +1,5 @@
-import intersectionHelper from "../components/DOM/helpers/intersection";
-import lazyloadHelper from "../components/DOM/helpers/lazyload";
+import intersectionHelper from "../components/dom/helpers/intersection";
+import lazyloadHelper from "../components/dom/helpers/lazyload";
 
 
 export default () :IntersectionObserver | false => {

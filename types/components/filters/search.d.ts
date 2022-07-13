@@ -1,4 +1,3 @@
-declare const _default: (haystack: Record<string, unknown>[], needles: [string, string][], mode?: string, distance?: number) => Record<string, unknown>[];
 /**
 *	return Search(ArrayOfValues, searchable);
 *	@param {array} haystack: array of objects
@@ -10,5 +9,6 @@ declare const _default: (haystack: Record<string, unknown>[], needles: [string, 
  *		  - NOR: TODO
 *	@param {integer} distance: levenshteinDistance if set
 **/
+declare const _default: (haystack: Record<string, unknown>[], needles: [string, string][], mode?: string, distance?: number) => Record<string, unknown>[];
 export default _default;
 //# sourceMappingURL=search.d.ts.map

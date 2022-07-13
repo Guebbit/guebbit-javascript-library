@@ -3,7 +3,6 @@ export interface classscrollSettingsMap {
     scroll: number;
     remove?: boolean;
 }
-declare const _default: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: classscrollSettingsMap[], $window?: Window) => void;
 /**
 *	Classi che aggiungo (o rimuovo) ad un certo scrollY
 * @param {HTMLElement[]} element 	= l'elemento a cui applicare le classi a seconda della posizione
@@ -15,5 +14,6 @@ declare const _default: (element: HTMLElement | HTMLElement[] | NodeList | HTMLC
         remove: true		//se remove=true (false di default), invece la rimuovo
     }]
 **/
+declare const _default: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: classscrollSettingsMap[], $window?: Window) => void;
 export default _default;
 //# sourceMappingURL=classscroll.d.ts.map

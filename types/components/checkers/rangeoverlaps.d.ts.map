@@ -1,1 +1,1 @@
-{"version":3,"file":"rangeoverlaps.d.ts","sourceRoot":"","sources":["../../../src/components/checkers/rangeoverlaps.ts"],"names":[],"mappings":"qCAe4B,MAAM,YAAY,MAAM,eAAe,MAAM,aAAa,MAAM,gCAA4B,MAAM;AAf9H;;;;;;;;;;;;;;GAcG;AACH,wBAEC"}
+{"version":3,"file":"rangeoverlaps.d.ts","sourceRoot":"","sources":["../../../src/components/checkers/rangeoverlaps.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;GAcG;qCACyB,MAAM,YAAY,MAAM,eAAe,MAAM,aAAa,MAAM,gCAA4B,MAAM;AAA9H,wBAEC"}

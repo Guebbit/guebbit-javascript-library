@@ -1,7 +1,7 @@
 // TODO fix typescript error
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import type { calculationsMap } from "/src/interfaces";
+import type { calculationsMap } from "@/interfaces";
 
 /**
  * Transform milliseconds in minutes/hours/days/etc

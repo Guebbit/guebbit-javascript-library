@@ -1,4 +1,3 @@
-declare const _default: (Xa: number, Xb: number, Ya: number, Yb: number, size?: number) => number;
 /**
  * Distance between 2 points, like coordinates on a map A(x,y) & B(x,y)
  *
@@ -8,5 +7,6 @@ declare const _default: (Xa: number, Xb: number, Ya: number, Yb: number, size?: 
  * @param {number} Yb - coordinate Y of point B
  * @param {number} size
  */
+declare const _default: (Xa: number, Xb: number, Ya: number, Yb: number, size?: number) => number;
 export default _default;
 //# sourceMappingURL=getmapdistance.d.ts.map

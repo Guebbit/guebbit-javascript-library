@@ -1,4 +1,4 @@
-import {formatNodeList} from "../../_helpers";
+import { formatNodeList } from "@components/_helpers";
 
 export interface intersectionSettingsMap {
   single?: boolean,

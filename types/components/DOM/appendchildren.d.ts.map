@@ -1,1 +1,1 @@
-{"version":3,"file":"appendchildren.d.ts","sourceRoot":"","sources":["../../../src/components/DOM/appendchildren.ts"],"names":[],"mappings":"kCAKyB,WAAW,eAAe,WAAW,EAAE,GAAG,OAAO,EAAE,KAAG,WAAW;AAL1F;;;;GAIG;AACH,wBAUC"}
+{"version":3,"file":"appendchildren.d.ts","sourceRoot":"","sources":["../../../src/components/dom/appendchildren.ts"],"names":[],"mappings":"AAAA;;;;GAIG;kCACsB,WAAW,eAAe,WAAW,EAAE,GAAG,OAAO,EAAE,KAAG,WAAW;AAA1F,wBAUC"}

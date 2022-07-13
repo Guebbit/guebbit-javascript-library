@@ -1,1 +1,1 @@
-{"version":3,"file":"secondstotime.d.ts","sourceRoot":"","sources":["../../../src/components/converters/secondstotime.ts"],"names":[],"mappings":"2CAY2B,OAAO,MAAM,EAAC,MAAM,CAAC;AAPhD;;;;;;GAMG;AACH,wBAyBE"}
+{"version":3,"file":"secondstotime.d.ts","sourceRoot":"","sources":["../../../src/components/converters/secondstotime.ts"],"names":[],"mappings":"AAKA;;;;;;GAMG;2CACwB,OAAO,MAAM,EAAC,MAAM,CAAC;AAAhD,wBAyBE"}

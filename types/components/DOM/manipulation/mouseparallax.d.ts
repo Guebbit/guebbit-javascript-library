@@ -36,7 +36,6 @@ export declare const executeMouseParallax: ({ container, items }: mouseParallaxM
  * @param {HTMLElement} element - element where extract dataset
  */
 export declare const createMouseParallaxItem: (element: HTMLElement) => mouseParallaxItemsMap;
-declare const _default: (anchors?: HTMLElement[], parent?: HTMLElement | null, $document?: Document) => mouseParallaxMap | undefined;
 /**
  *  ALL IN ONE mouse parallax movements, calculation and application throught mouse and touch events
  *  Get values from function or from dataset in element
@@ -47,5 +46,6 @@ declare const _default: (anchors?: HTMLElement[], parent?: HTMLElement | null, $
  *
  *  @return {Object} - object to control the parallax
  */
+declare const _default: (anchors?: HTMLElement[], parent?: HTMLElement | null, $document?: Document) => mouseParallaxMap | undefined;
 export default _default;
 //# sourceMappingURL=mouseparallax.d.ts.map

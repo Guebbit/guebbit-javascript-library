@@ -1,1 +1,1 @@
-{"version":3,"file":"getsiblings.d.ts","sourceRoot":"","sources":["../../../../src/components/DOM/getters/getsiblings.ts"],"names":[],"mappings":"kCAKyB,WAAW,GAAG,OAAO,GAAG,IAAI,KAAG,OAAO,EAAE;AALjE;;;;GAIG;AACH,wBAKC"}
+{"version":3,"file":"getsiblings.d.ts","sourceRoot":"","sources":["../../../../src/components/dom/getters/getsiblings.ts"],"names":[],"mappings":"AAAA;;;;GAIG;kCACsB,WAAW,GAAG,OAAO,GAAG,IAAI,KAAG,OAAO,EAAE;AAAjE,wBAKC"}
