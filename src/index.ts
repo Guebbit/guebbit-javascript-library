@@ -1,5 +1,6 @@
-import hasOwnNestedProperty from "./components/checkers/hasownnestedproperty";
-import isEmail from "./components/checkers/isemail";
+import hasOwnNestedProperty from "@/components/checkers/hasownnestedproperty";
+// import isEmail from "./components/checkers/isemail";
+import isEmail from "@checkers/isemail"
 import isEmpty from "./components/checkers/isempty";
 import isJson from "./components/checkers/isjson";
 import isUrl from "./components/checkers/isurl";

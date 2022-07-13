@@ -34,7 +34,7 @@ const getFiles = async (directory) => {
 const gettingFiles = getFiles(path.resolve(__dirname));
 
 const replaceInFile = (matcher, replacer) => async (path) => {
-  const contents = await fs.readFile(path, { encoding: 'utf-8' });
+  const contents = await fs.readFile(path, {encoding: 'utf-8'});
   await fs.writeFile(path, contents.replace(matcher, replacer));
 };
 

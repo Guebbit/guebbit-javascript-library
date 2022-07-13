@@ -1,6 +1,11 @@
 // @ts-check
 /* eslint-env node */
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { pathsToModuleNameMapper } = require('ts-jest');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { compilerOptions } = require('./tsconfig.json');
+
 /**
  * An object with Jest options.
  * @type {import('@jest/types').Config.InitialOptions}
@@ -11,7 +16,9 @@ const options = {
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
     '/cypress/'
-  ]
+  ],
+  moduleDirectories: ['node_modules', './'],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
 };
 
 module.exports = options;

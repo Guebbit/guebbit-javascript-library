@@ -42,7 +42,7 @@ export default (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection
         const {target, isIntersecting} = entries[i]!;
         if (isIntersecting) {
           // Interrompo i monouso quando hanno successo la 1° volta
-          if (intersectingCallback && intersectingCallback(target) && single)
+          if (intersectingCallback && single)
             self.unobserve(target);
         } else {
           //NON sta intersecando

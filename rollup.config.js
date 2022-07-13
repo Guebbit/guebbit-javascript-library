@@ -2,6 +2,7 @@
 
 import { terser } from 'rollup-plugin-terser';
 import typescript2 from 'rollup-plugin-typescript2';
+import tsPaths from "rollup-plugin-tsconfig-paths";
 
 import pkg from './package.json';
 
@@ -71,6 +72,7 @@ const options = {
       useTsconfigDeclarationDir: true,
       tsconfig: './tsconfig.bundle.json',
     }),
+    tsPaths(),
   ],
   external: [
 	'lodash',
