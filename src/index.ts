@@ -31,8 +31,22 @@ import arrayColumns from "@filters/arraycolumns";
 import associativeSlice from "@filters/associativeslice";
 import whitelist from "@filters/whitelist";
 import match from "@filters/match";
-import filter from "@filters/filter";
-import searchRecords from "@filters/searchRecords";
+import filter, {
+  filterAnd,
+  filterOr,
+  filterNand,
+  filterNor,
+  filterXor,
+  filterXnor
+} from "@filters/filter";
+import searchRecords, {
+  searchAnd,
+  searchOr,
+  searchNand,
+  searchNor,
+  searchXor,
+  searchXnor,
+} from "@filters/searchRecords";
 
 import hexToRGB from "@converters/hextorgb";
 import secondsToTime from "@converters/secondstotime";
@@ -53,7 +67,7 @@ import activator from "@scripts/activator";
 import lazyload from "@scripts/lazyload";
 import createPrototypes from "@scripts/createPrototypes";
 
-import type { calculationsMap } from "@/interfaces";
+import type { logicGatesType, filterRulesMap, calculationsMap } from "@/interfaces";
 
 const scripts = {
 	activator,
@@ -73,7 +87,19 @@ export {
 	whitelist,
   match,
 	filter,
+  filterAnd,
+  filterOr,
+  filterNand,
+  filterNor,
+  filterXor,
+  filterXnor,
   searchRecords,
+  searchAnd,
+  searchOr,
+  searchNand,
+  searchNor,
+  searchXor,
+  searchXnor,
 
 	//checkers
 	hasOwnNestedProperty,
@@ -136,6 +162,8 @@ export {
 
   // ------------- INTERFACES -------------
 
+  logicGatesType,
+  filterRulesMap,
   calculationsMap
 };
 
@@ -153,7 +181,19 @@ export default {
   whitelist,
   match,
   filter,
+  filterAnd,
+  filterOr,
+  filterNand,
+  filterNor,
+  filterXor,
+  filterXnor,
   searchRecords,
+  searchAnd,
+  searchOr,
+  searchNand,
+  searchNor,
+  searchXor,
+  searchXnor,
 
 	//checkers
 	hasOwnNestedProperty,
