@@ -1,25 +1,47 @@
 import { match } from '../../src';
 
-describe("(match) Search in array for object with data[parameter] = search", () => {
+describe("(match) Check 2 strings", () => {
 
-	test("Check same string", () => {
+	test("[case insensitive] Check if they are the same string", () =>
+    expect(
+      match('lorem ipsum', 'Lorem Ipsum')
+    ).toBeTruthy()
+	);
+
+	test("[case sensitive] Check if they are the same string", () =>
 		expect(
-			match('lorem ipsum', 'lorem ipsum')
-		).toBeTruthy();
-	});
-	test("Check substring contained in a string", () => {
-		expect(
-			match('lorem ipsum', 'lorem')
-		).toBeTruthy();
-	});
-	test("Check similar strings (Levenshtein Distance employed, default 4)", () => {
-		expect(
-			match('lorem ipsum', 'lorem ispum', 4)
-		).toBeTruthy();
-	});
-	test("Check different strings", () => {
-		expect(
-			match('lorem ipsum', 'dolor')
-		).toBeFalsy();
-	});
+			match('lorem ipsum', 'Lorem Ipsum', true)
+		).toBeFalsy()
+	);
+
+  test("[distance -1, case insensitive] 1-way check if 1° parameter is substring contained in the 2°", () =>
+    expect(
+      match('Ipsum', 'lorem ipsum sit dolor')
+    ).toBeTruthy()
+  );
+
+  test("[distance -1, case sensitive] 1-way check if 1° parameter is substring contained in the 2°", () =>
+    expect(
+      match('Ipsum', 'lorem ipsum sit dolor', true)
+    ).toBeFalsy()
+  );
+
+  test("[distance -2] 2-way Check substring contained in a string", () =>
+    expect(
+      match('Ipsum', 'lorem ipsum sit dolor', false, -2) &&
+      match('lorem ipsum sit dolor', 'Ipsum', false, -2)
+    ).toBeTruthy()
+  );
+
+  test("[distance 2, case insensitive] Check if they are similar (Levenshtein Distance)", () =>
+    expect(
+      match('lorem ipsum', 'lorem ispum', false, 2)
+    ).toBeTruthy()
+  );
+
+  test("[distance 4, case sensitive] Check if they are similar (sensitive count as distance)", () =>
+    expect(
+      match('lorem ipsum', 'Lorem Ispum', true, 4)
+    ).toBeTruthy()
+  )
 });

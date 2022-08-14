@@ -1,1 +1,1 @@
-{"version":3,"file":"arraycolumn.d.ts","sourceRoot":"","sources":["../../../src/components/array/arraycolumn.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;gCACoB,OAAO,MAAM,EAAE,OAAO,CAAC,EAAE,UAAU,MAAM,KAAG,OAAO,EAAE;AAA5E,wBAIC"}
+{"version":3,"file":"arrayColumns.d.ts","sourceRoot":"","sources":["../../../src/components/array/arrayColumns.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;gCACoB,OAAO,MAAM,EAAE,OAAO,CAAC,EAAE,UAAU,MAAM,KAAG,OAAO,EAAE;AAA5E,wBAIC"}

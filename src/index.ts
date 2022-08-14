@@ -17,8 +17,8 @@ import getSiblings from "@dom/getters/getsiblings";
 import getDelta from "@math/getdelta";
 import getMapDistance from "@math/getmapdistance";
 import matrixTranspose from "@math/matrixtranspose";
+import levenshteinDistance from "@math/levenshteindistance";
 
-import arrayColumn from "@array/arraycolumn";
 import divideArray from "@array/dividearray";
 import chunksArray from "@array/chunksarray";
 
@@ -27,11 +27,12 @@ import debouncePromise from "@promises/debouncepromise";
 import intersectionHelper from "@dom/helpers/intersection";
 import lazyloadHelper from "@dom/helpers/lazyload";
 
-import whitelist from "@filters/whitelist";
-import levenshteinDistance from "@filters/levenshteindistance";
-import match from "@filters/match";
-import search from "@filters/search";
+import arrayColumns from "@filters/arraycolumns";
 import associativeSlice from "@filters/associativeslice";
+import whitelist from "@filters/whitelist";
+import match from "@filters/match";
+import filter from "@filters/filter";
+import searchRecords from "@filters/searchRecords";
 
 import hexToRGB from "@converters/hextorgb";
 import secondsToTime from "@converters/secondstotime";
@@ -67,11 +68,12 @@ export {
   getOverlapRange,
 
 	//filters
+  arrayColumns,
 	associativeSlice,
-	levenshteinDistance,
-	match,
-	search,
 	whitelist,
+  match,
+	filter,
+  searchRecords,
 
 	//checkers
 	hasOwnNestedProperty,
@@ -85,9 +87,9 @@ export {
   getDelta,
   getMapDistance,
 	matrixTranspose,
+  levenshteinDistance,
 
 	//array
-	arrayColumn,
 	divideArray,
 	chunksArray,
 
@@ -146,11 +148,12 @@ export default {
   getOverlapRange,
 
 	//filters
-	associativeSlice,
-	levenshteinDistance,
-	match,
-	search,
-	whitelist,
+  arrayColumns,
+  associativeSlice,
+  whitelist,
+  match,
+  filter,
+  searchRecords,
 
 	//checkers
 	hasOwnNestedProperty,
@@ -164,9 +167,9 @@ export default {
   getDelta,
   getMapDistance,
   matrixTranspose,
+  levenshteinDistance,
 
 	//array
-	arrayColumn,
 	divideArray,
 	chunksArray,
 
@@ -199,6 +202,4 @@ export default {
 	lazyloadHelper,
 
 	scripts,
-
-  // INTERFACES CAN'T BE IN DEFAULT EXPORT
 };

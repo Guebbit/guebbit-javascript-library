@@ -7,4 +7,4 @@
  */
 declare const _default: (array: Record<string, unknown>[], column: string) => unknown[];
 export default _default;
-//# sourceMappingURL=arraycolumn.d.ts.map
+//# sourceMappingURL=arrayColumns.d.ts.map

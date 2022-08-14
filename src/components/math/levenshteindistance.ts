@@ -6,8 +6,12 @@
 */
 
 /**
-*	Compute the edit distance between the two given strings
-**/
+ * Compute the edit distance between the two given strings
+ * Mathematical formula
+ *
+ * @param a - string to check
+ * @param b - same as above, order is not important
+ */
 export default (a :string | null | undefined, b :string | null | undefined) :number => {
 	//declaration
 	const matrix:number[][] = [];
