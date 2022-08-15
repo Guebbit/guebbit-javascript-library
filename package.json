@@ -1,13 +1,13 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "personal library",
   "scripts": {
     "doc": "typedoc src/index.ts",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
     "test:unit": "jest",
-    "test:target": "jest tests/filters/searchRecords.test.ts",
+    "test:target": "jest tests/filters/searchrecords.test.ts",
     "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
     "rollup:build": "rollup --config ./rollup.config.js",
     "rollup:serve": "rollup -cw",

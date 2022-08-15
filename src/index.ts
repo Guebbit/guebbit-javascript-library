@@ -21,6 +21,7 @@ import levenshteinDistance from "@math/levenshteindistance";
 
 import divideArray from "@array/dividearray";
 import chunksArray from "@array/chunksarray";
+import getArrayDepth from "@array/getarraydepth"
 
 import debouncePromise from "@promises/debouncepromise";
 
@@ -36,17 +37,13 @@ import filter, {
   filterOr,
   filterNand,
   filterNor,
-  filterXor,
-  filterXnor
 } from "@filters/filter";
 import searchRecords, {
   searchAnd,
   searchOr,
   searchNand,
   searchNor,
-  searchXor,
-  searchXnor,
-} from "@filters/searchRecords";
+} from "@filters/searchrecords";
 
 import hexToRGB from "@converters/hextorgb";
 import secondsToTime from "@converters/secondstotime";
@@ -91,15 +88,11 @@ export {
   filterOr,
   filterNand,
   filterNor,
-  filterXor,
-  filterXnor,
   searchRecords,
   searchAnd,
   searchOr,
   searchNand,
   searchNor,
-  searchXor,
-  searchXnor,
 
 	//checkers
 	hasOwnNestedProperty,
@@ -118,6 +111,7 @@ export {
 	//array
 	divideArray,
 	chunksArray,
+  getArrayDepth,
 
   // async
   debouncePromise,
@@ -159,15 +153,17 @@ export {
 	lazyloadHelper,
 
 	scripts,
+};
 
-  // ------------- INTERFACES -------------
+// ------------- INTERFACES ------------
 
+export type {
   logicGatesType,
   filterRulesMap,
   calculationsMap
-};
+}
 
-
+// ------------- DEFAULT ------------
 
 export default {
 	//getters
@@ -185,15 +181,11 @@ export default {
   filterOr,
   filterNand,
   filterNor,
-  filterXor,
-  filterXnor,
   searchRecords,
   searchAnd,
   searchOr,
   searchNand,
   searchNor,
-  searchXor,
-  searchXnor,
 
 	//checkers
 	hasOwnNestedProperty,
@@ -212,6 +204,7 @@ export default {
 	//array
 	divideArray,
 	chunksArray,
+  getArrayDepth,
 
   //converters
   hexToRGB,

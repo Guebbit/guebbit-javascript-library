@@ -15,8 +15,6 @@ export declare function searchAnd(item: Record<string, unknown | unknown[]>, rul
 export declare function searchOr(item: Record<string, unknown | unknown[]>, rules?: filterRulesMap[]): boolean;
 export declare function searchNand(): boolean;
 export declare function searchNor(): boolean;
-export declare function searchXor(): boolean;
-export declare function searchXnor(): boolean;
 /**
  *
  * @param {array} haystack - array of objects
@@ -25,4 +23,4 @@ export declare function searchXnor(): boolean;
  */
 declare const _default: (haystack: Record<string, unknown | unknown[]>[], rules?: filterRulesMap[], logic?: logicGatesType) => Record<string, unknown>[];
 export default _default;
-//# sourceMappingURL=searchRecords.d.ts.map
+//# sourceMappingURL=searchrecords.d.ts.map

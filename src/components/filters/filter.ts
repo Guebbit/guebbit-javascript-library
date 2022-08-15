@@ -52,12 +52,6 @@ export function filterNand(){
 export function filterNor(){
   return true;
 }
-export function filterXor(){
-  return true;
-}
-export function filterXnor(){
-  return true;
-}
 
 /**
  * Check 2 values: 1-way search so {toCheck} and {toMatch} are NOT the same and order is important.
@@ -89,12 +83,6 @@ export default (toCheck :unknown | unknown[] = [], toMatch :unknown | unknown[] 
     case "nor":
       // TODO
       return filterNor();
-    case "xor":
-      // TODO
-      return filterXor();
-    case "xnor":
-      // TODO
-      return filterXnor();
   }
   // wrong logic inserted
   return false;

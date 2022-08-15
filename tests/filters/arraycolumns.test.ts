@@ -23,11 +23,11 @@ describe("(arrayColumns) php equivalent of arrayColumns - but extended to use an
 
   test("Return the values from a single column ({param1} in this case)", () => {
 		expect(
-			arrayColumns(input, "param1")
+			arrayColumns(input, ["param1"])
 		).toEqual([
-			'lorem ipsum',
-			'lorem ipsum',
-			'adipiscing'
+			['lorem ipsum'],
+			['lorem ipsum'],
+			['adipiscing']
 		]);
 	});
 
@@ -41,13 +41,9 @@ describe("(arrayColumns) php equivalent of arrayColumns - but extended to use an
     ]);
   });
 
-  test("Return the values from some columns of a single object", () => {
+  test("When having a single haystack or a single column, wrap in array", () => {
     expect(
-      arrayColumns(input[2]!, ["param1", "param2"])
-    ).toEqual([
-      'adipiscing',
-      'elit sed do'
-    ]);
+      arrayColumns([input[2]!], ["param1"])
+    ).toEqual([['adipiscing']]);
   });
-
 });

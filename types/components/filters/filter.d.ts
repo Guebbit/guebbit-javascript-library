@@ -12,8 +12,6 @@ export declare function filterAnd(toCheck?: unknown | unknown[], toMatch?: unkno
 export declare function filterOr(toCheck?: unknown | unknown[], toMatch?: unknown | unknown[], sensitive?: boolean, distance?: number): boolean;
 export declare function filterNand(): boolean;
 export declare function filterNor(): boolean;
-export declare function filterXor(): boolean;
-export declare function filterXnor(): boolean;
 /**
  * Check 2 values: 1-way search so {toCheck} and {toMatch} are NOT the same and order is important.
  * They can be string or array, need to check every combination and apply the chosen logic

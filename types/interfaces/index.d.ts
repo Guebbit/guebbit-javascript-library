@@ -1,4 +1,14 @@
-export declare type logicGatesType = "and" | "AND" | "or" | "OR" | "nand" | "NAND" | "nor" | "NOR" | "xor" | "XOR" | "XNOR" | "xnor";
+/**
+ * Logic gates
+ *
+ * AND: ALL checks must be true
+ * OR: AT LEAST ONE check must be true
+ * Nand: AT LEAST ONE check must be false
+ * Nor: ALL checks must be false
+ *
+ * Xor, Xnor, Not and Buffer are not implemented
+ */
+export declare type logicGatesType = "and" | "AND" | "or" | "OR" | "nand" | "NAND" | "nor" | "NOR";
 export interface filterRulesMap {
     /**
      * Array of parameters to search from, if empty = get all parameters of records
@@ -10,13 +20,6 @@ export interface filterRulesMap {
     searchParams: string | string[];
     /**
      * Logic gate
-     *
-     * - AND: ALL needles must be true
-     * - OR: JUST ONE needle need to be true
-     * - Nand: TODO
-     * - Nor: TODO
-     * - Xor: TODO
-     * - Xnor: TODO
      */
     logic?: logicGatesType;
     /**
@@ -32,6 +35,16 @@ export interface filterRulesMap {
      * 1+: maximum distance to be accepted
      */
     distance?: number;
+    /**
+     * Disable filter if {search} is string and has less length than stringLimit
+     * default: no limit
+     */
+    stringLimit?: number;
+    /**
+     * Disable filter if {search} is empty array or empty string
+     * Default: false
+     */
+    allowEmpty?: boolean;
 }
 export interface calculationsMap {
     years: number;
