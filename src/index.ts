@@ -21,7 +21,9 @@ import levenshteinDistance from "@math/levenshteindistance";
 
 import divideArray from "@array/dividearray";
 import chunksArray from "@array/chunksarray";
-import getArrayDepth from "@array/getarraydepth"
+import getArrayDepth from "@array/getarraydepth";
+
+console.log("GHH", getArrayDepth)
 
 import debouncePromise from "@promises/debouncepromise";
 
@@ -63,8 +65,6 @@ import mouseParallax, { calculateMouseParallax, executeMouseParallax, createMous
 import activator from "@scripts/activator";
 import lazyload from "@scripts/lazyload";
 import createPrototypes from "@scripts/createPrototypes";
-
-// import type { logicGatesType, filterRulesMap, calculationsMap } from "@/interfaces";
 
 // ------------- INTERFACES ------------
 
