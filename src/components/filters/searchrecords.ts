@@ -119,6 +119,7 @@ export function searchNor(){
  */
 export default (haystack :Record<string, unknown | unknown[]>[], rules: filterRulesMap[] = [], logic :logicGatesType = "and") :Record<string,unknown>[] => {
   const filteredRules :filterRulesMap[] = searchFilterRules(rules);
+  console.log("AAAAAAAAAAAAAAAA", filteredRules, rules)
   // no changes
   if(!filteredRules || filteredRules.length < 1)
     return haystack;

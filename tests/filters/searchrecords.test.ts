@@ -111,7 +111,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
     },
   ];
 
-  test("Empty Search", () => {
+  test("(searchRecords) Empty Search with allowEmpty", () => {
     expect(
       searchRecords(gameList, [
         {
@@ -129,6 +129,28 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
       ])
     ).toEqual(gameList);
   });
+
+  test("Empty Search without allowEmpty", () => {
+    expect(
+      searchRecords(gameList, [
+        {
+          search: '',
+          searchParams: ['title', 'author', 'description'],
+          logic: 'OR',
+          stringLimit: 2,
+          distance: -1,
+          allowEmpty: true
+        },
+        {
+          search: [],
+          searchParams: ['categories'],
+          logic: 'OR',
+          allowEmpty: true
+        }
+      ])
+    ).toEqual([]);
+  });
+
 
   test("Text Search (IMPORTANT distance: -1)", () => {
     expect(
@@ -179,7 +201,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
     ]);
   });
 
-  test("Category Search", () => {
+  test("Single Category Search", () => {
     expect(
       searchRecords(gameList, [
         {
@@ -226,6 +248,108 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
     ]);
   });
 
+  test("Multiple Category Search", () => {
+    expect(
+      searchRecords(gameList, [
+        {
+          search: '',
+          searchParams: ['title', 'author', 'description'],
+          logic: 'OR',
+          stringLimit: 2,
+          distance: -1
+        },
+        {
+          search: ['party-game', 'sport'],
+          searchParams: ['categories'],
+          logic: 'OR',
+        }
+      ])
+    ).toEqual([
+      {
+        id: "item-2",
+        title: "Acron: Attack of the Squirrels!",
+        author: "Resolution Games",
+        description: "",
+        categories: ["party-game", "action"],
+        stations: ["Oculus"],
+        tags: [
+          "PVP",
+          "COOP"
+        ],
+        maxPlayersOffline: 8,
+        maxPlayersOnline: 0,
+        flagFamilyFriendly: true,
+      },
+      {
+        id: "item-5",
+        title: "Echo Arena",
+        author: "",
+        description: "",
+        categories: ["sport"],
+        stations: ["Oculus"],
+        tags: [],
+        maxPlayersOffline: 1,
+        maxPlayersOnline: 2,
+        flagFamilyFriendly: true,
+      },
+      {
+        id: "item-12",
+        title: "Walkabout Mini Golf",
+        author: "Mighty Coconut",
+        description: "",
+        categories: ["sport"],
+        stations: ["Oculus"],
+        tags: [
+          "Golf",
+          "PVP"
+        ],
+        maxPlayersOffline: 1,
+        maxPlayersOnline: 2,
+        flagFamilyFriendly: true,
+      }
+    ]);
+  });
+
+  test("(special) Multiple Category Search WITH AND", () => {
+    expect(
+      searchRecords(gameList, [
+        {
+          search: '',
+          searchParams: ['title', 'author', 'description'],
+          logic: 'OR',
+          stringLimit: 2,
+          distance: -1
+        },
+        {
+          search: ['party-game', 'action'],
+          searchParams: ['categories'],
+          logic: 'and',
+        }
+      ])
+    ).toEqual([
+      {
+        id: "item-2",
+        title: "Acron: Attack of the Squirrels!",
+        author: "Resolution Games",
+        description: "",
+        categories: ["party-game", "action"],
+        stations: ["Oculus"],
+        tags: [
+          "PVP",
+          "COOP"
+        ],
+        maxPlayersOffline: 8,
+        maxPlayersOnline: 0,
+        flagFamilyFriendly: true,
+      },
+    ]);
+  });
+
+
+
+
+
+
   test("Category AND text search", () => {
     expect(
       searchRecords(gameList, [
@@ -264,7 +388,6 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
 
 describe("(searchRecords) Search various keys in a haystack", () => {
-
   const input = [
 			{
 				id: 1,

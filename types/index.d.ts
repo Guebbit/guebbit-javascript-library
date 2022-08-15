@@ -39,14 +39,13 @@ import classScroll from "@dom/events/classscroll";
 import stickyJs from "@dom/events/stickyjs";
 import shyJs from "@dom/events/shyjs";
 import mouseParallax, { calculateMouseParallax, executeMouseParallax, createMouseParallaxItem } from "@dom/manipulation/mouseparallax";
-import type { logicGatesType, filterRulesMap, calculationsMap } from "@/interfaces";
+export type { logicGatesType, filterRulesMap, calculationsMap } from "@/interfaces";
 declare const scripts: {
     activator: () => [false | IntersectionObserver, false | IntersectionObserver];
     lazyload: () => false | IntersectionObserver;
     createPrototypes: {};
 };
 export { getUUID, getLast, getOverlapRange, arrayColumns, associativeSlice, whitelist, match, filter, filterAnd, filterOr, filterNand, filterNor, searchRecords, searchAnd, searchOr, searchNand, searchNor, hasOwnNestedProperty, isEmail, isEmpty, isJson, isUrl, rangeOverlaps, getDelta, getMapDistance, matrixTranspose, levenshteinDistance, divideArray, chunksArray, getArrayDepth, debouncePromise, hexToRGB, secondsToTime, timeToSeconds, toFormData, getForm, getValue, getIFrame, getIndex, getSiblings, toDOM, appendChildren, addEvent, removeEvent, classScroll, stickyJs, shyJs, mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem, intersectionHelper, lazyloadHelper, scripts, };
-export type { logicGatesType, filterRulesMap, calculationsMap };
 declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
@@ -55,12 +54,12 @@ declare const _default: {
     associativeSlice: (obj: Record<string, unknown>, start: number, endd: number) => Record<string, unknown>;
     whitelist: (objToFilter: Record<string, unknown>, allowed: string[]) => Record<string, unknown>;
     match: (check?: string, match?: string, sensitive?: boolean, distance?: number) => boolean;
-    filter: (toCheck?: unknown, toMatch?: unknown, logic?: logicGatesType, sensitive?: boolean, distance?: number) => boolean;
+    filter: (toCheck?: unknown, toMatch?: unknown, logic?: import("@/interfaces").logicGatesType, sensitive?: boolean, distance?: number) => boolean;
     filterAnd: typeof filterAnd;
     filterOr: typeof filterOr;
     filterNand: typeof filterNand;
     filterNor: typeof filterNor;
-    searchRecords: (haystack: Record<string, unknown>[], rules?: filterRulesMap[], logic?: logicGatesType) => Record<string, unknown>[];
+    searchRecords: (haystack: Record<string, unknown>[], rules?: import("@/interfaces").filterRulesMap[], logic?: import("@/interfaces").logicGatesType) => Record<string, unknown>[];
     searchAnd: typeof searchAnd;
     searchOr: typeof searchOr;
     searchNand: typeof searchNand;

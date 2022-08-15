@@ -64,7 +64,17 @@ import activator from "@scripts/activator";
 import lazyload from "@scripts/lazyload";
 import createPrototypes from "@scripts/createPrototypes";
 
-import type { logicGatesType, filterRulesMap, calculationsMap } from "@/interfaces";
+// import type { logicGatesType, filterRulesMap, calculationsMap } from "@/interfaces";
+
+// ------------- INTERFACES ------------
+
+export type {
+  logicGatesType,
+  filterRulesMap,
+  calculationsMap
+} from "@/interfaces";
+
+// ------------- FUNCTIONS ------------
 
 const scripts = {
 	activator,
@@ -154,14 +164,6 @@ export {
 
 	scripts,
 };
-
-// ------------- INTERFACES ------------
-
-export type {
-  logicGatesType,
-  filterRulesMap,
-  calculationsMap
-}
 
 // ------------- DEFAULT ------------
 

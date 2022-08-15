@@ -41,7 +41,12 @@ export interface filterRulesMap {
      */
     stringLimit?: number;
     /**
-     * Disable filter if {search} is empty array or empty string
+     * If false, filter is not allowed to be empty
+     * ({search} empty array or empty string)
+     * then it's disabled
+     *
+     * If true and filter is empty: it will filter out everything
+     *
      * Default: false
      */
     allowEmpty?: boolean;
