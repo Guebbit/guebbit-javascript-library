@@ -1,10 +1,10 @@
-interface mouseParallaxItemsMap {
+export interface mouseParallaxItemsMap {
     element: HTMLElement;
     intensityX: number;
     intensityY: number;
     speed: number;
 }
-interface mouseParallaxMap {
+export interface mouseParallaxMap {
     container: HTMLElement;
     items: mouseParallaxItemsMap[];
     build: (css: boolean, throttleIntensity: number) => void;

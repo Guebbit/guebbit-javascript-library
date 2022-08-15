@@ -1,7 +1,7 @@
 import { throttle } from "lodash";
 import { formatNodeList } from "@components/_helpers";
 
-export interface classscrollSettingsMap {
+export interface classScrollSettingsMap {
 	class :string,
 	scroll :number,
 	remove? :boolean,
@@ -18,7 +18,7 @@ export interface classscrollSettingsMap {
 		remove: true		//se remove=true (false di default), invece la rimuovo
 	}]
 **/
-export default (element :HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data :classscrollSettingsMap[], $window :Window = window) :void => {
+export default (element :HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data :classScrollSettingsMap[], $window :Window = window) :void => {
 	const elementsArray = formatNodeList(element);
 	if(elementsArray.length < 1)
 		return;

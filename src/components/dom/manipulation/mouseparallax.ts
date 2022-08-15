@@ -1,7 +1,7 @@
 import { throttle } from 'lodash';
 import { addEvent } from '@/index';
 
-interface mouseParallaxItemsMap {
+export interface mouseParallaxItemsMap {
   element: HTMLElement
   intensityX: number
   intensityY: number
@@ -9,7 +9,7 @@ interface mouseParallaxItemsMap {
 }
 
 // TODO watchers - check su speed, intensità, etc per vedere se vengono cambiati dei valori, poi ritriggerare eventuali "build" sull'elemento
-interface mouseParallaxMap {
+export interface mouseParallaxMap {
   container :HTMLElement
   items :mouseParallaxItemsMap[]
   build :(css: boolean, throttleIntensity: number) => void

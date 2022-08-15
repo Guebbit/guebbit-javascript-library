@@ -17,7 +17,7 @@ const options = {
   testPathIgnorePatterns: [
     '/cypress/'
   ],
-  moduleDirectories: ['node_modules', './'],
+  moduleDirectories: ['node_modules', __dirname],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
 };
 

@@ -69,8 +69,21 @@ import createPrototypes from "@scripts/createPrototypes";
 export type {
   logicGatesType,
   filterRulesMap,
-  calculationsMap
+  calculationsMap,
 } from "@/interfaces";
+
+export type {
+  mouseParallaxItemsMap,
+  mouseParallaxMap
+} from "@dom/manipulation/mouseparallax";
+
+export type {
+  classScrollSettingsMap
+} from "@dom/events/classscroll";
+
+export type {
+  stickyjsSettingsMap
+} from "@dom/events/shyjs";
 
 // ------------- FUNCTIONS ------------
 

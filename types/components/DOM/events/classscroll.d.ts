@@ -1,4 +1,4 @@
-export interface classscrollSettingsMap {
+export interface classScrollSettingsMap {
     class: string;
     scroll: number;
     remove?: boolean;
@@ -14,6 +14,6 @@ export interface classscrollSettingsMap {
         remove: true		//se remove=true (false di default), invece la rimuovo
     }]
 **/
-declare const _default: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: classscrollSettingsMap[], $window?: Window) => void;
+declare const _default: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: classScrollSettingsMap[], $window?: Window) => void;
 export default _default;
 //# sourceMappingURL=classscroll.d.ts.map

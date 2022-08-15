@@ -39,7 +39,10 @@ import classScroll from "@dom/events/classscroll";
 import stickyJs from "@dom/events/stickyjs";
 import shyJs from "@dom/events/shyjs";
 import mouseParallax, { calculateMouseParallax, executeMouseParallax, createMouseParallaxItem } from "@dom/manipulation/mouseparallax";
-export type { logicGatesType, filterRulesMap, calculationsMap } from "@/interfaces";
+export type { logicGatesType, filterRulesMap, calculationsMap, } from "@/interfaces";
+export type { mouseParallaxItemsMap, mouseParallaxMap } from "@dom/manipulation/mouseparallax";
+export type { classScrollSettingsMap } from "@dom/events/classscroll";
+export type { stickyjsSettingsMap } from "@dom/events/shyjs";
 declare const scripts: {
     activator: () => [false | IntersectionObserver, false | IntersectionObserver];
     lazyload: () => false | IntersectionObserver;
@@ -89,7 +92,7 @@ declare const _default: {
     toDOM: (html: string) => NodeListOf<ChildNode>;
     appendChildren: (element: HTMLElement, ...children: HTMLElement[] | Element[]) => HTMLElement;
     addEvent: (parent: Node, eventName: string, childSelector: string | Node, callback: (...args: unknown[]) => void) => void;
-    classScroll: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: import("@dom/events/classscroll").classscrollSettingsMap[], $window?: Window) => void;
+    classScroll: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, data: import("@dom/events/classscroll").classScrollSettingsMap[], $window?: Window) => void;
     stickyJs: (element: HTMLElement | null, className?: string, $window?: Window) => void;
     intersectionHelper: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings?: import("@dom/helpers/intersection").intersectionSettingsMap, $window?: Window) => false | IntersectionObserver;
     lazyloadHelper: typeof lazyloadHelper;
