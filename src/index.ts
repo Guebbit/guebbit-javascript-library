@@ -23,8 +23,6 @@ import divideArray from "@array/dividearray";
 import chunksArray from "@array/chunksarray";
 import getArrayDepth from "@array/getarraydepth";
 
-console.log("GHH", getArrayDepth)
-
 import debouncePromise from "@promises/debouncepromise";
 
 import intersectionHelper from "@dom/helpers/intersection";

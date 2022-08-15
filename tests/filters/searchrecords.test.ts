@@ -310,7 +310,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
     ]);
   });
 
-  test("(special) Multiple Category Search WITH AND", () => {
+  test("(SPECIAL) [AND] Multiple Category Search WITH AND", () => {
     expect(
       searchRecords(gameList, [
         {
@@ -346,11 +346,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
   });
 
 
-
-
-
-
-  test("Category AND text search", () => {
+  test("Category + text search", () => {
     expect(
       searchRecords(gameList, [
         {
@@ -367,6 +363,67 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
         }
       ])
     ).toEqual([
+      {
+        id: "item-12",
+        title: "Walkabout Mini Golf",
+        author: "Mighty Coconut",
+        description: "",
+        categories: ["sport"],
+        stations: ["Oculus"],
+        tags: [
+          "Golf",
+          "PVP"
+        ],
+        maxPlayersOffline: 1,
+        maxPlayersOnline: 2,
+        flagFamilyFriendly: true,
+      },
+    ]);
+  });
+
+  test("(SPECIAL) [OR] Category + text search WITH OR", () => {
+    expect(
+      searchRecords(gameList, [
+        {
+          search: 'wa',
+          searchParams: ['title', 'author', 'description'],
+          logic: 'OR',
+          stringLimit: 2,
+          distance: -1
+        },
+        {
+          search: ['sport'],
+          searchParams: ['categories'],
+          logic: 'OR',
+        }
+      ], "OR")
+    ).toEqual([
+      {
+        id: "item-5",
+        title: "Echo Arena",
+        author: "",
+        description: "",
+        categories: ["sport"],
+        stations: ["Oculus"],
+        tags: [],
+        maxPlayersOffline: 1,
+        maxPlayersOnline: 2,
+        flagFamilyFriendly: true,
+      },
+      {
+        id: "item-10",
+        title: "Ragnarock",
+        author: "WanadevStudio",
+        description: "",
+        categories: ["rhythm"],
+        stations: ["Oculus"],
+        tags: [
+          "Music"
+        ],
+        maxPlayersOffline: 1,
+        maxPlayersOnline: 0,
+        flagFamilyFriendly: true,
+      },
       {
         id: "item-12",
         title: "Walkabout Mini Golf",
