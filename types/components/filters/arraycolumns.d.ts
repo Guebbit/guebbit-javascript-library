@@ -8,6 +8,6 @@
  * @param {string} columns
  * @return {Array<Array<unknown>>>}
  */
-declare const _default: (haystack: Record<string, unknown>[], columns: string[]) => Array<unknown[]>;
+declare const _default: (haystack: Record<string, unknown>[], columns: string | string[]) => Array<unknown | unknown[]>;
 export default _default;
 //# sourceMappingURL=arraycolumns.d.ts.map

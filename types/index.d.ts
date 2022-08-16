@@ -53,7 +53,7 @@ declare const _default: {
     getUUID: () => string;
     getLast: (myArray: unknown[]) => unknown;
     getOverlapRange: (firstStart: number, firstEnd: number, secondStart: number, secondEnd: number) => [number, number];
-    arrayColumns: (haystack: Record<string, unknown>[], columns: string[]) => unknown[][];
+    arrayColumns: (haystack: Record<string, unknown>[], columns: string | string[]) => unknown[];
     associativeSlice: (obj: Record<string, unknown>, start: number, endd: number) => Record<string, unknown>;
     whitelist: (objToFilter: Record<string, unknown>, allowed: string[]) => Record<string, unknown>;
     match: (check?: string, match?: string, sensitive?: boolean, distance?: number) => boolean;

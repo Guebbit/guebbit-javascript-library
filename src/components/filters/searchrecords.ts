@@ -38,8 +38,8 @@ function getValues(item :Record<string, unknown | unknown[]> = {}, parameters :s
   // must not be empty
   if(searchParams.length === 0)
     return [];
-  // get column values must be an array
-  const columnsValues = arrayColumns([item], searchParams);
+  // get column values must be an array of arrays
+  const columnsValues = arrayColumns([item], searchParams) as unknown[][];
   return columnsValues[0]!;
 }
 

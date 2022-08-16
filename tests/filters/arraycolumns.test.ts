@@ -46,4 +46,14 @@ describe("(arrayColumns) php equivalent of arrayColumns - but extended to use an
       arrayColumns([input[2]!], ["param1"])
     ).toEqual([['adipiscing']]);
   });
+
+  test("Return the values from a single column NOT array", () => {
+    expect(
+      arrayColumns(input, "param1")
+    ).toEqual([
+      'lorem ipsum',
+      'lorem ipsum',
+      'adipiscing'
+    ]);
+  });
 });
