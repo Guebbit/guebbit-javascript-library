@@ -1,5 +1,5 @@
 import { throttle } from 'lodash';
-import { addEvent } from '@/index';
+import { addEvent } from '../../../index';
 
 export interface mouseParallaxItemsMap {
   element: HTMLElement

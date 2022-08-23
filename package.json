@@ -1,7 +1,13 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "2.4.7",
+  "version": "2.4.9",
+  "author": "Guebbit",
   "description": "personal library",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shinseiten/guebbit-javascript-library/issues"
+  },
+  "homepage": "https://github.com/Shinseiten/guebbit-javascript-library#readme",
   "scripts": {
     "doc": "typedoc src/index.ts",
     "test": "npm run test:lint && npm run test:unit",
@@ -71,12 +77,6 @@
     "typescript",
     "library"
   ],
-  "author": "Guebbit",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Shinseiten/guebbit-javascript-library/issues"
-  },
-  "homepage": "https://github.com/Shinseiten/guebbit-javascript-library#readme",
   "directories": {
     "doc": "docs",
     "test": "tests"

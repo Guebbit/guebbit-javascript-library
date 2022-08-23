@@ -1,4 +1,4 @@
-import type { filterRulesMap, logicGatesType } from "@/interfaces";
+import type { filterRulesMap, logicGatesType } from "../../interfaces";
 /**
  * Single item check if ALL rules are valid
  *

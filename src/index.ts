@@ -1,251 +1,104 @@
-import hasOwnNestedProperty from "@checkers/hasownnestedproperty";
-import isEmail from "@checkers/isemail"
-import isEmpty from "@checkers/isempty";
-import isJson from "@checkers/isjson";
-import isUrl from "@checkers/isurl";
-import rangeOverlaps from "@checkers/rangeoverlaps";
-
-import getUUID from "@getters/getuuid";
-import getLast from "@getters/getlast";
-import getOverlapRange from "@getters/getoverlaprange";
-import getForm from "@dom/getters/getform";
-import getValue from "@dom/getters/getvalue";
-import getIFrame from "@dom/getters/getiframe";
-import getIndex from "@dom/getters/getindex";
-import getSiblings from "@dom/getters/getsiblings";
-
-import getDelta from "@math/getdelta";
-import getMapDistance from "@math/getmapdistance";
-import matrixTranspose from "@math/matrixtranspose";
-import levenshteinDistance from "@math/levenshteindistance";
-
-import divideArray from "@array/dividearray";
-import chunksArray from "@array/chunksarray";
-import getArrayDepth from "@array/getarraydepth";
-
-import debouncePromise from "@promises/debouncepromise";
-
-import intersectionHelper from "@dom/helpers/intersection";
-import lazyloadHelper from "@dom/helpers/lazyload";
-
-import arrayColumns from "@filters/arraycolumns";
-import associativeSlice from "@filters/associativeslice";
-import whitelist from "@filters/whitelist";
-import match from "@filters/match";
-import filter, {
-  filterAnd,
-  filterOr,
-  filterNand,
-  filterNor,
-} from "@filters/filter";
-import searchRecords, {
-  searchAnd,
-  searchOr,
-  searchNand,
-  searchNor,
-} from "@filters/searchrecords";
-
-import hexToRGB from "@converters/hextorgb";
-import secondsToTime from "@converters/secondstotime";
-import timeToSeconds from "@converters/timetoseconds";
-import toFormData from "@converters/toformdata";
-
-import toDOM from "@dom/todom";
-import appendChildren from "@dom/appendchildren";
-
-import { addEvent, removeEvent } from "@dom/events/globalevents";
-import classScroll from "@dom/events/classscroll";
-import stickyJs from "@dom/events/stickyjs";
-import shyJs from "@dom/events/shyjs";
-
-import mouseParallax, { calculateMouseParallax, executeMouseParallax, createMouseParallaxItem } from "@dom/manipulation/mouseparallax";
-
-import activator from "@scripts/activator";
-import lazyload from "@scripts/lazyload";
-import createPrototypes from "@scripts/createPrototypes";
-
 // ------------- INTERFACES ------------
 
 export type {
   logicGatesType,
   filterRulesMap,
-  calculationsMap,
-} from "@/interfaces";
+  secondsToTimeMap,
+} from "./interfaces";
 
 export type {
   mouseParallaxItemsMap,
   mouseParallaxMap
-} from "@dom/manipulation/mouseparallax";
+} from "./components/dom/manipulation/mouseparallax";
 
 export type {
   classScrollSettingsMap
-} from "@dom/events/classscroll";
+} from "./components/dom/events/classscroll";
 
 export type {
   stickyjsSettingsMap
-} from "@dom/events/shyjs";
+} from "./components/dom/events/shyjs";
 
 // ------------- FUNCTIONS ------------
 
-const scripts = {
-	activator,
-	lazyload,
-	createPrototypes
-};
+export { default as divideArray } from "./components/array/dividearray";
+export { default as chunksArray } from "./components/array/chunksarray";
+export { default as getArrayDepth } from "./components/array/getarraydepth";
+
+export { default as hasOwnNestedProperty } from "./components/checkers/hasownnestedproperty";
+export { default as isEmail } from "./components/checkers/isemail"
+export { default as isEmpty } from "./components/checkers/isempty";
+export { default as isJson } from "./components/checkers/isjson";
+export { default as isUrl } from "./components/checkers/isurl";
+export { default as rangeOverlaps } from "./components/checkers/rangeoverlaps";
+
+export { default as hexToRGB } from "./components/converters/hextorgb";
+export { default as secondsToTime } from "./components/converters/secondstotime";
+export { default as timeToSeconds } from "./components/converters/timetoseconds";
+export { default as toFormData } from "./components/converters/toformdata";
+
+export { default as classScroll } from "./components/dom/events/classscroll";
+export { addEvent, removeEvent } from "./components/dom/events/globalevents";
+export { default as shyJs } from "./components/dom/events/shyjs";
+export { default as stickyJs } from "./components/dom/events/stickyjs";
+
+export { default as getForm } from "./components/dom/getters/getform";
+export { default as getIFrame } from "./components/dom/getters/getiframe";
+export { default as getIndex } from "./components/dom/getters/getindex";
+export { default as getSiblings } from "./components/dom/getters/getsiblings";
+export { default as getValue } from "./components/dom/getters/getvalue";
+
+export { default as intersectionHelper } from "./components/dom/helpers/intersection";
+export { default as lazyloadHelper } from "./components/dom/helpers/lazyload";
 
 export {
-	//getters
-	getUUID,
-	getLast,
-  getOverlapRange,
-
-	//filters
-  arrayColumns,
-	associativeSlice,
-	whitelist,
-  match,
-	filter,
-  filterAnd,
-  filterOr,
-  filterNand,
-  filterNor,
-  searchRecords,
-  searchAnd,
-  searchOr,
-  searchNand,
-  searchNor,
-
-	//checkers
-	hasOwnNestedProperty,
-	isEmail,
-	isEmpty,
-	isJson,
-	isUrl,
-  rangeOverlaps,
-
-	//math
-  getDelta,
-  getMapDistance,
-	matrixTranspose,
-  levenshteinDistance,
-
-	//array
-	divideArray,
-	chunksArray,
-  getArrayDepth,
-
-  // async
-  debouncePromise,
-
-  //converters
-  hexToRGB,
-  secondsToTime,
-  timeToSeconds,
-  toFormData,
-
-	// ------------- DOM -------------
-
-	//getters
-	getForm,
-	getValue,
-	getIFrame,
-	getIndex,
-	getSiblings,
-
-	//manipulations
-	toDOM,
-	appendChildren,
-
-	//events
-	addEvent,
-  removeEvent,
-	classScroll,
-	stickyJs,
-  shyJs,
-
-  //manipulation
-  mouseParallax,
+  default as mouseParallax,
   calculateMouseParallax,
   executeMouseParallax,
-  createMouseParallaxItem,
+  createMouseParallaxItem
+} from "./components/dom/manipulation/mouseparallax";
 
-	//helpers
-	intersectionHelper,
-	lazyloadHelper,
+export { default as toDOM } from "./components/dom/todom";
+export { default as appendChildren } from "./components/dom/appendchildren";
 
-	scripts,
-};
-
-// ------------- DEFAULT ------------
-
-export default {
-	//getters
-	getUUID,
-	getLast,
-  getOverlapRange,
-
-	//filters
-  arrayColumns,
-  associativeSlice,
-  whitelist,
-  match,
-  filter,
+export { default as arrayColumns } from "./components/filters/arraycolumns";
+export { default as associativeSlice } from "./components/filters/associativeslice";
+export { default as match } from "./components/filters/match";
+export { default as whitelist } from "./components/filters/whitelist";
+export {
+  default as filter,
   filterAnd,
   filterOr,
   filterNand,
   filterNor,
-  searchRecords,
+} from "./components/filters/filter";
+export {
+  default as searchRecords,
   searchAnd,
   searchOr,
   searchNand,
   searchNor,
+} from "./components/filters/searchrecords";
 
-	//checkers
-	hasOwnNestedProperty,
-	isEmail,
-	isEmpty,
-	isJson,
-	isUrl,
-  rangeOverlaps,
+export { default as getLast } from "./components/getters/getlast";
+export { default as getOverlapRange } from "./components/getters/getoverlaprange";
+export { default as getUUID } from "./components/getters/getuuid";
 
-	//math
-  getDelta,
-  getMapDistance,
-  matrixTranspose,
-  levenshteinDistance,
+export { default as getDelta } from "./components/math/getdelta";
+export { default as getMapDistance } from "./components/math/getmapdistance";
+export { default as matrixTranspose } from "./components/math/matrixtranspose";
+export { default as levenshteinDistance } from "./components/math/levenshteindistance";
 
-	//array
-	divideArray,
-	chunksArray,
-  getArrayDepth,
+export { default as debouncePromise } from "./components/promises/debouncepromise";
 
-  //converters
-  hexToRGB,
-  secondsToTime,
-  timeToSeconds,
-  toFormData,
+// ------------- SCRIPTS ------------
 
-	// ------------- DOM -------------
+import activator from "./scripts/activator";
+import lazyload from "./scripts/lazyload";
+import createPrototypes from "./scripts/createPrototypes";
 
-	//getters
-	getForm,
-	getValue,
-	getIFrame,
-	getIndex,
-	getSiblings,
-
-	//manipulations
-	toDOM,
-	appendChildren,
-
-	//events
-	addEvent,
-	classScroll,
-	stickyJs,
-
-	//helpers
-	intersectionHelper,
-	lazyloadHelper,
-
-	scripts,
+export const scripts = {
+  activator,
+  lazyload,
+  createPrototypes
 };

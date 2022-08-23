@@ -1,5 +1,5 @@
 import { throttle } from "lodash";
-import { formatNodeList } from "@components/_helpers";
+import { formatNodeList } from "../../_helpers";
 
 export interface classScrollSettingsMap {
 	class :string,

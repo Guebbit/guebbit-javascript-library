@@ -1,4 +1,4 @@
-import levenshteinDistance from "@math/levenshteindistance";
+import levenshteinDistance from "../math/levenshteindistance";
 
 /**
  * Match if 2 strings are similar

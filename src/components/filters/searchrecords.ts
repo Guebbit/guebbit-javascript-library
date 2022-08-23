@@ -1,5 +1,5 @@
 import { arrayColumns, getArrayDepth, filter } from "./../../index";
-import type { filterRulesMap, logicGatesType } from "@/interfaces";
+import type { filterRulesMap, logicGatesType } from "../../interfaces";
 
 /**
  * Disable/filter out all the filter rules that have a "disabler" active.

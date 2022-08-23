@@ -24,26 +24,9 @@
       "dom.iterable",
       "scripthost"
     ],
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
     "types": [
       "jest"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [ "src/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@scripts/*": ["src/scripts/*"],
-      "@components/*": ["src/components/*"],
-      "@array/*": ["src/components/array/*"],
-      "@checkers/*": ["src/components/checkers/*"],
-      "@converters/*": ["src/components/converters/*"],
-      "@dom/*": ["src/components/dom/*"],
-      "@filters/*": ["src/components/filters/*"],
-      "@getters/*": ["src/components/getters/*"],
-      "@math/*": ["src/components/math/*"],
-      "@promises/*": ["src/components/promises/*"]
-    }
+    ]
   },
   "include": [
     "./src/**/*.ts",

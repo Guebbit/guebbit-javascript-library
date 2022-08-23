@@ -1,5 +1,5 @@
 import getValue from "./getvalue";
-import { formatNodeList } from "@components/_helpers";
+import { formatNodeList } from "../../_helpers";
 
 /**
 *	Raccolgo tutti i valori inseriti in input e textarea dentro l'elemento

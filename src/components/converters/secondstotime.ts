@@ -1,7 +1,4 @@
-// TODO fix typescript error
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import type { calculationsMap } from "@/interfaces";
+import type { secondsToTimeMap } from "../../interfaces";
 
 /**
  * Transform milliseconds in minutes/hours/days/etc
@@ -10,10 +7,10 @@ import type { calculationsMap } from "@/interfaces";
  * @param {number} time
  * @return {Object}
  */
-export default (time = 0) :Record<string,number> => {
+export default (time = 0) :secondsToTimeMap => {
   // millisecondsOnly = is the same
   // secondsOnly = same but /1000
-  const calculations :calculationsMap = {
+  const timeFactory :Record<string,number> = {
     years: 31536000000,
     months: 2592000000,
     weeks: 604800000,
@@ -23,16 +20,15 @@ export default (time = 0) :Record<string,number> => {
     seconds: 1000,
     milliseconds: 1
   }
-
-  const timeObject :Record<string,number> = {};
   let timeDepletion = time;
-
-  // TODO better typescript / cycle
-  Object.keys(calculations).forEach((key) => {
-    timeObject[key + 'Only'] = Math.floor(time / calculations[key as keyof calculationsMap]);
-    timeObject[key] = Math.floor(timeDepletion / calculations[key as keyof calculationsMap]);
-    timeDepletion -= timeObject[key]! * calculations[key as keyof calculationsMap];
-  });
-
+  const timeObject :secondsToTimeMap = {};
+  // loop
+  for(const key in timeFactory)
+    if(key && Object.prototype.hasOwnProperty.call(timeFactory, key) && timeFactory[key]){
+      timeObject[key + 'Only' as keyof secondsToTimeMap] = Math.floor(time / timeFactory[key]!);
+      timeObject[key as keyof secondsToTimeMap] = Math.floor(timeDepletion / timeFactory[key]!);
+      timeDepletion -= timeObject[key as keyof secondsToTimeMap]! * timeFactory[key as keyof secondsToTimeMap]!;
+    }
+  // final object
   return timeObject;
 };

@@ -1,4 +1,4 @@
-import type { logicGatesType } from "@/interfaces";
+import type { logicGatesType } from "../../interfaces";
 /**
  * Fast array search
  * ALL values checked must be true

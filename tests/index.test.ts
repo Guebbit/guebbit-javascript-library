@@ -1,21 +1,53 @@
-import library from '@/index';
+import * as library from '../src/index';
+import { searchRecords, scripts } from '../src/index';
 
 describe("(MAIN) Check the integrity of the whole library", () => {
+
+  test("Check random function", () => {
+    expect(
+      searchRecords
+    ).toBeTruthy()
+  });
 
   test("Library all keys", () => {
     expect(
       Object.keys(library)
     ).toEqual([
-      //getters
-      'getUUID',
-      'getLast',
-      'getOverlapRange',
-
-      //filters
+      'divideArray',
+      'chunksArray',
+      'getArrayDepth',
+      'hasOwnNestedProperty',
+      'isEmail',
+      'isEmpty',
+      'isJson',
+      'isUrl',
+      'rangeOverlaps',
+      'hexToRGB',
+      'secondsToTime',
+      'timeToSeconds',
+      'toFormData',
+      'classScroll',
+      'addEvent',
+      'removeEvent',
+      'shyJs',
+      'stickyJs',
+      'getForm',
+      'getIFrame',
+      'getIndex',
+      'getSiblings',
+      'getValue',
+      'intersectionHelper',
+      'lazyloadHelper',
+      'mouseParallax',
+      'calculateMouseParallax',
+      'executeMouseParallax',
+      'createMouseParallaxItem',
+      'toDOM',
+      'appendChildren',
       'arrayColumns',
       'associativeSlice',
-      'whitelist',
       'match',
+      'whitelist',
       'filter',
       'filterAnd',
       'filterOr',
@@ -26,62 +58,34 @@ describe("(MAIN) Check the integrity of the whole library", () => {
       'searchOr',
       'searchNand',
       'searchNor',
-
-      //checkers
-      'hasOwnNestedProperty',
-      'isEmail',
-      'isEmpty',
-      'isJson',
-      'isUrl',
-      'rangeOverlaps',
-
-      //math
+      'getLast',
+      'getOverlapRange',
+      'getUUID',
       'getDelta',
       'getMapDistance',
       'matrixTranspose',
       'levenshteinDistance',
+      'debouncePromise',
+      'scripts'
+    ])
+  });
 
-      //array
-      'divideArray',
-      'chunksArray',
-      'getArrayDepth',
-
-      //converters
-      'hexToRGB',
-      'secondsToTime',
-      'timeToSeconds',
-      'toFormData',
-
-      //getters
-      'getForm',
-      'getValue',
-      'getIFrame',
-      'getIndex',
-      'getSiblings',
-
-      //manipulations
-      'toDOM',
-      'appendChildren',
-
-      //events
-      'addEvent',
-      'classScroll',
-      'stickyJs',
-
-      //helpers
-      'intersectionHelper',
-      'lazyloadHelper',
-
-      'scripts',
+  test("Check scripts", () => {
+    expect(
+      Object.keys(scripts)
+    ).toEqual([
+      'activator',
+      'lazyload',
+      'createPrototypes',
     ])
   });
 
   const keys = Object.keys(library);
-
   for(let i = keys.length; i--; )
     test("Check function " + keys[i], () => {
       expect(
         library[keys[i] as keyof typeof library]
       ).toBeTruthy()
     });
+
 });

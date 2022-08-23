@@ -18,7 +18,7 @@ const options = {
     '/cypress/'
   ],
   moduleDirectories: ['node_modules', __dirname],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
+  moduleNameMapper: compilerOptions.paths ? pathsToModuleNameMapper(compilerOptions.paths) : null
 };
 
 module.exports = options;

@@ -1,5 +1,5 @@
-import { match } from "@/index"
-import type { logicGatesType } from "@/interfaces";
+import { match } from "../../index"
+import type { logicGatesType } from "../../interfaces";
 
 /**
  * Fast array search
