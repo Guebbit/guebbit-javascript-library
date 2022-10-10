@@ -14,10 +14,14 @@ function searchFilterRules(rules :filterRulesMap[] = []){
       continue;
     const { search = [], stringLimit = 0, allowEmpty = false } = rules[key] || {};
     if(
-      // if search is NOT array and stringLimit is set: search string must be longer than stringLimit
-      (Array.isArray(search) || stringLimit < 1 || search.length >= stringLimit) &&
-      // if search is empty string or array and allowEmpty is false: empty search means empty filter
-      (allowEmpty || search.length > 0)
+      // if search is not array and not string
+      (!Array.isArray(search) && typeof search !== "string") ||
+      (
+        // if search is NOT array and stringLimit is set: search string must be longer than stringLimit
+        (Array.isArray(search) || stringLimit < 1 || search.length >= stringLimit) &&
+        // if search is empty string or array and allowEmpty is false: empty search means empty filter
+        (allowEmpty || search.length > 0)
+      )
     )
       filteredRules.push({ ...rules[key]! })
   }
@@ -55,7 +59,7 @@ export function searchAnd(item :Record<string, unknown | unknown[]>, rules: filt
     if(!rules[i])
       continue;
     // break down the various parts
-    const { search = '', searchParams = [], logic, sensitive, distance } = rules[i] as filterRulesMap;
+    const { search = '', searchParams = [], logic, sensitive, distance, numberRule } = rules[i] as filterRulesMap;
     // get values from selected columns
     const columnsValues = getValues(item, searchParams);
     /**
@@ -65,11 +69,11 @@ export function searchAnd(item :Record<string, unknown | unknown[]>, rules: filt
      * all must be true, so the first "false" make the entire {item} check false
      */
     if(getArrayDepth(columnsValues) < 2) {
-      if (!filter(search, columnsValues, logic, sensitive, distance))
+      if (!filter(search, columnsValues, logic, { sensitive, distance, numberRule }))
         return false;
     }else {
       for (let i = columnsValues.length; i--;)
-        if (!filter(search, columnsValues[i], logic, sensitive, distance))
+        if (!filter(search, columnsValues[i], logic, { sensitive, distance, numberRule }))
           return false;
     }
   }
@@ -86,18 +90,18 @@ export function searchOr(item :Record<string, unknown | unknown[]>, rules: filte
   for(let i = rules.length; i--; ){
     if(!rules[i])
       continue;
-    const { search = '', searchParams = [], logic, sensitive, distance } = rules[i] as filterRulesMap;
+    const { search = '', searchParams = [], logic, sensitive, distance, numberRule } = rules[i] as filterRulesMap;
     const columnsValues = getValues(item, searchParams);
     /**
      * Same as searchAnd
      * just 1 needs to be true, so the first "true" make the entire {item} check true
      */
     if(getArrayDepth(columnsValues) < 2) {
-      if(filter(search, columnsValues, logic, sensitive, distance))
+      if(filter(search, columnsValues, logic, { sensitive, distance, numberRule }))
         return true;
     }else {
       for (let i = columnsValues.length; i--;)
-        if(filter(search, columnsValues[i], logic, sensitive, distance))
+        if(filter(search, columnsValues[i], logic, { sensitive, distance, numberRule }))
           return true;
     }
   }

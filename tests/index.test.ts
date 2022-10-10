@@ -53,6 +53,7 @@ describe("(MAIN) Check the integrity of the whole library", () => {
       'filterOr',
       'filterNand',
       'filterNor',
+      'filterCheckNumberRule',
       'searchRecords',
       'searchAnd',
       'searchOr',

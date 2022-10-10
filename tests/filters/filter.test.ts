@@ -1,8 +1,5 @@
 import { filter } from '../../src';
 
-// TODO sensitive + distance tests
-// TODO other logics tests
-
 // --------------------- AND LOGIC---------------------
 
 describe("(filter) [AND logic] Generic filter values against values - All checks must be TRUE", () => {
@@ -73,7 +70,7 @@ describe("(filter) [AND logic] Generic filter values against values - All checks
 
   test("[AND] match STRING with ARRAY - same as above", () =>
     expect(
-      filter("same", ["same", "not-same"]) &&
+      filter("same", ["same", "not-same"]) ||
       filter(["same", "not-same"], "same")
     ).toBeFalsy()
   );
@@ -141,13 +138,135 @@ describe("(filter) [OR logic] Generic filter values against values - Just ONE ch
 
 // --------------------- INDIFFERENT LOGIC---------------------
 
-describe("(filter) [INDIFFERENT logic] STRING with STRING is the same as the {function match} tests", () =>
-  test("Match STRING with STRING - its the same of the match tests", () =>
+describe("(filter) [INDIFFERENT logic] Simple values the same as the {function match} tests", () => {
+  test("Match STRING with STRING 1", () =>
     expect(
-      filter('lorem ipsum', 'Lorem Ispum', "and", false, 2) &&
-      filter('lorem ipsum', 'Lorem Ispum', "or", false, 2) &&
-      filter('lorem ipsum', 'Lorem Ispum', "and", true, 4) &&
-      filter('lorem ipsum', 'Lorem Ispum', "or", true, 4)
+      filter('lorem ipsum', 'Lorem Ispum', undefined, {
+        distance: 2
+      })
     ).toBeTruthy()
-  )
-);
+  );
+
+  test("Match STRING with STRING 2", () =>
+    expect(
+      filter('lorem ipsum', 'Lorem Ispum', undefined, {
+        distance: 2
+      })
+    ).toBeTruthy()
+  );
+
+  test("Match STRING with STRING 3", () =>
+    expect(
+      filter('lorem ipsum', 'Lorem Ispum', undefined, {
+        sensitive: true,
+        distance: 4
+      })
+    ).toBeTruthy()
+  );
+
+  test("Match STRING with STRING 4", () =>
+    expect(
+      filter('lorem ipsum', 'Lorem Ispum', undefined, {
+        sensitive: true,
+        distance: 4
+      })
+    ).toBeTruthy()
+  );
+
+  test("Match STRING with STRING 5", () =>
+    expect(
+      filter('lorem ipsum', 'Lorem Ipsum', undefined)
+    ).toBeTruthy()
+  );
+
+  test("Match STRING with STRING 6", () =>
+    expect(
+      filter('lorem ipsum', 'Lorem Ipsum', undefined, {
+        sensitive: true
+      })
+    ).toBeFalsy()
+  );
+
+  test("Match STRING with STRING 7", () =>
+    expect(
+      filter('lorem', 'Lorem Ipsum', undefined, {
+        distance: -1
+      })
+    ).toBeTruthy()
+  );
+
+  test("Match STRING with STRING 8", () =>
+    expect(
+      filter('Lorem', 'Lorem Ipsum', undefined, {
+        sensitive: true,
+        distance: -1
+      })
+    ).toBeTruthy()
+  );
+
+  test("Match STRING with STRING 9", () =>
+    expect(
+      filter('Lorem Ipsum', 'lorem', undefined, {
+        distance: -2
+      }) &&
+      filter('lorem', 'Lorem Ipsum', undefined, {
+        distance: -2
+      })
+    ).toBeTruthy()
+  );
+
+  test("Match STRING with STRING 10", () =>
+    expect(
+      filter('Lorem Ipsum', 'Lorem', undefined, {
+        sensitive: true,
+        distance: -2
+      }) &&
+      filter('Lorem', 'Lorem Ipsum', undefined, {
+        sensitive: true,
+        distance: -2
+      })
+    ).toBeTruthy()
+  );
+
+  test("Match BOOLEAN with BOOLEAN 1", () =>
+    expect(
+      !filter(true, false)
+    ).toBeTruthy()
+  );
+
+  test("Match BOOLEAN with BOOLEAN 2", () =>
+    expect(
+      !filter(false, true)
+    ).toBeTruthy()
+  );
+
+  test("Match BOOLEAN with BOOLEAN 3", () =>
+    expect(
+      filter(true, true)
+    ).toBeTruthy()
+  );
+
+  test("Match BOOLEAN with BOOLEAN 4", () =>
+    expect(
+      filter(false, false)
+    ).toBeTruthy()
+  );
+
+  test("Match NUMBER with NUMBER 1", () =>
+    expect(
+      !filter(1, 2)
+    ).toBeTruthy()
+  );
+
+  test("Match NUMBER with NUMBER 2", () =>
+    expect(
+      !filter(2, 1)
+    ).toBeTruthy()
+  );
+
+  test("Match NUMBER with NUMBER 3", () =>
+    expect(
+      filter(3, 3)
+    ).toBeTruthy()
+  );
+});

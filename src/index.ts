@@ -2,6 +2,7 @@
 
 export type {
   logicGatesType,
+  numberRuleType,
   filterRulesMap,
   secondsToTimeMap,
 } from "./interfaces";
@@ -71,6 +72,8 @@ export {
   filterOr,
   filterNand,
   filterNor,
+  filterCheckNumberRule,
+  type filterRuleParameter,
 } from "./components/filters/filter";
 export {
   default as searchRecords,

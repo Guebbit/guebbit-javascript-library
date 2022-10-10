@@ -1,6 +1,5 @@
 import { searchRecords } from '../../src';
 
-
 describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
   const gameList = [
     {
@@ -446,36 +445,51 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
 describe("(searchRecords) Search various keys in a haystack", () => {
   const input = [
-			{
-				id: 1,
-				param1: 'lorem ipsum',
-				param2: 'dolor'
-			},
-			{
-				id: 2,
-				param1: 'lorem ipsum',
-				param2: 'sit amet',
-				param3: 'consectetur'
-			},
-			{
-				id: 3,
-				param1: 'adipiscing',
-				param2: 'elit sed do',
-				param3: 'eiusmod'
-			},
-      {
-        id: 4,
-        param1: 'lorem ipsum',
-        param2: 'test',
-        param3: 'lorem ipsum'
-      },
-      {
-        id: 5,
-        param1: 'test',
-        param2: 'toast',
-        param3: 'lorem ipsum'
-      },
-		];
+    {
+      id: 1,
+      param1: 'lorem ipsum',
+      param2: 'dolor',
+      param4: true,
+      param5: 14,
+      param6: 1200
+    },
+    {
+      id: 2,
+      param1: 'lorem ipsum',
+      param2: 'sit amet',
+      param3: 'consectetur',
+      param4: false,
+      param5: 15,
+      param6: 1300
+    },
+    {
+      id: 3,
+      param1: 'adipiscing',
+      param2: 'elit sed do',
+      param3: 'eiusmod',
+      param4: true,
+      param5: 14,
+      param6: 1200
+    },
+    {
+      id: 4,
+      param1: 'lorem ipsum',
+      param2: 'test',
+      param3: 'lorem ipsum',
+      param4: false,
+      param5: 16,
+      param6: 1400
+    },
+    {
+      id: 5,
+      param1: 'test',
+      param2: 'toast',
+      param3: 'lorem ipsum',
+      param4: true,
+      param5: 17,
+      param6: 1500
+    },
+  ];
 
   test("[AND/OR] (AND/OR) 1 needed parameter, AND or OR is the same", () => {
 		expect(
@@ -486,22 +500,31 @@ describe("(searchRecords) Search various keys in a haystack", () => {
         }
       ])
 		).toEqual([
-			{
-				id: 1,
-				param1: 'lorem ipsum',
-				param2: 'dolor'
-			},
-			{
-				id: 2,
-				param1: 'lorem ipsum',
-				param2: 'sit amet',
-				param3: 'consectetur'
-			},
+      {
+        id: 1,
+        param1: 'lorem ipsum',
+        param2: 'dolor',
+        param4: true,
+        param5: 14,
+        param6: 1200
+      },
+      {
+        id: 2,
+        param1: 'lorem ipsum',
+        param2: 'sit amet',
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
+      },
       {
         id: 4,
         param1: 'lorem ipsum',
         param2: 'test',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
       },
 		]);
 	});
@@ -514,12 +537,17 @@ describe("(searchRecords) Search various keys in a haystack", () => {
           searchParams: ['param1', 'param3'],
         }
       ])
-    ).toEqual([{
+    ).toEqual([
+      {
         id: 4,
         param1: 'lorem ipsum',
         param2: 'test',
-        param3: 'lorem ipsum'
-      }]);
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
+      },
+    ]);
   });
 
   test("[AND/OR] (OR) 2 needed parameters", () => {
@@ -535,25 +563,37 @@ describe("(searchRecords) Search various keys in a haystack", () => {
       {
         id: 1,
         param1: 'lorem ipsum',
-        param2: 'dolor'
+        param2: 'dolor',
+        param4: true,
+        param5: 14,
+        param6: 1200
       },
       {
         id: 2,
         param1: 'lorem ipsum',
         param2: 'sit amet',
-        param3: 'consectetur'
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
       },
       {
         id: 4,
         param1: 'lorem ipsum',
         param2: 'test',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
       },
       {
         id: 5,
         param1: 'test',
         param2: 'toast',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: true,
+        param5: 17,
+        param6: 1500
       },
     ]);
   });
@@ -570,12 +610,17 @@ describe("(searchRecords) Search various keys in a haystack", () => {
           searchParams: ['param3']
         }
       ])
-    ).toEqual([{
+    ).toEqual([
+      {
         id: 3,
         param1: 'adipiscing',
         param2: 'elit sed do',
-        param3: 'eiusmod'
-      }]);
+        param3: 'eiusmod',
+        param4: true,
+        param5: 14,
+        param6: 1200
+      },
+    ]);
   });
 
   test("[OR] (AND/OR) 2 different rules", () => {
@@ -595,19 +640,28 @@ describe("(searchRecords) Search various keys in a haystack", () => {
         id: 3,
         param1: 'adipiscing',
         param2: 'elit sed do',
-        param3: 'eiusmod'
+        param3: 'eiusmod',
+        param4: true,
+        param5: 14,
+        param6: 1200
       },
       {
         id: 4,
         param1: 'lorem ipsum',
         param2: 'test',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
       },
       {
         id: 5,
         param1: 'test',
         param2: 'toast',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: true,
+        param5: 17,
+        param6: 1500
       },
     ]);
   });
@@ -626,19 +680,28 @@ describe("(searchRecords) Search various keys in a haystack", () => {
       {
         id: 1,
         param1: 'lorem ipsum',
-        param2: 'dolor'
+        param2: 'dolor',
+        param4: true,
+        param5: 14,
+        param6: 1200
       },
       {
         id: 2,
         param1: 'lorem ipsum',
         param2: 'sit amet',
-        param3: 'consectetur'
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
       },
       {
         id: 4,
         param1: 'lorem ipsum',
         param2: 'test',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
       },
     ]);
   });
@@ -662,7 +725,10 @@ describe("(searchRecords) Search various keys in a haystack", () => {
         id: 4,
         param1: 'lorem ipsum',
         param2: 'test',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
       },
     ]);
   });
@@ -685,25 +751,176 @@ describe("(searchRecords) Search various keys in a haystack", () => {
       {
         id: 1,
         param1: 'lorem ipsum',
-        param2: 'dolor'
+        param2: 'dolor',
+        param4: true,
+        param5: 14,
+        param6: 1200
       },
       {
         id: 2,
         param1: 'lorem ipsum',
         param2: 'sit amet',
-        param3: 'consectetur'
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
       },
       {
         id: 4,
         param1: 'lorem ipsum',
         param2: 'test',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
       },
       {
         id: 5,
         param1: 'test',
         param2: 'toast',
-        param3: 'lorem ipsum'
+        param3: 'lorem ipsum',
+        param4: true,
+        param5: 17,
+        param6: 1500
+      },
+    ]);
+  });
+
+  test("[AND/OR] (AND/OR) BOOLEAN parameters", () => {
+    expect(
+      searchRecords(input, [
+        {
+          search: false,
+          searchParams: ['param4']
+        }
+      ])
+    ).toEqual([
+      {
+        id: 2,
+        param1: 'lorem ipsum',
+        param2: 'sit amet',
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
+      },
+      {
+        id: 4,
+        param1: 'lorem ipsum',
+        param2: 'test',
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
+      },
+    ]);
+  });
+
+  test("[AND/OR] (AND/OR) NUMERIC parameters", () => {
+    expect(
+      searchRecords(input, [
+        {
+          search: 14,
+          searchParams: ['param5']
+        }
+      ])
+    ).toEqual([
+      {
+        id: 1,
+        param1: 'lorem ipsum',
+        param2: 'dolor',
+        param4: true,
+        param5: 14,
+        param6: 1200
+      },
+      {
+        id: 3,
+        param1: 'adipiscing',
+        param2: 'elit sed do',
+        param3: 'eiusmod',
+        param4: true,
+        param5: 14,
+        param6: 1200
+      },
+    ]);
+  });
+
+  test("[AND] (AND/OR) NUMERIC parameters with > < =", () => {
+    expect(
+      searchRecords(input, [
+        {
+          search: 1200,
+          searchParams: ['param6'],
+          numberRule: "gt"
+        },
+        {
+          search: 1400,
+          searchParams: ['param6'],
+          numberRule: "lt"
+        }
+      ])
+    ).toEqual([
+      {
+        id: 2,
+        param1: 'lorem ipsum',
+        param2: 'sit amet',
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
+      },
+    ]);
+  });
+
+  test("[OR] (AND/OR) NUMERIC parameters with > < =", () => {
+    expect(
+      searchRecords(input, [
+        {
+          search: 1400,
+          searchParams: ['param6'],
+          numberRule: "egt"
+        },
+        {
+          search: 1200,
+          searchParams: ['param6'],
+          numberRule: "elt"
+        }
+      ], "OR")
+    ).toEqual([
+      {
+        id: 1,
+        param1: 'lorem ipsum',
+        param2: 'dolor',
+        param4: true,
+        param5: 14,
+        param6: 1200
+      },
+      {
+        id: 3,
+        param1: 'adipiscing',
+        param2: 'elit sed do',
+        param3: 'eiusmod',
+        param4: true,
+        param5: 14,
+        param6: 1200
+      },
+      {
+        id: 4,
+        param1: 'lorem ipsum',
+        param2: 'test',
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
+      },
+      {
+        id: 5,
+        param1: 'test',
+        param2: 'toast',
+        param3: 'lorem ipsum',
+        param4: true,
+        param5: 17,
+        param6: 1500
       },
     ]);
   });

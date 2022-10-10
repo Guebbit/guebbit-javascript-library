@@ -10,11 +10,13 @@
  */
 export type logicGatesType = "and" | "AND" | "or" | "OR" | "nand" | "NAND" | "nor" | "NOR";
 
+export type numberRuleType = "gt" | "lt" | "egt" | "elt" | "eq";
+
 export interface filterRulesMap {
   /**
    * Array of parameters to search from, if empty = get all parameters of records
    */
-  search: string | string[]
+  search: unknown | unknown[]
   /**
    * list of parameters to search from
    */
@@ -51,6 +53,15 @@ export interface filterRulesMap {
    * Default: false
    */
   allowEmpty?: boolean
+  /**
+   * Number
+   * gt: greater than (>)
+   * lt: less than (<)
+   * egt equal greater than (>=)
+   * elt: equal less than (<=)
+   * eq: equal (===)
+   */
+  numberRule?: numberRuleType
 }
 
 
