@@ -25,7 +25,7 @@ export function filterCheckNumberRule(check :number, match :number, rule :number
     case "elt":
       return match <= check;
     case "eq":
-      return match > check;
+      return match === check;
   }
   return false;
 }
@@ -75,7 +75,8 @@ export function filterOr(toCheck :unknown | unknown[] = [], toMatch :unknown | u
   sensitive = false,
   distance = 0,
   numberRule,
-}: filterRuleParameter = {}) {
+}: filterRuleParameter = {}
+) {
   // (2-way) fast array search
   if(Array.isArray(toCheck) && Array.isArray(toMatch) && distance === 0 && !sensitive)
     // Just 1 element of the array must be in common
@@ -94,7 +95,6 @@ export function filterOr(toCheck :unknown | unknown[] = [], toMatch :unknown | u
         if(numberRule && filterCheckNumberRule(checkArray[k], matchArray[i], numberRule))
           return true;
       }
-
   // if no successes were found
   return false;
 }

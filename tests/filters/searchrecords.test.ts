@@ -442,7 +442,6 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
   });
 });
 
-
 describe("(searchRecords) Search various keys in a haystack", () => {
   const input = [
     {
@@ -845,7 +844,29 @@ describe("(searchRecords) Search various keys in a haystack", () => {
     ]);
   });
 
-  test("[AND] (AND/OR) NUMERIC parameters with > < =", () => {
+  test("[AND/OR] (AND/OR) Search specific number (alternate)", () => {
+    expect(
+      searchRecords(input, [
+        {
+          search: 1300,
+          searchParams: ['param6'],
+          numberRule: "eq"
+        }
+      ])
+    ).toEqual([
+      {
+        id: 2,
+        param1: 'lorem ipsum',
+        param2: 'sit amet',
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
+      },
+    ]);
+  });
+
+  test("[AND] (AND/OR) Between 2 numbers (1200 < X < 1400)", () => {
     expect(
       searchRecords(input, [
         {
@@ -872,7 +893,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
     ]);
   });
 
-  test("[OR] (AND/OR) NUMERIC parameters with > < =", () => {
+  test("[OR] (AND/OR) Between 2 numbers (1200 < X < 1400)", () => {
     expect(
       searchRecords(input, [
         {

@@ -121,7 +121,7 @@ export function searchNor(){
  * @param {array} rules - array of rules to apply to ALL requested parameters of the haystack
  * @param {string} logic - logic gate that wrap all the rules (they can have individual different logic gates)
  */
-export default (haystack :Record<string, unknown | unknown[]>[], rules: filterRulesMap[] = [], logic :logicGatesType = "and") :Record<string,unknown>[] => {
+export default (haystack :Array<Record<string, unknown | unknown[]>>, rules: filterRulesMap[] = [], logic :logicGatesType = "and") :Record<string,unknown>[] => {
   const filteredRules :filterRulesMap[] = searchFilterRules(rules);
   // no changes
   if(!filteredRules || filteredRules.length < 1)
