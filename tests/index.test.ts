@@ -1,11 +1,11 @@
 import * as library from '../src/index';
-import { searchRecords, scripts } from '../src/index';
+import { whitelist, scripts } from '../src/index';
 
 describe("(MAIN) Check the integrity of the whole library", () => {
 
   test("Check random function", () => {
     expect(
-      searchRecords
+      whitelist
     ).toBeTruthy()
   });
 
@@ -54,7 +54,7 @@ describe("(MAIN) Check the integrity of the whole library", () => {
       'filterNand',
       'filterNor',
       'filterCheckNumberRule',
-      'searchRecords',
+      'search',
       'searchAnd',
       'searchOr',
       'searchNand',

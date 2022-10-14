@@ -76,12 +76,13 @@ export {
   type filterRuleParameter,
 } from "./components/filters/filter";
 export {
-  default as searchRecords,
+  default as search,
   searchAnd,
   searchOr,
   searchNand,
   searchNor,
-} from "./components/filters/searchrecords";
+  type filterGroupMap,
+} from "./components/filters/search";
 
 export { default as getLast } from "./components/getters/getlast";
 export { default as getOverlapRange } from "./components/getters/getoverlaprange";

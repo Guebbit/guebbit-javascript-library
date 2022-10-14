@@ -1,6 +1,6 @@
-import { searchRecords } from '../../src';
+import { search } from '../../src';
 
-describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
+describe("(search) [AND] (OR) VRMETAGAMES real case test", () => {
   const gameList = [
     {
       id: "item-2",
@@ -110,9 +110,9 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
     },
   ];
 
-  test("(searchRecords) Empty Search with allowEmpty", () => {
+  test("(search) Empty Search with allowEmpty", () => {
     expect(
-      searchRecords(gameList, [
+      search(gameList, [
         {
           search: '',
           searchParams: ['title', 'author', 'description'],
@@ -131,7 +131,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
   test("Empty Search without allowEmpty", () => {
     expect(
-      searchRecords(gameList, [
+      search(gameList, [
         {
           search: '',
           searchParams: ['title', 'author', 'description'],
@@ -153,7 +153,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
   test("Text Search (IMPORTANT distance: -1)", () => {
     expect(
-      searchRecords(gameList, [
+      search(gameList, [
         {
           search: 'Wa',
           searchParams: ['title', 'author', 'description'],
@@ -202,7 +202,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
   test("Single Category Search", () => {
     expect(
-      searchRecords(gameList, [
+      search(gameList, [
         {
           search: '',
           searchParams: ['title', 'author', 'description'],
@@ -249,7 +249,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
   test("Multiple Category Search", () => {
     expect(
-      searchRecords(gameList, [
+      search(gameList, [
         {
           search: '',
           searchParams: ['title', 'author', 'description'],
@@ -311,7 +311,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
   test("(SPECIAL) [AND] Multiple Category Search WITH AND", () => {
     expect(
-      searchRecords(gameList, [
+      search(gameList, [
         {
           search: '',
           searchParams: ['title', 'author', 'description'],
@@ -347,7 +347,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
   test("Category + text search", () => {
     expect(
-      searchRecords(gameList, [
+      search(gameList, [
         {
           search: 'mi',
           searchParams: ['title', 'author', 'description'],
@@ -382,7 +382,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
 
   test("(SPECIAL) [OR] Category + text search WITH OR", () => {
     expect(
-      searchRecords(gameList, [
+      search(gameList, [
         {
           search: 'wa',
           searchParams: ['title', 'author', 'description'],
@@ -442,7 +442,7 @@ describe("(searchRecords) [AND] (OR) VRMETAGAMES real case test", () => {
   });
 });
 
-describe("(searchRecords) Search various keys in a haystack", () => {
+describe("(search) Search various keys in a haystack", () => {
   const input = [
     {
       id: 1,
@@ -492,7 +492,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND/OR] (AND/OR) 1 needed parameter, AND or OR is the same", () => {
 		expect(
-			searchRecords(input, [
+			search(input, [
         {
           search: 'lorem ipsum',
           searchParams: ['param1']
@@ -530,7 +530,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND/OR] (AND) 2 needed parameters", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 'lorem ipsum',
           searchParams: ['param1', 'param3'],
@@ -551,7 +551,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND/OR] (OR) 2 needed parameters", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 'lorem ipsum',
           searchParams: ['param1', 'param3'],
@@ -599,7 +599,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND] (AND/OR) 2 different rules", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 'adipiscing',
           searchParams: ['param1']
@@ -624,7 +624,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[OR] (AND/OR) 2 different rules", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 'adipiscing',
           searchParams: ['param1']
@@ -668,7 +668,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND/OR] (AND/OR) (levenshteinDistance = 2) 1 needed parameter with fuzzy search", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 'loerm ipsum',
           searchParams: ['param1'],
@@ -707,7 +707,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND] (AND/OR) (levenshteinDistance = 2) 2 needed parameter with fuzzy search", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 'loerm ipsum',
           searchParams: ['param1'],
@@ -734,7 +734,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[OR] (AND/OR) (levenshteinDistance = 2) 2 needed parameter with fuzzy search", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 'loerm ipsum',
           searchParams: ['param1'],
@@ -787,7 +787,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND/OR] (AND/OR) BOOLEAN parameters", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: false,
           searchParams: ['param4']
@@ -817,7 +817,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND/OR] (AND/OR) NUMERIC parameters", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 14,
           searchParams: ['param5']
@@ -846,7 +846,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND/OR] (AND/OR) Search specific number (alternate)", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 1300,
           searchParams: ['param6'],
@@ -868,7 +868,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[AND] (AND/OR) Between 2 numbers (1200 < X < 1400)", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 1200,
           searchParams: ['param6'],
@@ -895,7 +895,7 @@ describe("(searchRecords) Search various keys in a haystack", () => {
 
   test("[OR] (AND/OR) Between 2 numbers (1200 < X < 1400)", () => {
     expect(
-      searchRecords(input, [
+      search(input, [
         {
           search: 1400,
           searchParams: ['param6'],
@@ -944,5 +944,116 @@ describe("(searchRecords) Search various keys in a haystack", () => {
         param6: 1500
       },
     ]);
+  });
+
+  test("[AND] (AND/OR) COMPLEX search with groups", () => {
+    expect(
+      search(input, [
+        {
+          // logic: "AND",
+          rules: [
+            {
+              search: 1200,
+              searchParams: ['param6'],
+              numberRule: "gt"
+            },
+            {
+              search: 1400,
+              searchParams: ['param6'],
+              numberRule: "lt"
+            }
+          ]
+        },
+        {
+          logic: "OR",
+          rules: [
+            {
+              search: "dolor",
+              searchParams: ['param2'],
+            },
+            {
+              search: false,
+              searchParams: ['param4'],
+            }
+          ]
+        },
+      ])
+    ).toEqual([
+      {
+        id: 2,
+        param1: 'lorem ipsum',
+        param2: 'sit amet',
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
+      }
+    ]);
+  });
+
+  test("[OR] (AND/OR) COMPLEX search with groups", () => {
+    expect(
+      search(input, [
+        {
+          // logic: "AND",
+          rules: [
+            {
+              search: 1200,
+              searchParams: ['param6'],
+              numberRule: "gt"
+            },
+            {
+              search: 1400,
+              searchParams: ['param6'],
+              numberRule: "lt"
+            }
+          ]
+        },
+        {
+          logic: "OR",
+          rules: [
+            {
+              search: "dolor",
+              searchParams: ['param2'],
+            },
+            {
+              search: false,
+              searchParams: ['param4'],
+            }
+          ]
+        },
+      ], "OR")
+    ).toEqual([
+      {
+        id: 2,
+        param1: 'lorem ipsum',
+        param2: 'sit amet',
+        param3: 'consectetur',
+        param4: false,
+        param5: 15,
+        param6: 1300
+      },
+      {
+        id: 1,
+        param1: 'lorem ipsum',
+        param2: 'dolor',
+        param4: true,
+        param5: 14,
+        param6: 1200
+      },
+      {
+        id: 4,
+        param1: 'lorem ipsum',
+        param2: 'test',
+        param3: 'lorem ipsum',
+        param4: false,
+        param5: 16,
+        param6: 1400
+      }
+    ]);
+  });
+
+  test("COMPLEX search with function", () => {
+    //
   });
 });

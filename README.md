@@ -4,7 +4,6 @@ https://codepen.io/simeydotme/pen/PrQKgo
 
 TODO:
 Find different boilerplate (non riesco ad importare i types + problemi con )
-search = searchRecords (done) + searchArray (todo)
 searchRecords:
  - aggiungere check custom (function)
 some functions are too slow: optimize

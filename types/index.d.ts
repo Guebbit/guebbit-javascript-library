@@ -34,7 +34,7 @@ export { default as associativeSlice } from "./components/filters/associativesli
 export { default as match } from "./components/filters/match";
 export { default as whitelist } from "./components/filters/whitelist";
 export { default as filter, filterAnd, filterOr, filterNand, filterNor, filterCheckNumberRule, type filterRuleParameter, } from "./components/filters/filter";
-export { default as searchRecords, searchAnd, searchOr, searchNand, searchNor, } from "./components/filters/searchrecords";
+export { default as search, searchAnd, searchOr, searchNand, searchNor, type filterGroupMap, } from "./components/filters/search";
 export { default as getLast } from "./components/getters/getlast";
 export { default as getOverlapRange } from "./components/getters/getoverlaprange";
 export { default as getUUID } from "./components/getters/getuuid";
