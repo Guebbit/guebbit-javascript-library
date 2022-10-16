@@ -100,7 +100,7 @@ describe("(sort) BOOLEAN sorting (FALSE problem, is a falsy value and it's treat
         "id"
       )
     ).toEqual([
-      2, 1, 3
+      1, 3, 2
     ]);
   });
 
@@ -113,7 +113,7 @@ describe("(sort) BOOLEAN sorting (FALSE problem, is a falsy value and it's treat
         "id"
       )
     ).toEqual([
-      2, 1, 3
+      1, 3, 2
     ]);
   });
 });
@@ -171,7 +171,7 @@ describe("(sort) SPECIAL sorting", () => {
         "id"
       )
     ).toEqual([
-      3, 2, 1
+      2, 1, 3
     ]);
   });
 
@@ -184,7 +184,7 @@ describe("(sort) SPECIAL sorting", () => {
         "id"
       )
     ).toEqual([
-      3, 1, 2
+      1, 2, 3
     ]);
   });
 

@@ -25,9 +25,9 @@ export function check(item1 :unknown, item2 :unknown, order: sortParameterOrder 
     return 0;
   // if one of the items is undefined but other exist: the first loses
   if(!item1 && item2)
-    return -1;
-  if(!item2 && item1)
     return 1;
+  if(!item2 && item1)
+    return -1;
   // if arrays: sort by array length
   if(Array.isArray(item1))
     item1 = item1.length;
