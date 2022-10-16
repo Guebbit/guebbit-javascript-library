@@ -85,8 +85,8 @@ export {
 } from "./components/filters/search";
 export {
   default as sort,
-  type sortParameterOrder,
-  type sortParameters,
+  type sortParameterOrderType,
+  type sortParameterType,
 } from "./components/filters/sort";
 
 export { default as getLast } from "./components/getters/getlast";

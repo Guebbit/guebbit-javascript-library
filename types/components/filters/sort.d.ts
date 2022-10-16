@@ -3,12 +3,12 @@
  * 1 = ascending
  * 2 = descending
  */
-export declare type sortParameterOrder = 0 | 1 | 2;
+export declare type sortParameterOrderType = 0 | 1 | 2;
 /**
  * Parameter to use for sorting
  * Sort order
  */
-export declare type sortParameters = [string, sortParameterOrder];
+export declare type sortParameterType = [string, sortParameterOrderType];
 /**
  * Single check
  * Make "FALSE" Boolean valid?
@@ -17,12 +17,12 @@ export declare type sortParameters = [string, sortParameterOrder];
  * @param {*} item2
  * @param {number} order
  */
-export declare function check(item1: unknown, item2: unknown, order?: sortParameterOrder): number;
+export declare function check(item1: unknown, item2: unknown, order?: sortParameterOrderType): number;
 /**
  *
  * @param {Object[]} haystack
  * @param {[string, number][]} parameters
  */
-declare const _default: (haystack: Array<Record<string, unknown>>, parameters?: sortParameters[]) => Record<string, unknown>[];
+declare const _default: (haystack: Array<Record<string, unknown>>, parameters?: sortParameterType[]) => Record<string, unknown>[];
 export default _default;
 //# sourceMappingURL=sort.d.ts.map

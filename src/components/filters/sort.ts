@@ -3,13 +3,13 @@
  * 1 = ascending
  * 2 = descending
  */
-export type sortParameterOrder = 0 | 1 | 2;
+export type sortParameterOrderType = 0 | 1 | 2;
 
 /**
  * Parameter to use for sorting
  * Sort order
  */
-export type sortParameters = [string, sortParameterOrder];
+export type sortParameterType = [string, sortParameterOrderType];
 
 /**
  * Single check
@@ -19,7 +19,7 @@ export type sortParameters = [string, sortParameterOrder];
  * @param {*} item2
  * @param {number} order
  */
-export function check(item1 :unknown, item2 :unknown, order: sortParameterOrder = 0 ) : number{
+export function check(item1 :unknown, item2 :unknown, order: sortParameterOrderType = 0 ) : number{
   // 0 is neutral and useless to us
   if(order === 0)
     return 0;
@@ -52,7 +52,7 @@ export function check(item1 :unknown, item2 :unknown, order: sortParameterOrder 
  * @param {Object[]} haystack
  * @param {[string, number][]} parameters
  */
-export default (haystack :Array<Record<string, unknown>>, parameters :sortParameters[] = []) => {
+export default (haystack :Array<Record<string, unknown>>, parameters :sortParameterType[] = []) => {
   return [...haystack].sort((item1, item2) => {
     for(let i = 0, len = parameters.length; i < len; i++){
       const [ key, order = 0 ] = parameters[i]!;
