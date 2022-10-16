@@ -61,6 +61,20 @@ export interface filterRulesMap {
      */
     numberRule?: numberRuleType;
 }
+/**
+ *
+ */
+export interface filterGroupMap {
+    rules: filterRulesMap[];
+    logic?: logicGatesType;
+}
+/**
+ *
+ */
+export declare type filterFunctionMap = (arg: unknown) => boolean;
+/**
+ *
+ */
 export interface secondsToTimeMap {
     years?: number;
     yearsOnly?: number;

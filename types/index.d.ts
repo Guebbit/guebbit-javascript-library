@@ -1,4 +1,4 @@
-export type { logicGatesType, numberRuleType, filterRulesMap, secondsToTimeMap, } from "./interfaces";
+export type { numberRuleType, secondsToTimeMap, logicGatesType, filterRulesMap, filterGroupMap, filterFunctionMap } from "./interfaces";
 export type { mouseParallaxItemsMap, mouseParallaxMap } from "./components/dom/manipulation/mouseparallax";
 export type { classScrollSettingsMap } from "./components/dom/events/classscroll";
 export type { stickyjsSettingsMap } from "./components/dom/events/shyjs";
@@ -34,7 +34,7 @@ export { default as associativeSlice } from "./components/filters/associativesli
 export { default as match } from "./components/filters/match";
 export { default as whitelist } from "./components/filters/whitelist";
 export { default as filter, filterAnd, filterOr, filterNand, filterNor, filterCheckNumberRule, type filterRuleParameter, } from "./components/filters/filter";
-export { default as search, searchAnd, searchOr, searchNand, searchNor, type filterGroupMap, } from "./components/filters/search";
+export { default as search, searchAnd, searchOr, searchNand, searchNor, } from "./components/filters/search";
 export { default as sort, type sortParameterOrderType, type sortParameterType, } from "./components/filters/sort";
 export { default as getLast } from "./components/getters/getlast";
 export { default as getOverlapRange } from "./components/getters/getoverlaprange";

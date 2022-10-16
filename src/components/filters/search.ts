@@ -1,13 +1,6 @@
 import { groupBy, isEqual, isFunction } from "lodash";
 import { arrayColumns, getArrayDepth, filter } from "./../../index";
-import type { filterRulesMap, logicGatesType } from "../../interfaces";
-
-export interface filterGroupMap {
-  rules: filterRulesMap[],
-  logic?: logicGatesType
-}
-
-export type filterFunctionMap = (arg: unknown) => boolean;
+import type { logicGatesType, filterRulesMap, filterGroupMap, filterFunctionMap } from "../../interfaces";
 
 /**
  * Disable/filter out all the filter rules that have a "disabler" active.

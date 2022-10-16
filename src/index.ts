@@ -1,10 +1,12 @@
 // ------------- INTERFACES ------------
 
 export type {
-  logicGatesType,
   numberRuleType,
-  filterRulesMap,
   secondsToTimeMap,
+  logicGatesType,
+  filterRulesMap,
+  filterGroupMap,
+  filterFunctionMap
 } from "./interfaces";
 
 export type {
@@ -81,7 +83,6 @@ export {
   searchOr,
   searchNand,
   searchNor,
-  type filterGroupMap,
 } from "./components/filters/search";
 export {
   default as sort,

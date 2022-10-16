@@ -19,7 +19,7 @@ export type sortParameterType = [string, sortParameterOrderType];
  * @param {*} item2
  * @param {number} order
  */
-export function check(item1 :unknown, item2 :unknown, order: sortParameterOrderType = 0 ) : number{
+export function check(item1 :unknown, item2 :unknown, order: sortParameterOrderType = 0 ) : number {
   // 0 is neutral and useless to us
   if(order === 0)
     return 0;

@@ -1,9 +1,4 @@
-import type { filterRulesMap, logicGatesType } from "../../interfaces";
-export interface filterGroupMap {
-    rules: filterRulesMap[];
-    logic?: logicGatesType;
-}
-export declare type filterFunctionMap = (arg: unknown) => boolean;
+import type { logicGatesType, filterRulesMap, filterGroupMap, filterFunctionMap } from "../../interfaces";
 /**
  * Single item check if ALL rules are valid
  *
