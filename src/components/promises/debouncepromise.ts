@@ -1,7 +1,4 @@
-//TODO typescript & tests
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async (f :any, interval :number) => {
+export default async (f :(...args :unknown[]) => unknown, interval :number) => {
 	let timer = 0;
 	return (...args :unknown[]) => {
 		clearTimeout(timer);

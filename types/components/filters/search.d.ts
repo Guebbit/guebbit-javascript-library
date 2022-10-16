@@ -3,6 +3,7 @@ export interface filterGroupMap {
     rules: filterRulesMap[];
     logic?: logicGatesType;
 }
+export declare type filterFunctionMap = (arg: unknown) => boolean;
 /**
  * Single item check if ALL rules are valid
  *
@@ -35,20 +36,18 @@ export declare function searchCore(haystack: Array<Record<string, unknown | unkn
  * - GROUP logic gate is for the group (parameter in filterGroupMap)
  * - LOCAL logic gate is for the single rule in exam (parameter in object filterRulesMap)
  *
- * TEMPORARY?
+ * WARNING: CLONE RULE. If haystack has clones and GLOBAL logic is "OR", they will be removed. TODO RESOLVE?
+ * WARNING: UNORDERED RULE. If GLOBAL logic is "OR", the result order will be compromised TODO RESOLVE?
  *
  * TODO recursion to have infinite filterGroupMap layers
- * TODO CLONE RULE: se haystack ha cloni, si stanno usando usando filterGroupMaps
- *  e la GLOBAL logic è "OR", le copie verrebbero rimosse, creare un fix? Una Unique prop?
- * TODO filterGroupMaps GLOBAL logic "OR" cambia l'ordine dei risultati
- * TODO better order?
- * TODO <T>
+ * TODO sistemare la UNORDERED RULE mettendo all'haystack un id temporaneo casuale
+ *  e poi creare un array con l'ordine originale, ordinare in base a quell'id, poi rimuovere il campo addizionale
  *
  * @param {array} haystack - array of objects
  * @param {array} rules - array of rules to apply to ALL requested parameters of the haystack
  * @param {string} logic - logic gate that wrap all the rules (they can have individual different logic gates)
  * @return {object[]} - result
  */
-declare const _default: (haystack: Array<Record<string, unknown | unknown[]>>, rules?: filterRulesMap[] | filterGroupMap[], logic?: logicGatesType) => Array<Record<string, unknown | unknown[]>>;
+declare const _default: (haystack: Array<Record<string, unknown | unknown[]>>, rules?: Array<filterRulesMap | filterGroupMap | filterFunctionMap>, logic?: logicGatesType) => Array<Record<string, unknown | unknown[]>>;
 export default _default;
 //# sourceMappingURL=search.d.ts.map

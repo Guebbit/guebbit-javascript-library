@@ -1,4 +1,4 @@
-import { isEqual } from "lodash";
+import { groupBy, isEqual, isFunction } from "lodash";
 import { arrayColumns, getArrayDepth, filter } from "./../../index";
 import type { filterRulesMap, logicGatesType } from "../../interfaces";
 
@@ -7,6 +7,7 @@ export interface filterGroupMap {
   logic?: logicGatesType
 }
 
+export type filterFunctionMap = (arg: unknown) => boolean;
 
 /**
  * Disable/filter out all the filter rules that have a "disabler" active.
@@ -161,63 +162,99 @@ export function searchCore (haystack :Array<Record<string, unknown | unknown[]>>
  * - GROUP logic gate is for the group (parameter in filterGroupMap)
  * - LOCAL logic gate is for the single rule in exam (parameter in object filterRulesMap)
  *
- * TEMPORARY?
+ * WARNING: CLONE RULE. If haystack has clones and GLOBAL logic is "OR", they will be removed. TODO RESOLVE?
+ * WARNING: UNORDERED RULE. If GLOBAL logic is "OR", the result order will be compromised TODO RESOLVE?
  *
  * TODO recursion to have infinite filterGroupMap layers
- * TODO CLONE RULE: se haystack ha cloni, si stanno usando usando filterGroupMaps
- *  e la GLOBAL logic è "OR", le copie verrebbero rimosse, creare un fix? Una Unique prop?
- * TODO filterGroupMaps GLOBAL logic "OR" cambia l'ordine dei risultati
- * TODO better order?
- * TODO <T>
+ * TODO sistemare la UNORDERED RULE mettendo all'haystack un id temporaneo casuale
+ *  e poi creare un array con l'ordine originale, ordinare in base a quell'id, poi rimuovere il campo addizionale
  *
  * @param {array} haystack - array of objects
  * @param {array} rules - array of rules to apply to ALL requested parameters of the haystack
  * @param {string} logic - logic gate that wrap all the rules (they can have individual different logic gates)
  * @return {object[]} - result
  */
-export default (haystack :Array<Record<string, unknown | unknown[]>>, rules: filterRulesMap[] | filterGroupMap[] = [], logic :logicGatesType = "and") :Array<Record<string, unknown | unknown[]>> => {
+export default (haystack :Array<Record<string, unknown | unknown[]>>, rules: Array<filterRulesMap | filterGroupMap | filterFunctionMap> = [], logic :logicGatesType = "and") :Array<Record<string, unknown | unknown[]>> => {
   // no rules = no changes
   if(rules.length < 0)
     return haystack;
 
-  // if it's regular filterRulesMap, regular use, call searchCore a single time.
-  if(Object.prototype.hasOwnProperty.call(rules[0], 'search'))
-    return searchCore(haystack, rules as filterRulesMap[], logic);
+  // It could be a mix of filterRulesMap and filterGroupMap,
+  // so I separate them in 2 different groups
+  const mixedRules =
+    groupBy(rules,
+      (item) => {
+        if(Object.prototype.hasOwnProperty.call(item, 'search'))
+          return "rule";
+        if(Object.prototype.hasOwnProperty.call(item, 'rules'))
+          return "group";
+        if(isFunction(item)) // if(item instanceof Function)
+          return "function";
+        return false;
+      }
+    )
+  // Could optimize but it would mess up the order
+  const filterRules = (mixedRules["rule"] || []) as filterRulesMap[];
+  const filterGroups = (mixedRules["group"] || []) as filterGroupMap[];
+  const filterFunctions = (mixedRules["function"] || []) as filterFunctionMap[];
 
-  // if it's a filterGroupMap, we need to call searchCore for every group (for it's own logic gates)
-  // (it must be a VALID group, else: no changes)
-  if(!Object.prototype.hasOwnProperty.call(rules[0], 'rules'))
+  // no rules = no changes
+  if(filterRules.length < 1 && filterGroups.length < 1 && filterFunctions.length < 1)
     return haystack;
+
+  // SHORTCUT: if it's only regular filterRulesMap: regular use, call searchCore a single time.
+  if(filterGroups.length < 1 && filterFunctions.length < 1)
+    return searchCore(haystack, filterRules, logic);
 
   // GLOBAL logic
   switch (logic.toLowerCase()){
     case "and": {
-      // We'll keep using result[0] and filter out items at every cycle
+      /**
+       * We'll keep using the same filtered results over and over, filtering more at every cycle
+       */
       let results = [...haystack];
-      for(let i = 0, len = rules.length; i < len; i++)
+      let i :number;
+      let len :number;
+      // if it's a mixup, I do first filterRulesMap with searchCore and it's global logic
+      results = searchCore(results, filterRules, logic);
+      // then proceed with the filterGroupMap cycle,
+      // we need to call searchCore for every group (for it's own logic gates)
+      for(i = 0, len = filterGroups.length; i < len; i++){
+        const { rules = [], logic } = filterGroups[i] || {};
         results =
           searchCore(
             results,
-            (rules[i] as filterGroupMap).rules,
-            // GROUP logic gate
-            (rules[i] as filterGroupMap).logic
+            rules,
+            logic
           )
+      }
+      // lastly: the custom functions
+      for(i = 0, len = filterFunctions.length; i < len; i++)
+        results = results.filter(filterFunctions[i]!)
       return results;
     }
     case "or": {
-      // Add an extra layer because all groups will be used on the same haystack then merged
+      /**
+       * Add an extra layer because all groups will be used on the same haystack then merged
+       */
       const results :Record<string, unknown | unknown[]>[][] = [];
       let i :number;
       let len :number;
-      for(i = 0, len = rules.length; i < len; i++)
-        results.push(
+      // filterRulesMap (if empty: empty result)
+      results[0] = filterRules.length > 0 ? searchCore(haystack, filterRules, logic) : [];
+      // filterGroupMap cycle
+      for(i = 0, len = filterGroups.length; i < len; i++){
+        const { rules = [], logic } = filterGroups[i] || {};
+        results[i + 1] =
           searchCore(
             [...haystack],
-            (rules[i] as filterGroupMap).rules,
-            // GROUP logic gate
-            (rules[i] as filterGroupMap).logic
+            rules,
+            logic
           )
-        )
+      }
+      // lastly: the custom functions
+      for(i = 0, len = filterFunctions.length; i < len; i++)
+        results[i + results.length] = [...haystack].filter(filterFunctions[i]!)
       // merge all arrays (results.flat() doesn't remove duplicates)
       const mergedResults :Record<string, unknown | unknown[]>[] = [];
       for(i = 0, len = results.length; i < len; i++)

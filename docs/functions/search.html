@@ -15,7 +15,7 @@
 <h1>Function search</h1></div>
 <section class="tsd-panel">
 <ul class="tsd-signatures tsd-kind-function">
-<li class="tsd-signature tsd-anchor-link" id="search">search<span class="tsd-signature-symbol">(</span>haystack<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, rules<span class="tsd-signature-symbol">?: </span><a href="../interfaces/filterRulesMap.html" class="tsd-signature-type" data-tsd-kind="Interface">filterRulesMap</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/filterGroupMap.html" class="tsd-signature-type" data-tsd-kind="Interface">filterGroupMap</a><span class="tsd-signature-symbol">[]</span>, logic<span class="tsd-signature-symbol">?: </span><a href="../types/logicGatesType.html" class="tsd-signature-type" data-tsd-kind="Type alias">logicGatesType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><a href="#search" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="search">search<span class="tsd-signature-symbol">(</span>haystack<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, rules<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span><a href="../interfaces/filterRulesMap.html" class="tsd-signature-type" data-tsd-kind="Interface">filterRulesMap</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/filterGroupMap.html" class="tsd-signature-type" data-tsd-kind="Interface">filterGroupMap</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">filterFunctionMap</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span>, logic<span class="tsd-signature-symbol">?: </span><a href="../types/logicGatesType.html" class="tsd-signature-type" data-tsd-kind="Type alias">logicGatesType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><a href="#search" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>filterGroupMap were born better use the logic gates:</p>
 <ul>
@@ -23,13 +23,11 @@
 <li>GROUP logic gate is for the group (parameter in filterGroupMap)</li>
 <li>LOCAL logic gate is for the single rule in exam (parameter in object filterRulesMap)</li>
 </ul>
-<p>TEMPORARY?</p>
+<p>WARNING: CLONE RULE. If haystack has clones and GLOBAL logic is &quot;OR&quot;, they will be removed. TODO RESOLVE?
+WARNING: UNORDERED RULE. If GLOBAL logic is &quot;OR&quot;, the result order will be compromised TODO RESOLVE?</p>
 <p>TODO recursion to have infinite filterGroupMap layers
-TODO CLONE RULE: se haystack ha cloni, si stanno usando usando filterGroupMaps
- e la GLOBAL logic è &quot;OR&quot;, le copie verrebbero rimosse, creare un fix? Una Unique prop?
-TODO filterGroupMaps GLOBAL logic &quot;OR&quot; cambia l&#39;ordine dei risultati
-TODO better order?
-TODO <T></p>
+TODO sistemare la UNORDERED RULE mettendo all&#39;haystack un id temporaneo casuale
+ e poi creare un array con l&#39;ordine originale, ordinare in base a quell&#39;id, poi rimuovere il campo addizionale</p>
 
 <h3>Returns</h3><ul>
 <li>result</li>
@@ -43,7 +41,7 @@ TODO <T></p>
 <div class="tsd-comment tsd-typography"><p>array of objects</p>
 </div></li>
 <li>
-<h5>rules: <a href="../interfaces/filterRulesMap.html" class="tsd-signature-type" data-tsd-kind="Interface">filterRulesMap</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/filterGroupMap.html" class="tsd-signature-type" data-tsd-kind="Interface">filterGroupMap</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
+<h5>rules: <span class="tsd-signature-symbol">(</span><a href="../interfaces/filterRulesMap.html" class="tsd-signature-type" data-tsd-kind="Interface">filterRulesMap</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/filterGroupMap.html" class="tsd-signature-type" data-tsd-kind="Interface">filterGroupMap</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">filterFunctionMap</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
 <div class="tsd-comment tsd-typography"><p>array of rules to apply to ALL requested parameters of the haystack</p>
 </div></li>
 <li>
@@ -52,7 +50,7 @@ TODO <T></p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Guebbit/guebbit-javascript-library/blob/d3809dd/src/components/filters/search.ts#L178">components/filters/search.ts:178</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/Guebbit/guebbit-javascript-library/blob/4c9d7b2/src/components/filters/search.ts#L177">components/filters/search.ts:177</a></li></ul></aside></li></ul></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
