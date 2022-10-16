@@ -156,7 +156,6 @@ const gameList = [
   },
 ];
 
-
 describe("(search) [AND] (OR) VRMETAGAMES real case test", () => {
 
   test("(search) Empty Search with allowEmpty", () => {

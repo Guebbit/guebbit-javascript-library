@@ -59,6 +59,7 @@ describe("(MAIN) Check the integrity of the whole library", () => {
       'searchOr',
       'searchNand',
       'searchNor',
+      'sort',
       'getLast',
       'getOverlapRange',
       'getUUID',

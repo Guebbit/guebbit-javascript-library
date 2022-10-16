@@ -83,6 +83,7 @@ export {
   searchNor,
   type filterGroupMap,
 } from "./components/filters/search";
+export { default as sort } from "./components/filters/sort";
 
 export { default as getLast } from "./components/getters/getlast";
 export { default as getOverlapRange } from "./components/getters/getoverlaprange";
