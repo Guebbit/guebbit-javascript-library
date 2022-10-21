@@ -32,13 +32,14 @@ const input = [
   },
 ];
 
+
 describe("(sort) NUMBER sorting", () => {
 
   test("1 - descending order", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param5", 2]
+          ["param5", 1]
         ]),
         "id"
       )
@@ -51,7 +52,7 @@ describe("(sort) NUMBER sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param5", 1]
+          ["param5", 2]
         ]),
         "id"
       )
@@ -64,8 +65,8 @@ describe("(sort) NUMBER sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param4", 2],
-          ["param5", 2]
+          ["param4", 1],
+          ["param5", 1]
         ]),
         "id"
       )
@@ -78,8 +79,8 @@ describe("(sort) NUMBER sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param4", 1],
-          ["param5", 2]
+          ["param4", 2],
+          ["param5", 1]
         ]),
         "id"
       )
@@ -95,7 +96,7 @@ describe("(sort) BOOLEAN sorting (FALSE problem, is a falsy value and it's treat
     expect(
       arrayColumns(
         sort(input, [
-          ["param3", 2]
+          ["param3", 1]
         ]),
         "id"
       )
@@ -108,7 +109,7 @@ describe("(sort) BOOLEAN sorting (FALSE problem, is a falsy value and it's treat
     expect(
       arrayColumns(
         sort(input, [
-          ["param3", 1]
+          ["param3", 2]
         ]),
         "id"
       )
@@ -123,7 +124,7 @@ describe("(sort) STRING sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param2", 2]
+          ["param2", 1]
         ]),
         "id"
       )
@@ -136,8 +137,8 @@ describe("(sort) STRING sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param1", 2],
-          ["param2", 2]
+          ["param1", 1],
+          ["param2", 1]
         ]),
         "id"
       )
@@ -153,7 +154,7 @@ describe("(sort) SPECIAL sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param6", 2]
+          ["param6", 1]
         ]),
         "id"
       )
@@ -166,7 +167,7 @@ describe("(sort) SPECIAL sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param7", 1]
+          ["param7", 2]
         ]),
         "id"
       )
@@ -179,7 +180,7 @@ describe("(sort) SPECIAL sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param7", 2]
+          ["param7", 1]
         ]),
         "id"
       )
@@ -196,8 +197,8 @@ describe("(sort) MIXED sorting", () => {
     expect(
       arrayColumns(
         sort(input, [
-          ["param1", 2],
-          ["param5", 2]
+          ["param1", 1],
+          ["param5", 1]
         ]),
         "id"
       )

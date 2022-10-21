@@ -1,7 +1,7 @@
 /**
  * 0 = neutral
- * 1 = ascending
- * 2 = descending
+ * 1 = descending
+ * 2 = ascending
  */
 export declare type sortParameterOrderType = 0 | 1 | 2;
 /**
