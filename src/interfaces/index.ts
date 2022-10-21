@@ -14,6 +14,10 @@ export type numberRuleType = "gt" | "lt" | "egt" | "elt" | "eq";
 
 export interface filterRulesMap {
   /**
+   * Only for user identification if needed
+   */
+  id?: string
+  /**
    * Array of parameters to search from, if empty = get all parameters of records
    */
   search: unknown | unknown[]
