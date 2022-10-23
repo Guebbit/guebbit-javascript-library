@@ -90,6 +90,7 @@ export {
   type sortParameterType,
 } from "./components/filters/sort";
 
+export { default as getJSON } from "./components/getters/getjson";
 export { default as getLast } from "./components/getters/getlast";
 export { default as getOverlapRange } from "./components/getters/getoverlaprange";
 export { default as getUUID } from "./components/getters/getuuid";

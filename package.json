@@ -1,6 +1,6 @@
 {
   "name": "guebbit-javascript-library",
-  "version": "2.5.11",
+  "version": "2.5.12",
   "author": "Guebbit",
   "description": "personal library",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
     "test:unit": "jest",
     "test:main": "jest tests/index.test.ts",
-    "test:target": "jest tests/filters/sort.test.ts",
+    "test:target": "jest tests/getters/getjson.test.ts",
     "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
     "rollup:build": "rollup --config ./rollup.config.js",
     "rollup:serve": "rollup -cw",
