@@ -1,6 +1,6 @@
 import { groupBy, isEqual, isFunction } from "lodash";
 import { arrayColumns, getArrayDepth, filter } from "./../../index";
-import type { logicGatesType, filterRulesMap, filterGroupMap, filterFunctionMap } from "../../interfaces";
+import type {logicGatesType, filterRulesMap, filterGroupMap, filterFunctionMap, filterAnyMap } from "../../interfaces";
 
 /**
  * Disable/filter out all the filter rules that have a "disabler" active.
@@ -167,7 +167,7 @@ export function searchCore (haystack :Array<Record<string, unknown | unknown[]>>
  * @param {string} logic - logic gate that wrap all the rules (they can have individual different logic gates)
  * @return {object[]} - result
  */
-export default (haystack :Array<Record<string, unknown | unknown[]>>, rules: Array<filterRulesMap | filterGroupMap | filterFunctionMap> = [], logic :logicGatesType = "and") :Array<Record<string, unknown | unknown[]>> => {
+export default (haystack :Array<Record<string, unknown | unknown[]>>, rules: Array<filterAnyMap> = [], logic :logicGatesType = "and") :Array<Record<string, unknown | unknown[]>> => {
   // no rules = no changes
   if(rules.length < 0)
     return haystack;

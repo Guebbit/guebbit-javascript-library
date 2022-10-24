@@ -6,7 +6,8 @@ export type {
   logicGatesType,
   filterRulesMap,
   filterGroupMap,
-  filterFunctionMap
+  filterFunctionMap,
+  filterAnyMap
 } from "./interfaces";
 
 export type {

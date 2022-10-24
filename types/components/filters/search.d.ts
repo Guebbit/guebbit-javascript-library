@@ -1,4 +1,4 @@
-import type { logicGatesType, filterRulesMap, filterGroupMap, filterFunctionMap } from "../../interfaces";
+import type { logicGatesType, filterRulesMap, filterAnyMap } from "../../interfaces";
 /**
  * Single item check if ALL rules are valid
  *
@@ -43,6 +43,6 @@ export declare function searchCore(haystack: Array<Record<string, unknown | unkn
  * @param {string} logic - logic gate that wrap all the rules (they can have individual different logic gates)
  * @return {object[]} - result
  */
-declare const _default: (haystack: Array<Record<string, unknown | unknown[]>>, rules?: Array<filterRulesMap | filterGroupMap | filterFunctionMap>, logic?: logicGatesType) => Array<Record<string, unknown | unknown[]>>;
+declare const _default: (haystack: Array<Record<string, unknown | unknown[]>>, rules?: Array<filterAnyMap>, logic?: logicGatesType) => Array<Record<string, unknown | unknown[]>>;
 export default _default;
 //# sourceMappingURL=search.d.ts.map

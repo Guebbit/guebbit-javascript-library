@@ -10,6 +10,9 @@
  */
 export declare type logicGatesType = "and" | "AND" | "or" | "OR" | "nand" | "NAND" | "nor" | "NOR";
 export declare type numberRuleType = "gt" | "lt" | "egt" | "elt" | "eq";
+/**
+ * Filter item for search
+ */
 export interface filterRulesMap {
     /**
      * Only for user identification if needed
@@ -66,16 +69,20 @@ export interface filterRulesMap {
     numberRule?: numberRuleType;
 }
 /**
- *
+ * Group filterRulesMap with theirs logic gate
  */
 export interface filterGroupMap {
     rules: filterRulesMap[];
     logic?: logicGatesType;
 }
 /**
- *
+ * A function for custom filter, use in native [].filter
  */
 export declare type filterFunctionMap = (arg: unknown) => boolean;
+/**
+ * ALl together, for better use
+ */
+export declare type filterAnyMap = filterRulesMap | filterGroupMap | filterFunctionMap;
 /**
  *
  */

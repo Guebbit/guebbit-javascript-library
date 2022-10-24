@@ -1,4 +1,4 @@
-export type { numberRuleType, secondsToTimeMap, logicGatesType, filterRulesMap, filterGroupMap, filterFunctionMap } from "./interfaces";
+export type { numberRuleType, secondsToTimeMap, logicGatesType, filterRulesMap, filterGroupMap, filterFunctionMap, filterAnyMap } from "./interfaces";
 export type { mouseParallaxItemsMap, mouseParallaxMap } from "./components/dom/manipulation/mouseparallax";
 export type { classScrollSettingsMap } from "./components/dom/events/classscroll";
 export type { stickyjsSettingsMap } from "./components/dom/events/shyjs";
