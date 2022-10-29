@@ -9,14 +9,14 @@
  * @param delimiter - delimiter of string propertyPath (default is a point)
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default (obj ?:any, propertyPath :string | string[] = [], value :any = {}, delimiter = ".") :any => {
+export default (obj ?:any, propertyPath :string | number | Array<string | number> = [], value :any = {}, delimiter = ".") :any => {
   // if object does not exist: create a new
   if(!obj)
     obj = {};
   // pointer to object, will change to last tip of object in the for loop cycle
   let current = obj;
   // accept string to split with delimiter or directly array of parameters
-  const properties :string[] = Array.isArray((propertyPath)) ? propertyPath : propertyPath.split(delimiter);
+  const properties :Array<string | number> = Array.isArray((propertyPath)) ? propertyPath : (propertyPath as string).split(delimiter);
   const lastProperty = properties.pop();
   // if undefined that means properties are empty,
   // no modifications can be done to object because no parameters were given

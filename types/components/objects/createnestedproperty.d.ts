@@ -8,6 +8,6 @@
  * @param value - value to put on top, (default is an empty object)
  * @param delimiter - delimiter of string propertyPath (default is a point)
  */
-declare const _default: (obj?: any, propertyPath?: string | string[], value?: any, delimiter?: string) => any;
+declare const _default: (obj?: any, propertyPath?: string | number | Array<string | number>, value?: any, delimiter?: string) => any;
 export default _default;
 //# sourceMappingURL=createnestedproperty.d.ts.map
