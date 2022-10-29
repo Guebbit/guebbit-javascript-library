@@ -1,1 +1,1 @@
-{"version":3,"file":"createnestedproperty.d.ts","sourceRoot":"","sources":["../../../src/components/objects/createnestedproperty.ts"],"names":[],"mappings":"AAAA;;;;;;;;;GASG;+BAEmB,GAAG,iBAAgB,MAAM,GAAG,MAAM,GAAG,MAAM,MAAM,GAAG,MAAM,CAAC,UAAc,GAAG,yBAAyB,GAAG;AAA9H,wBA4BC"}
+{"version":3,"file":"createnestedproperty.d.ts","sourceRoot":"","sources":["../../../src/components/objects/createnestedproperty.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,GAAG,EAAE,MAAM,QAAQ,CAAC;AAE7B;;;;;;GAMG;AACH,eAAe,GAAG,CAAC;AAEnB;;;;;;;;;;GAUG"}

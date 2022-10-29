@@ -1,3 +1,9 @@
+import { get } from "lodash";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default (obj ?:any, propertyPath :string | string[] = []) :boolean => {
+  return get(obj, propertyPath, false)
+}
 /**
  * hasOwnProperty but with recursion
  *
@@ -5,6 +11,7 @@
  * @param propertyPath - array of properties or string delimited with {delimiter} to create an array
  * @param delimiter - delimiter of string propertyPath (default is a point)
  */
+/*
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default (obj ?:any, propertyPath :string | number | Array<string | number> = [], delimiter = ".") :boolean => {
   // no object = default false
@@ -24,3 +31,4 @@ export default (obj ?:any, propertyPath :string | number | Array<string | number
   // everything was fine
 	return true;
 }
+*/

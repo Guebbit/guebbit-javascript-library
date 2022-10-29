@@ -1,16 +1,20 @@
 import { createNestedProperty } from "../../src";
 
-describe("(createNestedProperty) create nested objects (and put value on the tip)", () => {
-	const genericObject = {
-		lorem: "ipsum",
-    dolor: {
-      sit: "consectetur"
-    }
-	};
+describe("(createNestedProperty now LODASH.SET) create nested objects (and put value on the tip)", () => {
+  let genericObject = {};
+  // reload object
+  beforeEach(() => {
+    genericObject = {
+      lorem: "ipsum",
+      dolor: {
+        sit: "consectetur"
+      }
+    };
+  });
 
   test("Empty object + array parameters", () => {
     expect(
-      createNestedProperty({}, ["lorem", "ipsum"])
+      createNestedProperty({}, ["lorem", "ipsum"], {})
     ).toStrictEqual({
       lorem: {
         ipsum: {}
@@ -41,7 +45,7 @@ describe("(createNestedProperty) create nested objects (and put value on the tip
   });
   test("Existing object + string parameter", () => {
     expect(
-      createNestedProperty(genericObject, "dolor___adipiscing___elit", 1, "___")
+      createNestedProperty(genericObject, "dolor.adipiscing.elit", 1)
     ).toStrictEqual({
       lorem: "ipsum",
       dolor: {
@@ -50,6 +54,23 @@ describe("(createNestedProperty) create nested objects (and put value on the tip
           elit: 1
         }
       }
+    });
+  });
+  test("Existing object + generate array", () => {
+    expect(
+      createNestedProperty(genericObject, "a[0].b.c", 4)
+    ).toStrictEqual({
+      lorem: "ipsum",
+      dolor: {
+        sit: "consectetur"
+      },
+      a: [
+        {
+          b: {
+            c: 4
+          }
+        }
+      ]
     });
   });
 });

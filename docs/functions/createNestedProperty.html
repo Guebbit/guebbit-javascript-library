@@ -14,35 +14,60 @@
 <li><a href="createNestedProperty.html">createNestedProperty</a></li></ul>
 <h1>Function createNestedProperty</h1></div>
 <section class="tsd-panel">
-<ul class="tsd-signatures tsd-kind-function">
-<li class="tsd-signature tsd-anchor-link" id="createNestedProperty">create<wbr/>Nested<wbr/>Property<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, propertyPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span>, value<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, delimiter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><a href="#createNestedProperty" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
+<ul class="tsd-signatures tsd-kind-function tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="createNestedProperty">create<wbr/>Nested<wbr/>Property<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span>, path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyPath</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><a href="#createNestedProperty" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Recursively create parameters for the given object,
-then place the given value on top of them (empty default)
-WARNING: this edit the object given</p>
+<div class="tsd-comment tsd-typography"><p>Sets the value at path of object. If a portion of path doesn’t exist it’s created. Arrays are created for
+missing index properties while objects are created for all other missing properties. Use _.setWith to
+customize path creation.</p>
+
+<h3>Returns</h3><p>Returns object.</p>
 </div>
+<div class="tsd-type-parameters">
+<h4 class="tsd-type-parameters-title">Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>T<span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type">object</span></h4></li></ul></div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> obj: <span class="tsd-signature-type">any</span></h5>
-<div class="tsd-comment tsd-typography"><p>object to edit</p>
+<h5>object: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h5>
+<div class="tsd-comment tsd-typography"><p>The object to modify.</p>
 </div></li>
 <li>
-<h5>propertyPath: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
-<div class="tsd-comment tsd-typography"><p>array of properties or string delimited with {delimiter} to create an array</p>
+<h5>path: <span class="tsd-signature-type">PropertyPath</span></h5>
+<div class="tsd-comment tsd-typography"><p>The path of the property to set.</p>
 </div></li>
 <li>
-<h5>value: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = {}</span></h5>
-<div class="tsd-comment tsd-typography"><p>value to put on top, (default is an empty object)</p>
-</div></li>
-<li>
-<h5>delimiter: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;.&quot;</span></h5>
-<div class="tsd-comment tsd-typography"><p>delimiter of string propertyPath (default is a point)</p>
+<h5>value: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>The value to set.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Guebbit/guebbit-javascript-library/blob/3c55b95/src/components/objects/createnestedproperty.ts#L12">src/components/objects/createnestedproperty.ts:12</a></li></ul></aside></li></ul></section></div>
+<li>Defined in node_modules/@types/lodash/common/object.d.ts:2139</li></ul></aside></li>
+<li class="tsd-signature tsd-anchor-link" id="createNestedProperty-1">create<wbr/>Nested<wbr/>Property<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">TResult</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyPath</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">TResult</span><a href="#createNestedProperty-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography">
+<h3>See</h3><p>_.set</p>
+</div>
+<div class="tsd-type-parameters">
+<h4 class="tsd-type-parameters-title">Type Parameters</h4>
+<ul class="tsd-type-parameters">
+<li>
+<h4>TResult</h4></li></ul></div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>object: <span class="tsd-signature-type">object</span></h5></li>
+<li>
+<h5>path: <span class="tsd-signature-type">PropertyPath</span></h5></li>
+<li>
+<h5>value: <span class="tsd-signature-type">any</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type" data-tsd-kind="Type parameter">TResult</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in node_modules/@types/lodash/common/object.d.ts:2143</li></ul></aside></li></ul></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -89,7 +114,7 @@ WARNING: this edit the object given</p>
 <li class="tsd-kind-function"><a href="chunksArray.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>chunks<wbr/>Array</a></li>
 <li class="tsd-kind-function"><a href="classScroll.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>class<wbr/>Scroll</a></li>
 <li class="tsd-kind-function"><a href="createMouseParallaxItem.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>create<wbr/>Mouse<wbr/>Parallax<wbr/>Item</a></li>
-<li class="current tsd-kind-function"><a href="createNestedProperty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>create<wbr/>Nested<wbr/>Property</a></li>
+<li class="current tsd-kind-function tsd-is-external"><a href="createNestedProperty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>create<wbr/>Nested<wbr/>Property</a></li>
 <li class="tsd-kind-function"><a href="debouncePromise.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>debounce<wbr/>Promise</a></li>
 <li class="tsd-kind-function"><a href="divideArray.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>divide<wbr/>Array</a></li>
 <li class="tsd-kind-function"><a href="executeMouseParallax.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>execute<wbr/>Mouse<wbr/>Parallax</a></li>
@@ -126,7 +151,7 @@ WARNING: this edit the object given</p>
 <li class="tsd-kind-function"><a href="mouseParallax.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>mouse<wbr/>Parallax</a></li>
 <li class="tsd-kind-function"><a href="rangeOverlaps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>range<wbr/>Overlaps</a></li>
 <li class="tsd-kind-function"><a href="removeEvent.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>remove<wbr/>Event</a></li>
-<li class="tsd-kind-function"><a href="removeNestedProperty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>remove<wbr/>Nested<wbr/>Property</a></li>
+<li class="tsd-kind-function tsd-is-external"><a href="removeNestedProperty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>remove<wbr/>Nested<wbr/>Property</a></li>
 <li class="tsd-kind-function"><a href="search.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>search</a></li>
 <li class="tsd-kind-function"><a href="searchAnd.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>search<wbr/>And</a></li>
 <li class="tsd-kind-function"><a href="searchNand.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>search<wbr/>Nand</a></li>

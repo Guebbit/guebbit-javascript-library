@@ -1,6 +1,6 @@
 import { getNestedProperty } from "../../src";
 
-describe("(getNestedProperty = lodash.get) Using lodash.get that do the same thing", () => {
+describe("(getNestedProperty = LODASH.GET) Using lodash.get that do the same thing", () => {
   const object = { "a": [{ "b": { "c": 3 } }] };
 
   test("string to value", () => {

@@ -14,29 +14,28 @@
 <li><a href="removeNestedProperty.html">removeNestedProperty</a></li></ul>
 <h1>Function removeNestedProperty</h1></div>
 <section class="tsd-panel">
-<ul class="tsd-signatures tsd-kind-function">
-<li class="tsd-signature tsd-anchor-link" id="removeNestedProperty">remove<wbr/>Nested<wbr/>Property<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, propertyPath<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span>, delimiter<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#removeNestedProperty" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
+<ul class="tsd-signatures tsd-kind-function tsd-is-external">
+<li class="tsd-signature tsd-anchor-link" id="removeNestedProperty">remove<wbr/>Nested<wbr/>Property<span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PropertyPath</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#removeNestedProperty" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Recursively traverse an object to remove the chosen parameter</p>
+<div class="tsd-comment tsd-typography"><p>Removes the property at path of object.</p>
+<p>Note: This method mutates object.</p>
+
+<h3>Returns</h3><p>Returns true if the property is deleted, else false.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> obj: <span class="tsd-signature-type">any</span></h5>
-<div class="tsd-comment tsd-typography"><p>object were we need to remove the selected parameter</p>
+<h5>object: <span class="tsd-signature-type">any</span></h5>
+<div class="tsd-comment tsd-typography"><p>The object to modify.</p>
 </div></li>
 <li>
-<h5>propertyPath: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
-<div class="tsd-comment tsd-typography"><p>array of properties or string delimited with {delimiter} to create an array</p>
-</div></li>
-<li>
-<h5>delimiter: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;.&quot;</span></h5>
-<div class="tsd-comment tsd-typography"><p>delimiter of string propertyPath (default is a point)</p>
+<h5>path: <span class="tsd-signature-type">PropertyPath</span></h5>
+<div class="tsd-comment tsd-typography"><p>The path of the property to unset.</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/Guebbit/guebbit-javascript-library/blob/3c55b95/src/components/objects/removenestedproperty.ts#L9">src/components/objects/removenestedproperty.ts:9</a></li></ul></aside></li></ul></section></div>
+<li>Defined in node_modules/@types/lodash/common/object.d.ts:2342</li></ul></aside></li></ul></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -83,7 +82,7 @@
 <li class="tsd-kind-function"><a href="chunksArray.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>chunks<wbr/>Array</a></li>
 <li class="tsd-kind-function"><a href="classScroll.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>class<wbr/>Scroll</a></li>
 <li class="tsd-kind-function"><a href="createMouseParallaxItem.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>create<wbr/>Mouse<wbr/>Parallax<wbr/>Item</a></li>
-<li class="tsd-kind-function"><a href="createNestedProperty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>create<wbr/>Nested<wbr/>Property</a></li>
+<li class="tsd-kind-function tsd-is-external"><a href="createNestedProperty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>create<wbr/>Nested<wbr/>Property</a></li>
 <li class="tsd-kind-function"><a href="debouncePromise.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>debounce<wbr/>Promise</a></li>
 <li class="tsd-kind-function"><a href="divideArray.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>divide<wbr/>Array</a></li>
 <li class="tsd-kind-function"><a href="executeMouseParallax.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>execute<wbr/>Mouse<wbr/>Parallax</a></li>
@@ -120,7 +119,7 @@
 <li class="tsd-kind-function"><a href="mouseParallax.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>mouse<wbr/>Parallax</a></li>
 <li class="tsd-kind-function"><a href="rangeOverlaps.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>range<wbr/>Overlaps</a></li>
 <li class="tsd-kind-function"><a href="removeEvent.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>remove<wbr/>Event</a></li>
-<li class="current tsd-kind-function"><a href="removeNestedProperty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>remove<wbr/>Nested<wbr/>Property</a></li>
+<li class="current tsd-kind-function tsd-is-external"><a href="removeNestedProperty.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>remove<wbr/>Nested<wbr/>Property</a></li>
 <li class="tsd-kind-function"><a href="search.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>search</a></li>
 <li class="tsd-kind-function"><a href="searchAnd.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>search<wbr/>And</a></li>
 <li class="tsd-kind-function"><a href="searchNand.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-64-path"></use><use href="#icon-64-text"></use></svg>search<wbr/>Nand</a></li>

@@ -1,6 +1,6 @@
 import { get } from "lodash";
 
 /**
- * get do exactly what we need
+ * LODASH.GET get do exactly what we need
  */
 export default get;

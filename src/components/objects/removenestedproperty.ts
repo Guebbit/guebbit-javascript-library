@@ -1,12 +1,25 @@
+import { unset } from "lodash";
+
+/**
+ * LODASH.UNSET
+ *
+ * @param obj - object to edit
+ * @param propertyPath - array of properties or string delimited with "."
+ */
+export default unset;
+
 /**
  * Recursively traverse an object to remove the chosen parameter
+ * WARNING: this methods mutates the object given
+ * WARNING: LODASH.UNSET could do the same thing, but this is more personalized
  *
  * @param obj - object were we need to remove the selected parameter
  * @param propertyPath - array of properties or string delimited with {delimiter} to create an array
  * @param delimiter - delimiter of string propertyPath (default is a point)
  */
+/*
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default (obj ?:any, propertyPath :string | number | Array<string | number> = [], delimiter = ".") :void => {
+export default (obj ?:any, propertyPath :string | number | Array<string | number> = [], delimiter = ".") :any => {
   if(!obj)
     return;
   // pointer to object, will change to the last tip of object after the loop cycle that will traverse it
@@ -30,4 +43,6 @@ export default (obj ?:any, propertyPath :string | number | Array<string | number
   }
   // return the requested tip of the object
   delete current[lastProperty];
+  return obj;
 }
+*/
