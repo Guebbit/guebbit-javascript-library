@@ -44,7 +44,9 @@ export { default as getMapDistance } from "./components/math/getmapdistance";
 export { default as matrixTranspose } from "./components/math/matrixtranspose";
 export { default as levenshteinDistance } from "./components/math/levenshteindistance";
 export { default as createNestedProperty } from "./components/objects/createnestedproperty";
+export { default as getNestedProperty } from "./components/objects/getnestedproperty";
 export { default as hasOwnNestedProperty } from "./components/objects/hasownnestedproperty";
+export { default as removeNestedProperty } from "./components/objects/removenestedproperty";
 export { default as debouncePromise } from "./components/promises/debouncepromise";
 export declare const scripts: {
     activator: () => [false | IntersectionObserver, false | IntersectionObserver];

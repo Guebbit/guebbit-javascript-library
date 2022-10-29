@@ -68,7 +68,9 @@ describe("(MAIN) Check the integrity of the whole library", () => {
       'matrixTranspose',
       'levenshteinDistance',
       'createNestedProperty',
+      'getNestedProperty',
       'hasOwnNestedProperty',
+      'removeNestedProperty',
       'debouncePromise',
       'scripts'
     ])

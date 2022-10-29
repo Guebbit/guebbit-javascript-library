@@ -1,1 +1,1 @@
-{"version":3,"file":"hasownnestedproperty.d.ts","sourceRoot":"","sources":["../../../src/components/objects/hasownnestedproperty.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;+BACmB,OAAO,MAAM,EAAE,OAAO,CAAC,iBAAgB,MAAM,GAAG,MAAM,EAAE,yBAAyB,OAAO;AAA9G,wBAkBC"}
+{"version":3,"file":"hasownnestedproperty.d.ts","sourceRoot":"","sources":["../../../src/components/objects/hasownnestedproperty.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;+BAEmB,GAAG,iBAAgB,MAAM,GAAG,MAAM,GAAG,MAAM,MAAM,GAAG,MAAM,CAAC,yBAAyB,OAAO;AAAjH,wBAiBC"}

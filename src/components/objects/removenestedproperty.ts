@@ -1,40 +1,33 @@
 /**
- * Recursively create parameters for the given object,
- * then place the given value on top of them (empty default)
- * WARNING: this edit the object given
+ * Recursively traverse an object to remove the chosen parameter
  *
- * @param obj - object to edit
+ * @param obj - object were we need to remove the selected parameter
  * @param propertyPath - array of properties or string delimited with {delimiter} to create an array
- * @param value - value to put on top, (default is an empty object)
  * @param delimiter - delimiter of string propertyPath (default is a point)
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default (obj ?:any, propertyPath :string | number | Array<string | number> = [], value :any = {}, delimiter = ".") :any => {
-  // if object does not exist: create a new
+export default (obj ?:any, propertyPath :string | number | Array<string | number> = [], delimiter = ".") :void => {
   if(!obj)
-    obj = {};
+    return;
   // pointer to object, will change to the last tip of object after the loop cycle that will traverse it
   let current = obj;
   // accept string to split with delimiter or directly array of parameters
   const properties :Array<string | number> = Array.isArray((propertyPath)) ? propertyPath : (propertyPath as string).split(delimiter);
+  // necessary to correctly use the reference pointer, we can't directly access it
   const lastProperty = properties.pop();
-  // if undefined that means there are no properties,
-  // no modifications can be done to object because no parameters were given
+  // if undefined that means there are no properties, so nothing to remove
   if(!lastProperty)
-    return obj;
+    return;
   // loop through every property (in the correct order)
   for (let i = 0; i < properties.length; i++) {
     if(!properties[i])
       continue;
-    // if property does not exist: create it
+    // if property does not exist, return undefined
     if(!Object.prototype.hasOwnProperty.call(current, properties[i]!))
-      current[properties[i]!] = {};
+      return;
     // change reference to the next property
     current = current[properties[i]!];
   }
-  // put the value on the last property (previously detached)
-  current[lastProperty] = value;
-  // return modified object, but it was already modified within the function
-  // (deep clone to prevent would be unnecessarily resource hungry)
-  return obj;
+  // return the requested tip of the object
+  delete current[lastProperty];
 }
