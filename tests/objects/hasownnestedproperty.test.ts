@@ -15,17 +15,17 @@ describe("(hasOwnNestedProperty) recursive hasOwnProperty", () => {
 		}
 	};
 
-	test("Sigle parameter (better use hasOwnProperty)", () => {
+	test("Single parameter (better use hasOwnProperty)", () => {
 		expect(
 			hasOwnNestedProperty(genericObject, 'lorem')
 		).toBeTruthy();
 	});
-	test("Existing short chain of parameters", () => {
+	test("Empty object + array parameters", () => {
 		expect(
-			hasOwnNestedProperty(genericObject, 'dolor.sit')
+			hasOwnNestedProperty(genericObject, ["dolor", "adipiscing", "elit", "sed", "do"])
 		).toBeTruthy();
 	});
-	test("Existing long chain of parameters", () => {
+	test("Empty object + string parameter", () => {
 		expect(
 			hasOwnNestedProperty(genericObject, 'dolor.adipiscing.elit.sed.do')
 		).toBeTruthy();

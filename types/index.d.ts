@@ -2,10 +2,9 @@ export type { numberRuleType, secondsToTimeMap, logicGatesType, filterRulesMap, 
 export type { mouseParallaxItemsMap, mouseParallaxMap } from "./components/dom/manipulation/mouseparallax";
 export type { classScrollSettingsMap } from "./components/dom/events/classscroll";
 export type { stickyjsSettingsMap } from "./components/dom/events/shyjs";
-export { default as divideArray } from "./components/array/dividearray";
-export { default as chunksArray } from "./components/array/chunksarray";
-export { default as getArrayDepth } from "./components/array/getarraydepth";
-export { default as hasOwnNestedProperty } from "./components/checkers/hasownnestedproperty";
+export { default as divideArray } from "./components/arrays/dividearray";
+export { default as chunksArray } from "./components/arrays/chunksarray";
+export { default as getArrayDepth } from "./components/arrays/getarraydepth";
 export { default as isEmail } from "./components/checkers/isemail";
 export { default as isEmpty } from "./components/checkers/isempty";
 export { default as isJson } from "./components/checkers/isjson";
@@ -44,6 +43,8 @@ export { default as getDelta } from "./components/math/getdelta";
 export { default as getMapDistance } from "./components/math/getmapdistance";
 export { default as matrixTranspose } from "./components/math/matrixtranspose";
 export { default as levenshteinDistance } from "./components/math/levenshteindistance";
+export { default as createNestedProperty } from "./components/objects/createnestedproperty";
+export { default as hasOwnNestedProperty } from "./components/objects/hasownnestedproperty";
 export { default as debouncePromise } from "./components/promises/debouncepromise";
 export declare const scripts: {
     activator: () => [false | IntersectionObserver, false | IntersectionObserver];
