@@ -1,6 +1,6 @@
 {
-  "name": "@guebbit/javascript-library",
-  "version": "1.0.0",
+  "name": "guebbit-javascript-library",
+  "version": "2.6.1",
   "author": "Guebbit",
   "description": "personal library",
   "license": "MIT",
