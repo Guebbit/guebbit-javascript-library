@@ -8,7 +8,7 @@ export interface intersectionSettingsMap {
 }
 /**
  *  IntersectionObserver helper, per programmarlo meglio
- *  @param {HTMLElement} el  = elemento da osservare
+ *  @param {HTMLElement} element  = elemento da osservare
  *  @param {Object} settings
  **/
 declare const _default: (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings?: intersectionSettingsMap, $window?: Window) => IntersectionObserver | false;

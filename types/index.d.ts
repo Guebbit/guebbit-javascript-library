@@ -23,7 +23,7 @@ export { default as getIFrame } from "./components/dom/getters/getiframe";
 export { default as getIndex } from "./components/dom/getters/getindex";
 export { default as getSiblings } from "./components/dom/getters/getsiblings";
 export { default as getValue } from "./components/dom/getters/getvalue";
-export { default as intersectionHelper } from "./components/dom/helpers/intersection";
+export { default as intersectionHelper, type intersectionSettingsMap } from "./components/dom/helpers/intersection";
 export { default as lazyloadHelper } from "./components/dom/helpers/lazyload";
 export { default as mouseParallax, calculateMouseParallax, executeMouseParallax, createMouseParallaxItem } from "./components/dom/manipulation/mouseparallax";
 export { default as toDOM } from "./components/dom/todom";

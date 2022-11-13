@@ -51,7 +51,7 @@ export { default as getIndex } from "./components/dom/getters/getindex";
 export { default as getSiblings } from "./components/dom/getters/getsiblings";
 export { default as getValue } from "./components/dom/getters/getvalue";
 
-export { default as intersectionHelper } from "./components/dom/helpers/intersection";
+export { default as intersectionHelper, type intersectionSettingsMap } from "./components/dom/helpers/intersection";
 export { default as lazyloadHelper } from "./components/dom/helpers/lazyload";
 
 export {

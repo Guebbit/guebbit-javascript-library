@@ -11,7 +11,7 @@ export interface intersectionSettingsMap {
 
 /**
  *  IntersectionObserver helper, per programmarlo meglio
- *  @param {HTMLElement} el  = elemento da osservare
+ *  @param {HTMLElement} element  = elemento da osservare
  *  @param {Object} settings
  **/
 export default (element: HTMLElement | HTMLElement[] | NodeList | HTMLCollection | null, settings: intersectionSettingsMap = {}, $window :Window = window): IntersectionObserver | false => {	//:NodeListOf<Element>

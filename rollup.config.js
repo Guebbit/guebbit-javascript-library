@@ -1,5 +1,3 @@
-// @ts-check
-
 import { terser } from 'rollup-plugin-terser';
 import typescript2 from 'rollup-plugin-typescript2';
 import tsPaths from "rollup-plugin-tsconfig-paths";
